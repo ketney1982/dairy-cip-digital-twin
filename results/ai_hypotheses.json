@@ -1,0 +1,184 @@
+{
+  "hypotheses": [
+    {
+      "id": "H1",
+      "statement": "Higher water recovery reduces per-cycle water consumption.",
+      "mechanistic_rationale": "water_L integrates flow scaled by (1 - water_rec), so increasing water_rec must lower water_L.",
+      "variables_involved": [
+        "water_rec",
+        "water_L"
+      ],
+      "test_method": "correlation",
+      "expected_direction": "negative",
+      "required_artifacts": [
+        "data/dairy_cip_synthetic_dataset.csv"
+      ],
+      "risk_if_false": "If false, the water-recovery term in the water model is mis-wired.",
+      "scientific_value": "high"
+    },
+    {
+      "id": "H2",
+      "statement": "Reducing fresh water (higher water_rec) concentrates the effluent, raising COD_mgL.",
+      "mechanistic_rationale": "Less dilution should increase effluent concentration if COD tracked discharged mass per litre.",
+      "variables_involved": [
+        "water_rec",
+        "COD_mgL"
+      ],
+      "test_method": "regression",
+      "expected_direction": "positive",
+      "required_artifacts": [
+        "data/dairy_cip_synthetic_dataset.csv"
+      ],
+      "risk_if_false": "If false, COD is modelled as a time-average decoupled from water volume (a known simplification).",
+      "scientific_value": "high"
+    },
+    {
+      "id": "H3",
+      "statement": "Heat recovery reduces total energy use.",
+      "mechanistic_rationale": "Thermal power is scaled by (1 - heat_rec); higher heat_rec lowers thermal_energy and thus total_energy_kWh.",
+      "variables_involved": [
+        "heat_rec",
+        "total_energy_kWh"
+      ],
+      "test_method": "correlation",
+      "expected_direction": "negative",
+      "required_artifacts": [
+        "data/dairy_cip_synthetic_dataset.csv"
+      ],
+      "risk_if_false": "If false, the heat-recovery factor is not applied to the thermal model.",
+      "scientific_value": "high"
+    },
+    {
+      "id": "H4",
+      "statement": "Heat recovery reduces CO2-equivalent emissions.",
+      "mechanistic_rationale": "CO2eq is dominated by thermal energy * EF_thermal, which falls with heat_rec.",
+      "variables_involved": [
+        "heat_rec",
+        "CO2eq_kg"
+      ],
+      "test_method": "correlation",
+      "expected_direction": "negative",
+      "required_artifacts": [
+        "data/dairy_cip_synthetic_dataset.csv"
+      ],
+      "risk_if_false": "If false, emissions are decoupled from thermal energy.",
+      "scientific_value": "medium"
+    },
+    {
+      "id": "H5",
+      "statement": "Longer alkaline-wash duration increases cleaning score.",
+      "mechanistic_rationale": "First-order soil removal over a longer t_alk removes more soil, raising cleaning_score = (1-soil)*100.",
+      "variables_involved": [
+        "t_alk",
+        "cleaning_score"
+      ],
+      "test_method": "correlation",
+      "expected_direction": "positive",
+      "required_artifacts": [
+        "data/dairy_cip_synthetic_dataset.csv"
+      ],
+      "risk_if_false": "If false, the alkaline phase contributes little to soil removal.",
+      "scientific_value": "high"
+    },
+    {
+      "id": "H6",
+      "statement": "Higher wash temperature increases cleaning score.",
+      "mechanistic_rationale": "The alkaline rate constant scales with exp(alpha_T*(T_C - T_ref)); higher T_C speeds soil removal.",
+      "variables_involved": [
+        "T_C",
+        "cleaning_score"
+      ],
+      "test_method": "correlation",
+      "expected_direction": "positive",
+      "required_artifacts": [
+        "data/dairy_cip_synthetic_dataset.csv"
+      ],
+      "risk_if_false": "If false, the Arrhenius-like temperature term is ineffective.",
+      "scientific_value": "medium"
+    },
+    {
+      "id": "H7",
+      "statement": "Higher NaOH concentration increases cleaning score.",
+      "mechanistic_rationale": "The alkaline rate scales with (NaOH_pct/NaOH_ref)^gamma_NaOH; more NaOH speeds soil removal.",
+      "variables_involved": [
+        "NaOH_pct",
+        "cleaning_score"
+      ],
+      "test_method": "correlation",
+      "expected_direction": "positive",
+      "required_artifacts": [
+        "data/dairy_cip_synthetic_dataset.csv"
+      ],
+      "risk_if_false": "If false, chemical concentration does not aid cleaning in the model.",
+      "scientific_value": "medium"
+    },
+    {
+      "id": "H8",
+      "statement": "Higher initial soil load decreases cleaning score.",
+      "mechanistic_rationale": "With finite kinetics, a larger soil0 leaves more residual soil at cycle end, lowering cleaning_score.",
+      "variables_involved": [
+        "soil0",
+        "cleaning_score"
+      ],
+      "test_method": "correlation",
+      "expected_direction": "negative",
+      "required_artifacts": [
+        "data/dairy_cip_synthetic_dataset.csv"
+      ],
+      "risk_if_false": "If false, the model is insensitive to the soiling uncertainty condition.",
+      "scientific_value": "high"
+    },
+    {
+      "id": "H9",
+      "statement": "Higher initial soil load should increase effluent COD.",
+      "mechanistic_rationale": "More organic soil removed should raise organic COD; a near-zero soil0-COD link signals a model gap.",
+      "variables_involved": [
+        "soil0",
+        "COD_mgL"
+      ],
+      "test_method": "regression",
+      "expected_direction": "positive",
+      "required_artifacts": [
+        "data/dairy_cip_synthetic_dataset.csv"
+      ],
+      "risk_if_false": "If false (corr ~ 0), COD does not track organic soil - a HIGH-priority calibration issue.",
+      "scientific_value": "high"
+    },
+    {
+      "id": "H10",
+      "statement": "Higher temperature increases total energy use.",
+      "mechanistic_rationale": "Thermal power ~ m_dot*cp*(T_C - T_in); higher T_C raises thermal energy and total_energy_kWh.",
+      "variables_involved": [
+        "T_C",
+        "total_energy_kWh"
+      ],
+      "test_method": "correlation",
+      "expected_direction": "positive",
+      "required_artifacts": [
+        "data/dairy_cip_synthetic_dataset.csv"
+      ],
+      "risk_if_false": "If false, the thermal energy model is insensitive to setpoint temperature.",
+      "scientific_value": "medium"
+    },
+    {
+      "id": "H11",
+      "statement": "EHPI rewards low-burden recipes: it rises as water use falls.",
+      "mechanistic_rationale": "EHPI = 100*cleaning_norm/(1+penalty_env); lower water_L lowers the penalty, raising EHPI - so balanced, low-burden recipes (not cleaning extremes) score best.",
+      "variables_involved": [
+        "water_L",
+        "EHPI"
+      ],
+      "test_method": "correlation",
+      "expected_direction": "negative",
+      "required_artifacts": [
+        "data/dairy_cip_synthetic_dataset.csv"
+      ],
+      "risk_if_false": "If false, the EHPI normalization/penalty weighting needs revision.",
+      "scientific_value": "medium"
+    }
+  ],
+  "source": "MOCK_fallback",
+  "data_label": "simulation-generated synthetic data - NOT real industrial data",
+  "governance_note": "Gemini proposes hypotheses; they are NOT confirmed here. Deterministic testing is performed by validate_ai_hypotheses.m.",
+  "n_hypotheses": 11
+}

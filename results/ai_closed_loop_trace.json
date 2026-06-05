@@ -1,0 +1,163 @@
+{
+  "study": "AI-supervised closed-loop digital twin for dairy CIP",
+  "data_label": "simulation-generated synthetic data - NOT real industrial data",
+  "governance_note": "Gemini proposes; deterministic MATLAB validates and decides; safety gate gates; human approval mandatory; no real-time control.",
+  "n_iterations": 3,
+  "elapsed_seconds": 175.1,
+  "iterations": [
+    {
+      "iteration": 1,
+      "summary_context_rows": null,
+      "ai_proposed": {
+        "n_hypotheses": 11,
+        "hypotheses_source": "MOCK_fallback",
+        "experiment_batch_name": "MOCK_archetypal_batch",
+        "n_candidate_scenarios": 6,
+        "design_source": "MOCK_fallback"
+      },
+      "simulator_ran": {
+        "n_scenarios": 6,
+        "n_success": 6,
+        "n_failed": 0
+      },
+      "training": {
+        "combined_rows": 5006
+      },
+      "hypotheses_supported": {
+        "n_supported": 10,
+        "n_partially": 0,
+        "n_not_supported": 1,
+        "n_inconclusive": 0
+      },
+      "safety_gate": {
+        "passed": true,
+        "n_passed": 121,
+        "n_candidates": 121
+      },
+      "pareto_recommendation": {
+        "research_only": true,
+        "metrics": {
+          "water_L": 686.336,
+          "total_energy_kWh": 33.6221,
+          "COD_mgL": 21.5457,
+          "CO2eq_kg": 7.0552,
+          "cleaning_score": 99.8181,
+          "hygienic_risk": 0.0368
+        }
+      },
+      "pareto_change": {
+        "note": "first iteration (no baseline)"
+      },
+      "remaining_uncertainty": {
+        "model_audit_high_severity": 0,
+        "note": "soil0->COD link and COD-NaOH coupling remain under review until calibration."
+      }
+    },
+    {
+      "iteration": 2,
+      "summary_context_rows": 5006,
+      "ai_proposed": {
+        "n_hypotheses": 11,
+        "hypotheses_source": "MOCK_fallback",
+        "experiment_batch_name": "MOCK_archetypal_batch",
+        "n_candidate_scenarios": 6,
+        "design_source": "MOCK_fallback"
+      },
+      "simulator_ran": {
+        "n_scenarios": 6,
+        "n_success": 6,
+        "n_failed": 0
+      },
+      "training": {
+        "combined_rows": 5012
+      },
+      "hypotheses_supported": {
+        "n_supported": 10,
+        "n_partially": 0,
+        "n_not_supported": 1,
+        "n_inconclusive": 0
+      },
+      "safety_gate": {
+        "passed": true,
+        "n_passed": 121,
+        "n_candidates": 121
+      },
+      "pareto_recommendation": {
+        "research_only": true,
+        "metrics": {
+          "water_L": 686.336,
+          "total_energy_kWh": 33.6221,
+          "COD_mgL": 21.5457,
+          "CO2eq_kg": 7.0552,
+          "cleaning_score": 99.8181,
+          "hygienic_risk": 0.0368
+        }
+      },
+      "pareto_change": {
+        "CO2eq_kg": 0,
+        "COD_mgL": 0,
+        "cleaning_score": 0,
+        "hygienic_risk": 0,
+        "total_energy_kWh": 0,
+        "water_L": 0
+      },
+      "remaining_uncertainty": {
+        "model_audit_high_severity": 0,
+        "note": "soil0->COD link and COD-NaOH coupling remain under review until calibration."
+      }
+    },
+    {
+      "iteration": 3,
+      "summary_context_rows": 5012,
+      "ai_proposed": {
+        "n_hypotheses": 11,
+        "hypotheses_source": "MOCK_fallback",
+        "experiment_batch_name": "MOCK_archetypal_batch",
+        "n_candidate_scenarios": 6,
+        "design_source": "MOCK_fallback"
+      },
+      "simulator_ran": {
+        "n_scenarios": 6,
+        "n_success": 6,
+        "n_failed": 0
+      },
+      "training": {
+        "combined_rows": 5018
+      },
+      "hypotheses_supported": {
+        "n_supported": 10,
+        "n_partially": 0,
+        "n_not_supported": 1,
+        "n_inconclusive": 0
+      },
+      "safety_gate": {
+        "passed": true,
+        "n_passed": 121,
+        "n_candidates": 121
+      },
+      "pareto_recommendation": {
+        "research_only": true,
+        "metrics": {
+          "water_L": 686.336,
+          "total_energy_kWh": 33.6221,
+          "COD_mgL": 21.5457,
+          "CO2eq_kg": 7.0552,
+          "cleaning_score": 99.8181,
+          "hygienic_risk": 0.0368
+        }
+      },
+      "pareto_change": {
+        "CO2eq_kg": 0,
+        "COD_mgL": 0,
+        "cleaning_score": 0,
+        "hygienic_risk": 0,
+        "total_energy_kWh": 0,
+        "water_L": 0
+      },
+      "remaining_uncertainty": {
+        "model_audit_high_severity": 0,
+        "note": "soil0->COD link and COD-NaOH coupling remain under review until calibration."
+      }
+    }
+  ]
+}

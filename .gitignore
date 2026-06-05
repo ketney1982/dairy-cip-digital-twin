@@ -1,0 +1,95 @@
+# Author: Ketney Otto
+# Affiliation: "Lucian Blaga" University of Sibiu, Department of Agricultural
+#              Science and Food Engineering, Dr. I. Ratiu Street, no. 7-9,
+#              550012 Sibiu, Romania
+# Contact: otto.ketney@ulbsibiu.ro | orcid.org/0000-0003-1638-1154
+
+# ============================================================
+#  Dairy CIP Digital Twin - .gitignore
+# ============================================================
+
+# --- Private agent/workspace instructions: keep out of public release ---
+AGENTS.md
+CLAUDE.md
+
+# --- Secrets: NEVER commit API keys ---
+.env
+.env.*
+!.env.example
+
+# --- Local Copilot/Claude workspace instructions ---
+.claude/
+
+# --- Machine-specific startup overrides (startup.m itself is portable & tracked) ---
+startup.local.m
+
+# --- Simulink / MATLAB build & cache artifacts ---
+_scratch/
+slprj/
+*.slxc
+*.autosave
+*.asv
+*.mex*
+codegen/
+*.slx.r*
+# Simulink autosave backups
+*.slx.bak
+
+# --- Project temp/run logs and sentinels (not research outputs) ---
+results/_regen_status.txt
+results/_gen_status.txt
+results/_gen_console.log
+results/_gen_console.log.err
+results/_pipeline_status.txt
+results/_pipeline_console.log
+results/_pipeline_console.log.err
+results/_pipeline_test.log
+results/demo_timeseries_*.mat
+
+# --- Python caches ---
+__pycache__/
+*.pyc
+
+# --- OS / editor cruft ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+*~
+
+# ============================================================
+#  NOTE ON RESEARCH OUTPUTS
+#  data/ and results/ ARE intentionally tracked so the synthetic dataset,
+#  metrics, and Pareto solutions are reproducible artifacts of the study.
+#  manuscript/, figures/, tables/, and tools/ are excluded from GitHub.
+# ============================================================
+# data/dairy_cip_synthetic_dataset.csv
+# results/
+
+# --- Manuscript, Styling, and Publication Asset Folders ---
+manuscript/
+figures/
+tables/
+tools/
+
+# --- MATLAB binary workspace data (regenerated during pipeline runs) ---
+*.mat
+
+# --- Custom Local Post-Processing Folders (Excluded from Git) ---
+input_data/
+output_data/
+
+
+src/apply_pretty_labels_clean.m
+src/apply_pretty_labels.m
+src/generate_cleanup_csv.m
+src/plot_results.m
+src/validate_label_changes.m
+src/export_pretty_diagrams.m
+src/plot_results.m
+src/plot_results.m
+src/export_pretty_diagrams_clean.m
+src/generate_cleanup_csv_clean.m
+src/plot_results.m
+src/validate_label_changes_clean.m
+src/plot_results.m
+*scratch

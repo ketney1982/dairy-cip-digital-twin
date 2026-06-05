@@ -1,0 +1,34 @@
+DAIRY CIP - GENERATIVE-AI DECISION REPORT  [MOCK - GEMINI_API_KEY not configured]
+Generated from SIMULATION-GENERATED SYNTHETIC DATA (surrogate predictions).
+Gemini explains numbers; it does not validate the physical model.
+================================================================
+
+BEST BALANCED SCENARIO
+  water=465.1 L, energy=3.97 kWh, COD=21 mg/L, CO2eq=1.02 kg, cleaning=96.0%, EHPI=72.8
+  Recommended when no single burden dominates; maximizes the EHPI index.
+
+LOWEST-WATER SCENARIO
+  water=163.8 L, energy=15.91 kWh, COD=21 mg/L, CO2eq=3.43 kg, cleaning=97.1%, EHPI=69.0
+  Choose under water-scarcity policies; verify energy/COD remain acceptable.
+
+LOWEST-ENERGY SCENARIO
+  water=465.1 L, energy=3.97 kWh, COD=21 mg/L, CO2eq=1.02 kg, cleaning=96.0%, EHPI=72.8
+  Choose under carbon/energy-cost pressure; check water use does not rise sharply.
+
+BASELINE (dataset mean): water=782.8 L, energy=22.82 kWh, COD=22 mg/L, CO2eq=4.57 kg, cleaning=94.5%
+
+ENVIRONMENTAL RISK WARNING
+  All listed scenarios meet the 95% cleaning floor.
+
+RECOMMENDATION FOR DAIRY MANAGERS
+  Use the balanced scenario as default; switch to the lowest-water or
+  lowest-energy recipe when a specific policy dominates. Always keep
+  cleaning_score at or above 95%. These are SYNTHETIC proof-of-concept
+  results; validate against plant data and food-safety checks before use.
+
+----------------------------------------------------------------
+GOVERNANCE: RESEARCH-ONLY, HUMAN-REVIEWED. This text explains SIMULATION-GENERATED
+SYNTHETIC, proof-of-concept results. It is NOT a calibrated or
+operational recommendation. No setpoint herein may be applied
+without validation against plant data, qualified human review and
+food-safety sign-off.

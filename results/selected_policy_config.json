@@ -1,0 +1,25 @@
+{
+  "policy_name": "Balanced default operation",
+  "profile": "balanced_default",
+  "constraints": {
+    "min_cleaning_score": 95,
+    "max_COD_mgL": null,
+    "max_hygienic_risk": null,
+    "max_water_L": null,
+    "max_total_energy_kWh": null,
+    "max_CO2eq_kg": null
+  },
+  "objective_weights": {
+    "water_L": 0.2222,
+    "total_energy_kWh": 0.2222,
+    "COD_mgL": 0.2222,
+    "CO2eq_kg": 0.2222,
+    "cleaning_score": 0.1112
+  },
+  "risk_tolerance": "medium",
+  "human_approval_required": true,
+  "optimization_priority": "Balanced default operation",
+  "explanation": "[MOCK] Deterministic profile-based translation (balanced_default). Weights and caps follow the canonical balanced_default profile; hygiene floor enforced.",
+  "data_label": "simulation-generated synthetic data - NOT real industrial data",
+  "source_policy_text": "No single environmental burden dominates. Maintain the hygiene floor and minimise water, energy, COD and CO2 in a balanced way."
+}

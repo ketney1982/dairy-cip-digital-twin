@@ -1,0 +1,11 @@
+{
+  "plausibility_flags": {
+    "severity": "low",
+    "parameter_or_relationship": "overall",
+    "issue": "No obvious anomalies in summary correlations; deeper review still advised.",
+    "recommended_human_check": "Spot-check distributions and tails of cleaning_score and COD_mgL."
+  },
+  "model_review_summary": "[MOCK - GEMINI_API_KEY not configured] Heuristic review of summary correlations only. This is NOT a validation of physical correctness; a human domain expert must review the model.",
+  "requires_parameter_revision": false,
+  "audit_note": "AI-assisted plausibility auditing only. No automatic recalibration performed; human supervision required."
+}

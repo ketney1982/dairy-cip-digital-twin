@@ -1,0 +1,27 @@
+{
+  "model_audit_flags": {
+    "severity": "medium",
+    "model_component": "cleaning_score / hygienic_risk proxies",
+    "issue": "cleaning_score and hygienic_risk are derived only from residual soil; they are not microbiological measurements.",
+    "evidence_from_summary": "Equation summary: cleaning_score = clamp((1-soil)*100,0,100).",
+    "recommended_human_review": "Do not treat cleaning_score as food-safety verification.",
+    "suggested_experiment": "Correlate cleaning_score against ATP/microbial swabs in a future calibration campaign."
+  },
+  "calibration_priorities": [
+    "Re-estimate soil-removal kinetics (k_cal and base rates) from plant/literature data.",
+    "Re-derive the effluent COD model so it tracks organic soil load (soil0).",
+    "Separate organic vs chemical contributions to COD with measured data."
+  ],
+  "minimum_real_measurements_needed": [
+    "Time-resolved effluent COD per CIP phase.",
+    "Initial soil load (soil0) proxy and post-clean residual soil / ATP.",
+    "Inlet/outlet temperatures and thermal energy for heat-recovery validation.",
+    "Water flow and recovered-water fraction per phase."
+  ],
+  "manuscript_limitations_text": "[MOCK] The mechanistic twin is an uncalibrated proof of concept. Effluent COD_mgL is an ORGANIC-load proxy driven by soil removal (so it tracks soil0); NaOH residual is reported separately as NaOH_residual_mgL / COD_chem_equiv_mgL and is NOT folded into organic COD. cleaning_score is a soil-based proxy rather than a microbiological measurement. Results are simulation-generated synthetic data and require calibration with industrial measurements and food-safety validation before any operational interpretation.",
+  "parameters_modified": false,
+  "data_label": "simulation-generated synthetic data - NOT real industrial data",
+  "audit_note": "AI-assisted model auditing only. No automatic recalibration performed; human supervision required.",
+  "source": "MOCK_fallback",
+  "n_high_severity": 0
+}

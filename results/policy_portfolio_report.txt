@@ -1,0 +1,54 @@
+================================================================
+ DAIRY CIP - POLICY PORTFOLIO (context-dependent recommendations)
+ (SIMULATION-GENERATED SYNTHETIC DATA - surrogate predictions)
+ Same plant envelope; different recommended recipe per context.
+================================================================
+
+profile                clean%      COD    water   energy     CO2eq     EHPI
+balanced_default        96.59       20      187     4.70      1.08     78.7
+water_scarcity          96.59       20      187     4.70      1.08     78.7
+energy_price_spike      96.59       20      187     4.70      1.08     78.7
+cod_discharge_limit     95.96       19      399     4.93      0.98     72.2
+carbon_reduction        96.59       20      187     4.70      1.08     78.7
+hygiene_priority       100.00       22      597    21.20      4.31     58.0
+
+---- PER-PROFILE DETAIL ----
+
+[balanced_default] Balanced default operation (risk: medium)
+  feasible recipes in envelope: 17299
+  active caps: min_cleaning_score>=95
+  recipe: T_C=83.0 Q=0.53 t_pre=583 t_alk=983 t_int=217 t_final=508 NaOH=1.59 heat_rec=0.66 water_rec=0.46 (soil0=0.50 fixed)
+  predicted hygienic_risk: 0.7440
+
+[water_scarcity] Regional water-scarcity restriction (risk: low)
+  feasible recipes in envelope: 3341
+  active caps: min_cleaning_score>=95; max_water_L<=600
+  recipe: T_C=83.0 Q=0.53 t_pre=583 t_alk=983 t_int=217 t_final=508 NaOH=1.59 heat_rec=0.66 water_rec=0.46 (soil0=0.50 fixed)
+  predicted hygienic_risk: 0.7440
+
+[energy_price_spike] Energy price spike (risk: medium)
+  feasible recipes in envelope: 5602
+  active caps: min_cleaning_score>=95; max_total_energy_kWh<=20
+  recipe: T_C=83.0 Q=0.53 t_pre=583 t_alk=983 t_int=217 t_final=508 NaOH=1.59 heat_rec=0.66 water_rec=0.46 (soil0=0.50 fixed)
+  predicted hygienic_risk: 0.7440
+
+[cod_discharge_limit] Stricter COD discharge limit (risk: low)
+  feasible recipes in envelope: 17299
+  active caps: min_cleaning_score>=95; max_COD_mgL<=700
+  recipe: T_C=72.4 Q=0.67 t_pre=294 t_alk=962 t_int=399 t_final=557 NaOH=2.39 heat_rec=0.66 water_rec=0.04 (soil0=0.50 fixed)
+  predicted hygienic_risk: 0.7497
+
+[carbon_reduction] Corporate carbon-reduction target (risk: medium)
+  feasible recipes in envelope: 5615
+  active caps: min_cleaning_score>=95; max_CO2eq_kg<=4
+  recipe: T_C=83.0 Q=0.53 t_pre=583 t_alk=983 t_int=217 t_final=508 NaOH=1.59 heat_rec=0.66 water_rec=0.46 (soil0=0.50 fixed)
+  predicted hygienic_risk: 0.7440
+
+[hygiene_priority] Elevated hygiene priority (risk: low)
+  feasible recipes in envelope: 1917
+  active caps: min_cleaning_score>=98; max_hygienic_risk<=0.1
+  recipe: T_C=81.9 Q=2.20 t_pre=588 t_alk=847 t_int=186 t_final=304 NaOH=2.40 heat_rec=0.51 water_rec=0.51 (soil0=0.50 fixed)
+  predicted hygienic_risk: 0.0513
+
+NOTE: synthetic surrogate predictions; human approval and calibration
+required before any operational interpretation.

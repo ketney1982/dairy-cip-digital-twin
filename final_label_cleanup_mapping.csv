@@ -1,0 +1,88 @@
+subsystem;block path;current visible label;corrected visible label;internal functional name;change method;risk level;applied yes/no
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/T [°C] Constant;Const_T_C;T [°C] Constant;T_C;Rename block and preserve Value=T_C;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/T [°C];T_C;T [°C];T_C;Rename outport block;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/Q [m³/h] Constant;Const_Q_m3h;Q [m³/h] Constant;Q_m3h;Rename block and preserve Value=Q_m3h;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/Q [m³/h];Q_m3h;Q [m³/h];Q_m3h;Rename outport block;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/tₚᵣₑ [s] Constant;Const_t_pre;tₚᵣₑ [s] Constant;t_pre;Rename block and preserve Value=t_pre;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/tₚᵣₑ [s];t_pre;tₚᵣₑ [s];t_pre;Rename outport block;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/tₐₗₖ [s] Constant;Const_t_alk;tₐₗₖ [s] Constant;t_alk;Rename block and preserve Value=t_alk;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/tₐₗₖ [s];t_alk;tₐₗₖ [s];t_alk;Rename outport block;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/tᵢₙₜ [s] Constant;Const_t_int;tᵢₙₜ [s] Constant;t_int;Rename block and preserve Value=t_int;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/tᵢₙₜ [s];t_int;tᵢₙₜ [s];t_int;Rename outport block;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/t_final [s] Constant;Const_t_final;t_final [s] Constant;t_final;Rename block and preserve Value=t_final;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/t_final [s];t_final;t_final [s];t_final;Rename outport block;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/NaOH [%] Constant;Const_NaOH_pct;NaOH [%] Constant;NaOH_pct;Rename block and preserve Value=NaOH_pct;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/NaOH [%];NaOH_pct;NaOH [%];NaOH_pct;Rename outport block;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/S₀ [-] Constant;Const_soil0;S₀ [-] Constant;soil0;Rename block and preserve Value=soil0;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/S₀ [-];soil0;S₀ [-];soil0;Rename outport block;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/ηₕ,rec [-] Constant;Const_heat_rec;ηₕ,rec [-] Constant;heat_rec;Rename block and preserve Value=heat_rec;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/ηₕ,rec [-];heat_rec;ηₕ,rec [-];heat_rec;Rename outport block;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/η_water,rec [-] Constant;Const_water_rec;η_water,rec [-] Constant;water_rec;Rename block and preserve Value=water_rec;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/η_water,rec [-];water_rec;η_water,rec [-];water_rec;Rename outport block;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/Tᵢₙ [°C] Constant;Const_T_in_C;Tᵢₙ [°C] Constant;T_in_C;Rename block and preserve Value=T_in_C;Low;yes
+Scenario Inputs;dairy_cip_digital_twin_publication_clean/Scenario Inputs/Tᵢₙ [°C];T_in_C;Tᵢₙ [°C];T_in_C;Rename outport block;Low;yes
+Phase Scheduler;dairy_cip_digital_twin_publication_clean/Phase Scheduler/t [s];t;t [s];t;Rename inport block;Low;yes
+Phase Scheduler;dairy_cip_digital_twin_publication_clean/Phase Scheduler/tₚᵣₑ [s];t_pre;tₚᵣₑ [s];t_pre;Rename inport block;Low;yes
+Phase Scheduler;dairy_cip_digital_twin_publication_clean/Phase Scheduler/tₐₗₖ [s];t_alk;tₐₗₖ [s];t_alk;Rename inport block;Low;yes
+Phase Scheduler;dairy_cip_digital_twin_publication_clean/Phase Scheduler/tᵢₙₜ [s];t_int;tᵢₙₜ [s];t_int;Rename inport block;Low;yes
+Phase Scheduler;dairy_cip_digital_twin_publication_clean/Phase Scheduler/t_final [s];t_final;t_final [s];t_final;Rename inport block;Low;yes
+Phase Scheduler;dairy_cip_digital_twin_publication_clean/Phase Scheduler/phase ID [-];phase_id;phase ID [-];phase_id;Rename outport block;Low;yes
+Soil Removal Kinetics;dairy_cip_digital_twin_publication_clean/Soil Removal Kinetics/phase ID [-];phase_id;phase ID [-];phase_id;Rename inport block;Low;yes
+Soil Removal Kinetics;dairy_cip_digital_twin_publication_clean/Soil Removal Kinetics/S₀ [-];soil0;S₀ [-];soil0;Rename inport block;Low;yes
+Soil Removal Kinetics;dairy_cip_digital_twin_publication_clean/Soil Removal Kinetics/T [°C];T_C;T [°C];T_C;Rename inport block;Low;yes
+Soil Removal Kinetics;dairy_cip_digital_twin_publication_clean/Soil Removal Kinetics/Q [m³/h];Q_m3h;Q [m³/h];Q_m3h;Rename inport block;Low;yes
+Soil Removal Kinetics;dairy_cip_digital_twin_publication_clean/Soil Removal Kinetics/NaOH [%];NaOH_pct;NaOH [%];NaOH_pct;Rename inport block;Low;yes
+Soil Removal Kinetics;dairy_cip_digital_twin_publication_clean/Soil Removal Kinetics/S [-];soil;S [-];soil;Rename outport block;Low;yes
+Soil Removal Kinetics;dairy_cip_digital_twin_publication_clean/Soil Removal Kinetics/S_removed,cum [-];soil_removed_cum;S_removed,cum [-];soil_removed_cum;Rename outport block;Low;yes
+Soil Removal Kinetics;dairy_cip_digital_twin_publication_clean/Soil Removal Kinetics/rₛₒᵢₗ [s⁻¹];soil_removed_rate;rₛₒᵢₗ [s⁻¹];soil_removed_rate;Rename outport block;Low;yes
+Water Consumption;dairy_cip_digital_twin_publication_clean/Water Consumption/phase ID [-];phase_id;phase ID [-];phase_id;Rename inport block;Low;yes
+Water Consumption;dairy_cip_digital_twin_publication_clean/Water Consumption/Q [m³/h];Q_m3h;Q [m³/h];Q_m3h;Rename inport block;Low;yes
+Water Consumption;dairy_cip_digital_twin_publication_clean/Water Consumption/η_water,rec [-];water_rec;η_water,rec [-];water_rec;Rename inport block;Low;yes
+Water Consumption;dairy_cip_digital_twin_publication_clean/Water Consumption/V_H₂O [L];water_L;V_H₂O [L];water_L;Rename outport block;Low;yes
+Thermal Energy;dairy_cip_digital_twin_publication_clean/Thermal Energy/phase ID [-];phase_id;phase ID [-];phase_id;Rename inport block;Low;yes
+Thermal Energy;dairy_cip_digital_twin_publication_clean/Thermal Energy/T [°C];T_C;T [°C];T_C;Rename inport block;Low;yes
+Thermal Energy;dairy_cip_digital_twin_publication_clean/Thermal Energy/Q [m³/h];Q_m3h;Q [m³/h];Q_m3h;Rename inport block;Low;yes
+Thermal Energy;dairy_cip_digital_twin_publication_clean/Thermal Energy/ηₕ,rec [-];heat_rec;ηₕ,rec [-];heat_rec;Rename inport block;Low;yes
+Thermal Energy;dairy_cip_digital_twin_publication_clean/Thermal Energy/Tᵢₙ [°C];T_in_C;Tᵢₙ [°C];T_in_C;Rename inport block;Low;yes
+Thermal Energy;dairy_cip_digital_twin_publication_clean/Thermal Energy/÷3600;Seconds to kWh;÷3600;Seconds to kWh;Rename gain block;Low;yes
+Thermal Energy;dairy_cip_digital_twin_publication_clean/Thermal Energy/∫Pₜₕdt [kW·s];Thermal kW s;∫Pₜₕdt [kW·s];Thermal kW s;Rename integrator block;Low;yes
+Thermal Energy;dairy_cip_digital_twin_publication_clean/Thermal Energy/Eₜₕ [kWh];thermal_energy_kWh;Eₜₕ [kWh];thermal_energy_kWh;Rename outport block;Low;yes
+Pump Energy;dairy_cip_digital_twin_publication_clean/Pump Energy/phase ID [-];phase_id;phase ID [-];phase_id;Rename inport block;Low;yes
+Pump Energy;dairy_cip_digital_twin_publication_clean/Pump Energy/Q [m³/h];Q_m3h;Q [m³/h];Q_m3h;Rename inport block;Low;yes
+Pump Energy;dairy_cip_digital_twin_publication_clean/Pump Energy/∫Pₚdt [kW·s];Pump kW s;∫Pₚdt [kW·s];Pump kW s;Rename integrator block;Low;yes
+Pump Energy;dairy_cip_digital_twin_publication_clean/Pump Energy/÷3600;Seconds to kWh;÷3600;Seconds to kWh;Rename gain block;Low;yes
+Pump Energy;dairy_cip_digital_twin_publication_clean/Pump Energy/Eₚ [kWh];pump_energy_kWh;Eₚ [kWh];pump_energy_kWh;Rename outport block;Low;yes
+Wastewater and COD;dairy_cip_digital_twin_publication_clean/Wastewater and COD/t [s];t;t [s];t;Rename inport block;Low;yes
+Wastewater and COD;dairy_cip_digital_twin_publication_clean/Wastewater and COD/phase ID [-];phase_id;phase ID [-];phase_id;Rename inport block;Low;yes
+Wastewater and COD;dairy_cip_digital_twin_publication_clean/Wastewater and COD/S_removed,cum [-];soil_removed_cum;S_removed,cum [-];soil_removed_cum;Rename inport block;Low;yes
+Wastewater and COD;dairy_cip_digital_twin_publication_clean/Wastewater and COD/NaOH [%];NaOH_pct;NaOH [%];NaOH_pct;Rename inport block;Low;yes
+Wastewater and COD;dairy_cip_digital_twin_publication_clean/Wastewater and COD/NaOH exposure integral [%·s];NaOH Integral;NaOH exposure integral [%·s];NaOH Integral;Rename integrator block;Low;yes
+Wastewater and COD;dairy_cip_digital_twin_publication_clean/Wastewater and COD/COD [mg/L];COD_mgL;COD [mg/L];COD_mgL;Rename outport block;Low;yes
+Wastewater and COD;dairy_cip_digital_twin_publication_clean/Wastewater and COD/NaOHᵣₑₛ [mg/L];NaOH_residual_mgL;NaOHᵣₑₛ [mg/L];NaOH_residual_mgL;Rename outport block;Low;yes
+Hygiene and Risk;dairy_cip_digital_twin_publication_clean/Hygiene and Risk/S [-];soil;S [-];soil;Rename inport block;Low;yes
+Hygiene and Risk;dairy_cip_digital_twin_publication_clean/Hygiene and Risk/cleaning score [%];cleaning_score;cleaning score [%];cleaning_score;Rename outport block;Low;yes
+Hygiene and Risk;dairy_cip_digital_twin_publication_clean/Hygiene and Risk/hygienic risk [-];hygienic_risk;hygienic risk [-];hygienic_risk;Rename outport block;Low;yes
+EHPI and Output Metrics;dairy_cip_digital_twin_publication_clean/EHPI and Output Metrics/V_H₂O [L];water_L;V_H₂O [L];water_L;Rename inport block;Low;yes
+EHPI and Output Metrics;dairy_cip_digital_twin_publication_clean/EHPI and Output Metrics/Eₜₕ [kWh];thermal_energy_kWh;Eₜₕ [kWh];thermal_energy_kWh;Rename inport block;Low;yes
+EHPI and Output Metrics;dairy_cip_digital_twin_publication_clean/EHPI and Output Metrics/Eₚ [kWh];pump_energy_kWh;Eₚ [kWh];pump_energy_kWh;Rename inport block;Low;yes
+EHPI and Output Metrics;dairy_cip_digital_twin_publication_clean/EHPI and Output Metrics/COD [mg/L];COD_mgL;COD [mg/L];COD_mgL;Rename inport block;Low;yes
+EHPI and Output Metrics;dairy_cip_digital_twin_publication_clean/EHPI and Output Metrics/cleaning score [%];cleaning_score;cleaning score [%];cleaning_score;Rename inport block;Low;yes
+EHPI and Output Metrics;dairy_cip_digital_twin_publication_clean/EHPI and Output Metrics/Eₜₒₜ [kWh];total_energy_kWh;Eₜₒₜ [kWh];total_energy_kWh;Rename outport block;Low;yes
+EHPI and Output Metrics;dairy_cip_digital_twin_publication_clean/EHPI and Output Metrics/CO₂-eq [kg];CO2eq_kg;CO₂-eq [kg];CO2eq_kg;Rename outport block;Low;yes
+EHPI and Output Metrics;dairy_cip_digital_twin_publication_clean/EHPI and Output Metrics/EHPI [-];EHPI;EHPI [-];EHPI;Rename outport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/phase ID [-];phase_id;phase ID [-];phase_id;Rename inport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/S [-];soil;S [-];soil;Rename inport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/V_H₂O [L];water_L;V_H₂O [L];water_L;Rename inport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/Eₜₕ [kWh];thermal_energy_kWh;Eₜₕ [kWh];thermal_energy_kWh;Rename inport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/Eₚ [kWh];pump_energy_kWh;Eₚ [kWh];pump_energy_kWh;Rename inport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/COD [mg/L];COD_mgL;COD [mg/L];COD_mgL;Rename inport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/NaOHᵣₑₛ [mg/L];NaOH_residual_mgL;NaOHᵣₑₛ [mg/L];NaOH_residual_mgL;Rename inport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/CO₂-eq [kg];CO2eq_kg;CO₂-eq [kg];CO2eq_kg;Rename inport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/cleaning score [%];cleaning_score;cleaning score [%];cleaning_score;Rename inport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/hygienic risk [-];hygienic_risk;hygienic risk [-];hygienic_risk;Rename inport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/EHPI [-];EHPI;EHPI [-];EHPI;Rename inport block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/Terminator: CO₂-eq [kg];Term_CO2eq_kg;Terminator: CO₂-eq [kg];Term_CO2eq_kg;Rename terminator block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/Terminator: EHPI [-];Term_EHPI;Terminator: EHPI [-];Term_EHPI;Rename terminator block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/Terminator: NaOHᵣₑₛ [mg/L];Term_NaOH_residual_mgL;Terminator: NaOHᵣₑₛ [mg/L];Term_NaOH_residual_mgL;Rename terminator block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/Terminator: hygienic risk [-];Term_hygienic_risk;Terminator: hygienic risk [-];Term_hygienic_risk;Rename terminator block;Low;yes
+Logging and Scopes;dairy_cip_digital_twin_publication_clean/Logging and Scopes/Terminator: Eₚ [kWh];Term_pump_energy_kWh;Terminator: Eₚ [kWh];Term_pump_energy_kWh;Rename terminator block;Low;yes

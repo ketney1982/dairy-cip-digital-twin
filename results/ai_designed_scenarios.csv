@@ -1,0 +1,7 @@
+T_C,Q_m3h,t_pre,t_alk,t_int,t_final,NaOH_pct,soil0,heat_rec,water_rec,purpose,hypothesis_link,expected_effect
+55,2.8,180,400,150,200,0.6,0.9,0,0.55,stress_test,H_water_COD,"Low water volume but potentially high COD concentration"
+80,1,500,1600,500,800,2.2,0.5,0.1,0.1,boundary,H_hygiene_energy,"High cleaning_score but high energy and water use"
+48,0.6,150,350,130,200,0.6,0.3,0.65,0.55,tradeoff,H_energy_cleaning,"Low energy due to heat recovery, moderate cleaning"
+50,0.7,130,320,125,185,0.55,0.8,0.3,0.3,boundary,H_cleaning_floor,"Near-minimum cleaning scenario - tests floor constraint"
+65,1.5,300,900,300,400,1.5,0.95,0.3,0.2,hypothesis_test,H_soil_COD,"High soil0 should increase COD discharge"
+65,1.5,300,900,300,400,1.5,0.12,0.3,0.2,hypothesis_test,H_soil_COD,"Low soil0 baseline for soil/COD comparison"

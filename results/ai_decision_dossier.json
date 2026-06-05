@@ -1,0 +1,686 @@
+{
+  "run_id": "run_20260603_102118_8478",
+  "generated": "2026-06-03 10:21:19",
+  "data_source": "simulation-generated synthetic data (mechanistic Simulink twin, proof-of-concept)",
+  "data_label": "NOT real industrial data; not calibrated; not microbiologically validated",
+  "scenario_count": 5000,
+  "gemini_mode": "MOCK",
+  "gemini_model": "gemini-2.5-pro",
+  "artifact_versions": [
+    {
+      "name": "data/dairy_cip_synthetic_dataset.csv",
+      "exists": true,
+      "bytes": 2.063125E+6,
+      "datenum": 740136.42615740746,
+      "modified": "2026-06-03 10:13:40",
+      "md5": "90839ee1d0ff935779d0786caa0f7c47"
+    },
+    {
+      "name": "data/dairy_cip_ai_designed_dataset.csv",
+      "exists": true,
+      "bytes": 2039,
+      "datenum": 740136.42932870367,
+      "modified": "2026-06-03 10:18:14",
+      "md5": "b23459a551303bd02d474459e9326480"
+    },
+    {
+      "name": "results/dataset_summary.json",
+      "exists": true,
+      "bytes": 5162,
+      "datenum": 740136.43145833339,
+      "modified": "2026-06-03 10:21:18",
+      "md5": "5c8bf42152cc6c6fe9bf95619010f542"
+    },
+    {
+      "name": "results/dataset_validation_report.txt",
+      "exists": true,
+      "bytes": 7369,
+      "datenum": 740136.4261805556,
+      "modified": "2026-06-03 10:13:42",
+      "md5": "17d7254b5386649a23bb2916f4dee348"
+    },
+    {
+      "name": "results/pareto_solutions.csv",
+      "exists": true,
+      "bytes": 20309,
+      "datenum": 740136.43121527776,
+      "modified": "2026-06-03 10:20:57",
+      "md5": "df2c8db855728ca65aef95c6bad8bb4c"
+    },
+    {
+      "name": "results/surrogate_models.mat",
+      "exists": true,
+      "bytes": 3.730188E+6,
+      "datenum": 740136.42943287035,
+      "modified": "2026-06-03 10:18:23",
+      "md5": "541be0df52a57b740aa881ebe55fc483"
+    },
+    {
+      "name": "results/surrogate_metrics.csv",
+      "exists": true,
+      "bytes": 597,
+      "datenum": 740136.42943287035,
+      "modified": "2026-06-03 10:18:23",
+      "md5": "08a6e0aadb831d06521cd99835fe2d0e"
+    },
+    {
+      "name": "results/selected_policy_config.json",
+      "exists": true,
+      "bytes": 971,
+      "datenum": 740136.42994212965,
+      "modified": "2026-06-03 10:19:07",
+      "md5": "fafde2e076cc00ad39348aac9c5b0da7"
+    },
+    {
+      "name": "results/ai_experiment_design.json",
+      "exists": true,
+      "bytes": 2909,
+      "datenum": 740136.42927083338,
+      "modified": "2026-06-03 10:18:09",
+      "md5": "f2d8dc5741d2e50654b3aa68b572b97b"
+    },
+    {
+      "name": "results/ai_hypotheses.json",
+      "exists": true,
+      "bytes": 7096,
+      "datenum": 740136.42927083338,
+      "modified": "2026-06-03 10:18:09",
+      "md5": "a409d2a090b8d8d18a9511de02d821ec"
+    },
+    {
+      "name": "results/ai_hypothesis_validation.csv",
+      "exists": true,
+      "bytes": 3542,
+      "datenum": 740136.42932870367,
+      "modified": "2026-06-03 10:18:14",
+      "md5": "f306cace2e26173b3bb8225833199842"
+    },
+    {
+      "name": "results/model_equation_summary.json",
+      "exists": true,
+      "bytes": 10582,
+      "datenum": 740136.4279050926,
+      "modified": "2026-06-03 10:16:11",
+      "md5": "b6f3b8c29c48d6d0837fbdc54e1a90ea"
+    },
+    {
+      "name": "results/model_audit_report.json",
+      "exists": true,
+      "bytes": 1981,
+      "datenum": 740136.4293402778,
+      "modified": "2026-06-03 10:18:15",
+      "md5": "593df7ffab31e5d3207b92507f5c9ae0"
+    },
+    {
+      "name": "results/plausibility_audit.json",
+      "exists": true,
+      "bytes": 665,
+      "datenum": 740136.42696759256,
+      "modified": "2026-06-03 10:14:50",
+      "md5": "2c43b4dd1f39606148353bc0ca5239e9"
+    },
+    {
+      "name": "results/ai_supervisory_recommendation.json",
+      "exists": true,
+      "bytes": 6691,
+      "datenum": 740136.43131944444,
+      "modified": "2026-06-03 10:21:06",
+      "md5": "7b32ba5200c11edf2a861d9ab8e5122c"
+    },
+    {
+      "name": "results/ai_closed_loop_trace.json",
+      "exists": true,
+      "bytes": 4486,
+      "datenum": 740136.42994212965,
+      "modified": "2026-06-03 10:19:07",
+      "md5": "dc842cf86c78d5136e2b96af03082ba4"
+    },
+    {
+      "name": "results/policy_portfolio_results.csv",
+      "exists": true,
+      "bytes": 1960,
+      "datenum": 740136.42719907407,
+      "modified": "2026-06-03 10:15:10",
+      "md5": "7e4aebda773ea7361994cfbd7e7258db"
+    }
+  ],
+  "framing": "This project implements an AI-supervised, self-explaining digital twin for sustainable dairy CIP decision support. The generative-AI layer is extended beyond post-hoc explanation to support hypothesis generation, active simulation design, model plausibility auditing, policy formalization, virtual supervisory control recommendation, and traceable human-in-the-loop decision dossiers. Direct real-time process control is explicitly excluded until calibration with industrial data, microbiological validation, and certified safety constraints are available.",
+  "surrogate_metrics": {
+    "available": true,
+    "targets": [
+      "water_L",
+      "total_energy_kWh",
+      "COD_mgL",
+      "CO2eq_kg",
+      "cleaning_score",
+      "EHPI",
+      "hygienic_risk"
+    ],
+    "R2": [
+      0.9926,
+      0.9923,
+      0.9971,
+      0.9919,
+      0.9665,
+      0.9835,
+      0.9113
+    ],
+    "RMSE": [
+      36.3353,
+      1.5272,
+      0.5834,
+      0.3125,
+      1.0935,
+      1.4481,
+      0.1079
+    ]
+  },
+  "uncertainty": {
+    "available": true,
+    "targets": [
+      "cleaning_score",
+      "COD_mgL",
+      "water_L",
+      "total_energy_kWh",
+      "CO2eq_kg",
+      "hygienic_risk"
+    ],
+    "R2": [
+      0.8603,
+      0.9882,
+      0.963,
+      0.948,
+      0.9498,
+      0.9134
+    ],
+    "coverage_90": [
+      0.993,
+      1,
+      0.995,
+      0.993,
+      0.993,
+      0.996
+    ],
+    "mean_interval_width": [
+      8.9229,
+      9.5188,
+      529.9172,
+      21.6322,
+      4.3247,
+      0.5855
+    ],
+    "note": "90% prediction intervals from quantile regression forests (surrogate uncertainty, not measurement uncertainty)."
+  },
+  "hypotheses": {
+    "available": true,
+    "n": 11,
+    "items": [
+      {
+        "id": "H1",
+        "statement": "Higher water recovery reduces per-cycle water consumption.",
+        "expected_direction": "negative",
+        "scientific_value": "high"
+      },
+      {
+        "id": "H2",
+        "statement": "Reducing fresh water (higher water_rec) concentrates the effluent, raising COD_mgL.",
+        "expected_direction": "positive",
+        "scientific_value": "high"
+      },
+      {
+        "id": "H3",
+        "statement": "Heat recovery reduces total energy use.",
+        "expected_direction": "negative",
+        "scientific_value": "high"
+      },
+      {
+        "id": "H4",
+        "statement": "Heat recovery reduces CO2-equivalent emissions.",
+        "expected_direction": "negative",
+        "scientific_value": "medium"
+      },
+      {
+        "id": "H5",
+        "statement": "Longer alkaline-wash duration increases cleaning score.",
+        "expected_direction": "positive",
+        "scientific_value": "high"
+      },
+      {
+        "id": "H6",
+        "statement": "Higher wash temperature increases cleaning score.",
+        "expected_direction": "positive",
+        "scientific_value": "medium"
+      },
+      {
+        "id": "H7",
+        "statement": "Higher NaOH concentration increases cleaning score.",
+        "expected_direction": "positive",
+        "scientific_value": "medium"
+      },
+      {
+        "id": "H8",
+        "statement": "Higher initial soil load decreases cleaning score.",
+        "expected_direction": "negative",
+        "scientific_value": "high"
+      },
+      {
+        "id": "H9",
+        "statement": "Higher initial soil load should increase effluent COD.",
+        "expected_direction": "positive",
+        "scientific_value": "high"
+      },
+      {
+        "id": "H10",
+        "statement": "Higher temperature increases total energy use.",
+        "expected_direction": "positive",
+        "scientific_value": "medium"
+      },
+      {
+        "id": "H11",
+        "statement": "EHPI rewards low-burden recipes: it rises as water use falls.",
+        "expected_direction": "negative",
+        "scientific_value": "medium"
+      }
+    ],
+    "source": "MOCK_fallback"
+  },
+  "hypothesis_validation": {
+    "available": true,
+    "n_total": 11,
+    "n_supported": 10,
+    "n_partially": 0,
+    "n_not_supported": 1,
+    "n_inconclusive": 0,
+    "rows": [
+      {
+        "id": "H1",
+        "support": "supported",
+        "observed_corr": -0.451199081054652
+      },
+      {
+        "id": "H2",
+        "support": "not_supported",
+        "observed_corr": 0.00477499673890633
+      },
+      {
+        "id": "H3",
+        "support": "supported",
+        "observed_corr": -0.412956677107485
+      },
+      {
+        "id": "H4",
+        "support": "supported",
+        "observed_corr": -0.412770642415028
+      },
+      {
+        "id": "H5",
+        "support": "supported",
+        "observed_corr": 0.398188379470739
+      },
+      {
+        "id": "H6",
+        "support": "supported",
+        "observed_corr": 0.334955669001587
+      },
+      {
+        "id": "H7",
+        "support": "supported",
+        "observed_corr": 0.192636856705829
+      },
+      {
+        "id": "H8",
+        "support": "supported",
+        "observed_corr": -0.447083561334023
+      },
+      {
+        "id": "H9",
+        "support": "supported",
+        "observed_corr": 0.97612129939477
+      },
+      {
+        "id": "H10",
+        "support": "supported",
+        "observed_corr": 0.318190178791552
+      },
+      {
+        "id": "H11",
+        "support": "supported",
+        "observed_corr": -0.838577145695785
+      }
+    ]
+  },
+  "model_audit": {
+    "available": true,
+    "n_high_severity": 0,
+    "source": "MOCK_fallback",
+    "flags": [
+      {
+        "severity": "medium",
+        "model_component": "cleaning_score / hygienic_risk proxies",
+        "issue": "cleaning_score and hygienic_risk are derived only from residual soil; they are not microbiological measurements."
+      }
+    ],
+    "calibration_priorities": [
+      "Re-estimate soil-removal kinetics (k_cal and base rates) from plant/literature data.",
+      "Re-derive the effluent COD model so it tracks organic soil load (soil0).",
+      "Separate organic vs chemical contributions to COD with measured data."
+    ]
+  },
+  "policy": {
+    "available": true,
+    "profile": "balanced_default",
+    "policy_name": "Balanced default operation",
+    "constraints": {
+      "min_cleaning_score": 95,
+      "max_COD_mgL": [],
+      "max_hygienic_risk": [],
+      "max_water_L": [],
+      "max_total_energy_kWh": [],
+      "max_CO2eq_kg": []
+    },
+    "objective_weights": {
+      "water_L": 0.2222,
+      "total_energy_kWh": 0.2222,
+      "COD_mgL": 0.2222,
+      "CO2eq_kg": 0.2222,
+      "cleaning_score": 0.1112
+    },
+    "risk_tolerance": "medium"
+  },
+  "supervisory_recommendation": {
+    "available": true,
+    "research_only": true,
+    "human_approval_required": true,
+    "not_for_real_time_control": true,
+    "safety_gate_passed": true,
+    "n_passed": 149,
+    "n_candidates": 149,
+    "global_failed_checks": [],
+    "selected_recipe": {
+      "T_C": 78.2977,
+      "Q_m3h": 1.8384,
+      "t_pre": 565.3488,
+      "t_alk": 1776.572,
+      "t_int": 185.2355,
+      "t_final": 663.0702,
+      "NaOH_pct": 2.3998,
+      "soil0": 0.5,
+      "heat_rec": 0.5512,
+      "water_rec": 0.5782,
+      "soil0_note": "soil0 is a fixed uncertainty condition, not an operator setpoint.",
+      "predicted_metrics": {
+        "water_L": 685.6198,
+        "total_energy_kWh": 34.6973,
+        "COD_mgL": 21.6174,
+        "CO2eq_kg": 6.7622,
+        "cleaning_score": 99.8138,
+        "hygienic_risk": 0.0364
+      },
+      "selection_weights": {
+        "water_L": 0.2222,
+        "total_energy_kWh": 0.2222,
+        "COD_mgL": 0.2222,
+        "CO2eq_kg": 0.2222,
+        "cleaning_score": 0.1112
+      },
+      "pareto_label": "",
+      "prediction_basis": "ML surrogate over synthetic simulation (not measured)",
+      "conservative_bounds": {
+        "cleaning_score": {
+          "mean": 99.8138,
+          "lower": 99.0786,
+          "upper": 99.9603
+        },
+        "COD_mgL": {
+          "mean": 21.6174,
+          "lower": 15.5045,
+          "upper": 24.1914
+        },
+        "water_L": {
+          "mean": 685.6198,
+          "lower": 533.072,
+          "upper": 1046.6122
+        },
+        "total_energy_kWh": {
+          "mean": 34.6973,
+          "lower": 18.8444,
+          "upper": 52.0388
+        },
+        "CO2eq_kg": {
+          "mean": 6.7622,
+          "lower": 3.8109,
+          "upper": 10.5177
+        },
+        "hygienic_risk": {
+          "mean": 0.0364,
+          "lower": 0.0074,
+          "upper": 0.1847
+        }
+      },
+      "metrics_basis": "uncertainty_conservative"
+    },
+    "manager_summary": "[MOCK] For the balanced_default context, the safety gate accepted 149 of 149 candidate recipes and selected one meeting the hygiene floor (predicted cleaning 99.8%). This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Human approval is required; figures are synthetic.",
+    "engineer_summary": "[MOCK] The selected recipe cleared all HARD deterministic checks (input bounds, hygiene floor and any finite environmental/hygienic caps) under conservative bounds. Critical surrogate R^2 are reported on the \"uncertainty_conservative\" basis and compared to the 0.90 floor; not all necessarily pass. Research-only advisories: Critical surrogate R^2 below 0.90 (uncertainty_surrogate_metrics): cleaning_score. This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Verify against plant data first."
+  },
+  "safety_shield": {
+    "available": true,
+    "gate_passed": true,
+    "research_only": true,
+    "basis": "uncertainty_conservative",
+    "violations": [],
+    "advisories": [
+      "Critical surrogate R^2 below 0.90 (uncertainty_surrogate_metrics): cleaning_score"
+    ],
+    "conservative_bounds": {
+      "cleaning_score": {
+        "mean": 99.8138,
+        "lower": 99.0786,
+        "upper": 99.9603
+      },
+      "COD_mgL": {
+        "mean": 21.6174,
+        "lower": 15.5045,
+        "upper": 24.1914
+      },
+      "water_L": {
+        "mean": 685.6198,
+        "lower": 533.072,
+        "upper": 1046.6122
+      },
+      "total_energy_kWh": {
+        "mean": 34.6973,
+        "lower": 18.8444,
+        "upper": 52.0388
+      },
+      "CO2eq_kg": {
+        "mean": 6.7622,
+        "lower": 3.8109,
+        "upper": 10.5177
+      },
+      "hygienic_risk": {
+        "mean": 0.0364,
+        "lower": 0.0074,
+        "upper": 0.1847
+      }
+    },
+    "note": "Mandatory deterministic shield; AI/Gemini cannot bypass it. Uses conservative uncertainty bounds when available."
+  },
+  "robust_optimization": {
+    "available": true,
+    "n_solutions": 149,
+    "min_cleaning_lower_bound": 95.026,
+    "labelled": [
+      "robust_highest_cleaning_lb",
+      "robust_lowest_COD",
+      "robust_balanced",
+      "robust_lowest_uncertainty",
+      "robust_lowest_water"
+    ],
+    "note": "Robust front selects on conservative bounds and penalizes high-uncertainty recipes."
+  },
+  "counterfactual_alternatives": {
+    "available": true,
+    "interventions": [
+      {
+        "intervention": "baseline",
+        "applied_delta": "(baseline)",
+        "cleaning_score": 99.8138,
+        "d_cleaning_score": 0,
+        "water_L": 685.6198,
+        "d_water_L": 0,
+        "total_energy_kWh": 34.6973,
+        "d_total_energy_kWh": 0,
+        "COD_mgL": 21.6174,
+        "d_COD_mgL": 0,
+        "CO2eq_kg": 6.7622,
+        "d_CO2eq_kg": 0,
+        "feasible": true
+      },
+      {
+        "intervention": "t_alk_-10%",
+        "applied_delta": "t_alk: 1777->1599 (-177.7)",
+        "cleaning_score": 99.8064,
+        "d_cleaning_score": -0.0074,
+        "water_L": 684.9827,
+        "d_water_L": -0.6371,
+        "total_energy_kWh": 33.5965,
+        "d_total_energy_kWh": -1.1008,
+        "COD_mgL": 21.5919,
+        "d_COD_mgL": -0.0256,
+        "CO2eq_kg": 6.7066,
+        "d_CO2eq_kg": -0.0555,
+        "feasible": true
+      },
+      {
+        "intervention": "t_alk_-20%",
+        "applied_delta": "t_alk: 1777->1421 (-355.3)",
+        "cleaning_score": 99.7891,
+        "d_cleaning_score": -0.0247,
+        "water_L": 669.2714,
+        "d_water_L": -16.3483,
+        "total_energy_kWh": 29.6141,
+        "d_total_energy_kWh": -5.0832,
+        "COD_mgL": 21.5209,
+        "d_COD_mgL": -0.0966,
+        "CO2eq_kg": 5.8639,
+        "d_CO2eq_kg": -0.8983,
+        "feasible": true
+      },
+      {
+        "intervention": "T_C_+3C",
+        "applied_delta": "T_C: 78.3->81.3 (+3)",
+        "cleaning_score": 99.8221,
+        "d_cleaning_score": 0.0084,
+        "water_L": 685.6338,
+        "d_water_L": 0.014,
+        "total_energy_kWh": 33.8935,
+        "d_total_energy_kWh": -0.8038,
+        "COD_mgL": 21.6859,
+        "d_COD_mgL": 0.0685,
+        "CO2eq_kg": 6.8275,
+        "d_CO2eq_kg": 0.0653,
+        "feasible": true
+      },
+      {
+        "intervention": "T_C_+5C",
+        "applied_delta": "T_C: 78.3->83.3 (+5)",
+        "cleaning_score": 99.8264,
+        "d_cleaning_score": 0.0126,
+        "water_L": 685.6338,
+        "d_water_L": 0.014,
+        "total_energy_kWh": 34.2478,
+        "d_total_energy_kWh": -0.4495,
+        "COD_mgL": 21.8447,
+        "d_COD_mgL": 0.2273,
+        "CO2eq_kg": 6.7689,
+        "d_CO2eq_kg": 0.0067,
+        "feasible": true
+      },
+      {
+        "intervention": "water_rec_+0.15",
+        "applied_delta": "water_rec: 0.5782->0.6 (+0.0218)",
+        "cleaning_score": 99.8138,
+        "d_cleaning_score": 0,
+        "water_L": 685.1383,
+        "d_water_L": -0.4815,
+        "total_energy_kWh": 34.6973,
+        "d_total_energy_kWh": 0,
+        "COD_mgL": 21.6174,
+        "d_COD_mgL": 0,
+        "CO2eq_kg": 6.7622,
+        "d_CO2eq_kg": 0,
+        "feasible": true
+      },
+      {
+        "intervention": "NaOH_pct_-20%",
+        "applied_delta": "NaOH_pct: 2.4->1.92 (-0.48)",
+        "cleaning_score": 99.8088,
+        "d_cleaning_score": -0.0049,
+        "water_L": 684.7895,
+        "d_water_L": -0.8302,
+        "total_energy_kWh": 34.7512,
+        "d_total_energy_kWh": 0.054,
+        "COD_mgL": 21.6256,
+        "d_COD_mgL": 0.0082,
+        "CO2eq_kg": 6.7651,
+        "d_CO2eq_kg": 0.0029,
+        "feasible": true
+      },
+      {
+        "intervention": "T_C_+5C_&_t_alk_-15%",
+        "applied_delta": "T_C: 78.3->83.3 (+5); t_alk: 1777->1510 (-266.5)",
+        "cleaning_score": 99.8177,
+        "d_cleaning_score": 0.0039,
+        "water_L": 683.6265,
+        "d_water_L": -1.9933,
+        "total_energy_kWh": 32.4775,
+        "d_total_energy_kWh": -2.2198,
+        "COD_mgL": 21.6369,
+        "d_COD_mgL": 0.0194,
+        "CO2eq_kg": 6.3747,
+        "d_CO2eq_kg": -0.3874,
+        "feasible": true
+      },
+      {
+        "intervention": "water_rec_+0.15_&_T_C_+3C",
+        "applied_delta": "water_rec: 0.5782->0.6 (+0.0218); T_C: 78.3->81.3 (+3)",
+        "cleaning_score": 99.8221,
+        "d_cleaning_score": 0.0084,
+        "water_L": 685.6338,
+        "d_water_L": 0.014,
+        "total_energy_kWh": 33.8935,
+        "d_total_energy_kWh": -0.8038,
+        "COD_mgL": 21.6859,
+        "d_COD_mgL": 0.0685,
+        "CO2eq_kg": 6.8275,
+        "d_CO2eq_kg": 0.0653,
+        "feasible": true
+      }
+    ],
+    "best_compromise": "t_alk_-20%"
+  },
+  "limitations": [
+    "Uncalibrated proof-of-concept coefficients; synthetic data only.",
+    "Effluent COD is an organic-load proxy tied to cumulative soil removal, not a measured laboratory COD assay.",
+    "cleaning_score is a soil-based proxy, not a microbiological measurement.",
+    "EHPI is a proposed index, not a regulatory standard.",
+    "Gemini cannot verify mass/energy balances; it is never ground truth.",
+    "Not for operational control without calibration and food-safety validation."
+  ],
+  "real_data_needed_before_operational_use": [
+    "Industrial CIP operating logs for coefficient calibration.",
+    "Microbiological / ATP measurements to validate cleaning_score.",
+    "Time-resolved effluent COD to fix the COD sub-model.",
+    "Certified food-safety / HACCP constraints.",
+    "Time-resolved effluent COD per CIP phase.",
+    "Initial soil load (soil0) proxy and post-clean residual soil / ATP.",
+    "Inlet/outlet temperatures and thermal energy for heat-recovery validation.",
+    "Water flow and recovered-water fraction per phase."
+  ],
+  "governance": {
+    "gemini_used_for": "hypotheses, experiment design, auditing, policy formalization, explanation",
+    "gemini_never_used_for": "real-time control, Simulink solver, gamultiobj, ground truth",
+    "numeric_decisions_by": "deterministic MATLAB code",
+    "human_approval_required": true
+  }
+}

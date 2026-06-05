@@ -1,0 +1,266 @@
+{
+  "run_id": "run_20260603_122517_1571",
+  "timestamp": "2026-06-03 12:25:17",
+  "data_label": "simulation-generated synthetic data - NOT real industrial data",
+  "public_release_note": "All retained artifacts are either source, required model assets, simulation-generated synthetic data, or documented regenerable results for manuscript review.",
+  "CIP_N_SCENARIOS": "5000",
+  "configured_gemini_mode": "mock",
+  "row_counts": {
+    "dataset_rows": 5000,
+    "base_dataset_rows": 5000,
+    "dataset_success_rows": 5000,
+    "ai_designed_rows": 6,
+    "ai_designed_success_rows": 6,
+    "combined_dataset_rows": 5018,
+    "dataset_summary_n_total": 5000,
+    "dataset_summary_source": "dairy_cip_synthetic_dataset.csv",
+    "validation_total_rows": 5000,
+    "pareto_solutions_rows": 76
+  },
+  "artifacts": [
+    {
+      "name": "data/dairy_cip_synthetic_dataset.csv",
+      "exists": true,
+      "bytes": 2.063125E+6,
+      "datenum": 740136.5164930555,
+      "modified": "2026-06-03 12:23:45",
+      "md5": "90839ee1d0ff935779d0786caa0f7c47"
+    },
+    {
+      "name": "data/dairy_cip_ai_designed_dataset.csv",
+      "exists": true,
+      "bytes": 2039,
+      "datenum": 740136.42932870367,
+      "modified": "2026-06-03 10:18:14",
+      "md5": "b23459a551303bd02d474459e9326480"
+    },
+    {
+      "name": "results/dataset_summary.json",
+      "exists": true,
+      "bytes": 5162,
+      "datenum": 740136.517349537,
+      "modified": "2026-06-03 12:24:59",
+      "md5": "5c8bf42152cc6c6fe9bf95619010f542"
+    },
+    {
+      "name": "results/dataset_validation_report.txt",
+      "exists": true,
+      "bytes": 7369,
+      "datenum": 740136.51651620376,
+      "modified": "2026-06-03 12:23:47",
+      "md5": "17d7254b5386649a23bb2916f4dee348"
+    },
+    {
+      "name": "results/pareto_solutions.csv",
+      "exists": true,
+      "bytes": 22071,
+      "datenum": 740136.517337963,
+      "modified": "2026-06-03 12:24:58",
+      "md5": "c6d1e0635148aa1fe05b409e1232cfbf"
+    },
+    {
+      "name": "results/surrogate_models.mat",
+      "exists": true,
+      "bytes": 3.707043E+6,
+      "datenum": 740136.51660879632,
+      "modified": "2026-06-03 12:23:55",
+      "md5": "a213c6755fa4bc0e89061da1e8796fbb"
+    },
+    {
+      "name": "results/surrogate_metrics.csv",
+      "exists": true,
+      "bytes": 597,
+      "datenum": 740136.51660879632,
+      "modified": "2026-06-03 12:23:55",
+      "md5": "4a13312a5cfafa0964dfdf0da97b47c4"
+    },
+    {
+      "name": "results/selected_policy_config.json",
+      "exists": true,
+      "bytes": 971,
+      "datenum": 740136.51660879632,
+      "modified": "2026-06-03 12:23:55",
+      "md5": "fafde2e076cc00ad39348aac9c5b0da7"
+    },
+    {
+      "name": "results/ai_experiment_design.json",
+      "exists": true,
+      "bytes": 2909,
+      "datenum": 740136.42927083338,
+      "modified": "2026-06-03 10:18:09",
+      "md5": "f2d8dc5741d2e50654b3aa68b572b97b"
+    },
+    {
+      "name": "results/ai_hypotheses.json",
+      "exists": true,
+      "bytes": 7096,
+      "datenum": 740136.42927083338,
+      "modified": "2026-06-03 10:18:09",
+      "md5": "a409d2a090b8d8d18a9511de02d821ec"
+    },
+    {
+      "name": "results/ai_hypothesis_validation.csv",
+      "exists": true,
+      "bytes": 3542,
+      "datenum": 740136.42932870367,
+      "modified": "2026-06-03 10:18:14",
+      "md5": "f306cace2e26173b3bb8225833199842"
+    },
+    {
+      "name": "results/model_equation_summary.json",
+      "exists": true,
+      "bytes": 10582,
+      "datenum": 740136.517337963,
+      "modified": "2026-06-03 12:24:58",
+      "md5": "b6f3b8c29c48d6d0837fbdc54e1a90ea"
+    },
+    {
+      "name": "results/model_audit_report.json",
+      "exists": true,
+      "bytes": 1981,
+      "datenum": 740136.4293402778,
+      "modified": "2026-06-03 10:18:15",
+      "md5": "593df7ffab31e5d3207b92507f5c9ae0"
+    },
+    {
+      "name": "results/plausibility_audit.json",
+      "exists": true,
+      "bytes": 665,
+      "datenum": 740136.517349537,
+      "modified": "2026-06-03 12:24:59",
+      "md5": "2c43b4dd1f39606148353bc0ca5239e9"
+    },
+    {
+      "name": "results/ai_supervisory_recommendation.json",
+      "exists": true,
+      "bytes": 6691,
+      "datenum": 740136.43131944444,
+      "modified": "2026-06-03 10:21:06",
+      "md5": "7b32ba5200c11edf2a861d9ab8e5122c"
+    },
+    {
+      "name": "results/ai_closed_loop_trace.json",
+      "exists": true,
+      "bytes": 4486,
+      "datenum": 740136.42994212965,
+      "modified": "2026-06-03 10:19:07",
+      "md5": "dc842cf86c78d5136e2b96af03082ba4"
+    },
+    {
+      "name": "results/policy_portfolio_results.csv",
+      "exists": true,
+      "bytes": 1960,
+      "datenum": 740136.51754629635,
+      "modified": "2026-06-03 12:25:16",
+      "md5": "7e4aebda773ea7361994cfbd7e7258db"
+    }
+  ],
+  "gemini_model": "gemini-2.5-pro",
+  "gemini_key_configured": true,
+  "gemini_mode": "MOCK",
+  "gemini_mode_by_artifact": {
+    "experiment_design": "MOCK",
+    "hypotheses": "MOCK",
+    "model_audit": "MOCK",
+    "supervisory": "MOCK",
+    "policy": "MOCK",
+    "plausibility_audit": "MOCK",
+    "pareto_explanation": "MOCK"
+  },
+  "pipeline_status": "OK",
+  "pipeline_steps": [
+    {
+      "name": "1. Scenario generation (Simulink)",
+      "status": "OK",
+      "critical": true,
+      "elapsed_s": 334.8944026,
+      "error": ""
+    },
+    {
+      "name": "2. Dataset validation",
+      "status": "OK",
+      "critical": false,
+      "elapsed_s": 0.634722,
+      "error": ""
+    },
+    {
+      "name": "3. Surrogate training (ML)",
+      "status": "OK",
+      "critical": true,
+      "elapsed_s": 8.0884921,
+      "error": ""
+    },
+    {
+      "name": "4. Gemini policy translation",
+      "status": "OK",
+      "critical": false,
+      "elapsed_s": 0.0925042,
+      "error": ""
+    },
+    {
+      "name": "5. Pareto optimization",
+      "status": "OK",
+      "critical": true,
+      "elapsed_s": 62.9623047,
+      "error": ""
+    },
+    {
+      "name": "6. Model metadata for manuscript tables",
+      "status": "OK",
+      "critical": false,
+      "elapsed_s": 0.0701582,
+      "error": ""
+    },
+    {
+      "name": "7. Dataset summary (for audit)",
+      "status": "OK",
+      "critical": false,
+      "elapsed_s": 0.3866557,
+      "error": ""
+    },
+    {
+      "name": "8. Gemini plausibility audit",
+      "status": "OK",
+      "critical": false,
+      "elapsed_s": 0.016194,
+      "error": ""
+    },
+    {
+      "name": "9. Gemini Pareto explanation",
+      "status": "OK",
+      "critical": false,
+      "elapsed_s": 0.1336544,
+      "error": ""
+    },
+    {
+      "name": "10. Demo time-series CSVs for Python figures",
+      "status": "OK",
+      "critical": false,
+      "elapsed_s": 3.8358083,
+      "error": ""
+    },
+    {
+      "name": "11. Counterfactual CSV for Python figures",
+      "status": "OK",
+      "critical": false,
+      "elapsed_s": 9.3333633,
+      "error": ""
+    },
+    {
+      "name": "12. Policy portfolio CSV for Python figures",
+      "status": "OK",
+      "critical": false,
+      "elapsed_s": 4.1599611,
+      "error": ""
+    },
+    {
+      "name": "12b. Figure-derived data export (MATLAB)",
+      "status": "OK",
+      "critical": false,
+      "elapsed_s": 0.5473454,
+      "error": ""
+    }
+  ],
+  "consistency_warnings": [],
+  "consistent": true
+}

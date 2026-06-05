@@ -1,0 +1,303 @@
+{
+  "model_name": "dairy_cip_digital_twin",
+  "data_label": "simulation-generated synthetic data - NOT real industrial data",
+  "disclaimer": "Proof-of-concept mechanistic model with uncalibrated coefficients. Equations and constants must be re-estimated from plant or literature data before any scientific or operational claim.",
+  "description": "Four-phase dairy CIP cycle (pre-rinse -> alkaline wash -> intermediate rinse -> final rinse) with first-order soil-removal kinetics and separated visual subsystems for water, thermal energy, pump energy, wastewater/COD, hygiene/risk, EHPI/output metrics and logging. Phase scheduling is provided by a Stateflow chart when available, with a MATLAB Function fallback. All empirical constants are read from cip_model_params.",
+  "model_architecture": {
+    "top_level_subsystems": [
+      "Scenario Inputs",
+      "Phase Scheduler",
+      "Soil Removal Kinetics",
+      "Water Consumption",
+      "Thermal Energy",
+      "Pump Energy",
+      "Wastewater and COD",
+      "Hygiene and Risk",
+      "EHPI and Output Metrics",
+      "Logging and Scopes"
+    ],
+    "scenario_parameter_exposure": "Constant blocks in Scenario Inputs use editable variable names overridden per run by Simulink.SimulationInput.setVariable in the model workspace.",
+    "workspace_policy": "No base-workspace assignin and no globals; scenario injection uses SimulationInput."
+  },
+  "logged_signals": [
+    "soil",
+    "water_L",
+    "thermal_energy_kWh",
+    "pump_energy_kWh",
+    "COD_mgL",
+    "NaOH_residual_mgL",
+    "CO2eq_kg",
+    "cleaning_score",
+    "hygienic_risk",
+    "EHPI",
+    "phase_id"
+  ],
+  "phases": {
+    "phase_1": "pre-rinse",
+    "phase_2": "alkaline wash",
+    "phase_3": "intermediate rinse",
+    "phase_4": "final rinse",
+    "phase_5": "end/idle",
+    "scheduling": "time-driven by cumulative durations t_pre, t_alk, t_int, t_final"
+  },
+  "equations": {
+    "soil_state_ode": "dsoil/dt = -k(phase) * max(soil,0)",
+    "k_pre": "k = k_cal * k_pre_base * (Q_m3h/Q_ref)^beta_Q                                   [pre-rinse]",
+    "k_alk": "k = k_cal * k_alk_base * exp(alpha_T*(T_C - T_ref)) * (Q_m3h/Q_ref)^beta_Q * (NaOH_pct/NaOH_ref)^gamma_NaOH   [alkaline]",
+    "k_rinse": "k = k_cal * k_rinse_base * (Q_m3h/Q_ref)^beta_Q                                 [intermediate & final rinse]",
+    "k_idle": "k = 0                                                                           [end/idle]",
+    "cod_organic": "COD_mgL = COD_factor * max(soil0 - soil,0), where soil0 - soil is cumulative soil removed",
+    "naoh_residual": "NaOH_res = NaOH_pct * {10000 alk; 1500 int; 300 final; 0 otherwise}  [mg/L]",
+    "cod_instant": "COD_inst is no longer used as the reported organic COD; the reported COD is cumulative-soil based",
+    "cod_reported": "COD_mgL is an organic-load proxy and deliberately excludes inorganic NaOH residual",
+    "naoh_reported": "NaOH_residual_mgL = time_integral(NaOH_res)/t_cycle  (cycle time-average)",
+    "cod_chemical_equivalent": "COD_chem_equiv_mgL = COD_chemical_factor * NaOH_residual_mgL, reported separately from COD_mgL",
+    "water": "water_L_s = (Q_m3h*1000/3600) * (1 - water_rec)  during active phases; integrated to water_L",
+    "thermal": "thermal_kW = (rho*(Q_m3h/3600)*cp*max(T_C - T_in_C,0)/eta_heater) * (1 - heat_rec)   [alkaline wash only]; integrated to thermal_energy_kWh",
+    "pump": "pump_kW = (deltaP*(Q_m3h/3600)/eta_pump)/1000  during active phases; integrated to pump_energy_kWh",
+    "total_energy": "total_energy_kWh = thermal_energy_kWh + pump_energy_kWh",
+    "co2": "CO2eq_kg = thermal_energy_kWh*EF_thermal + pump_energy_kWh*EF_electricity",
+    "cleaning": "cleaning_score = clamp((1 - soil)*100, 0, 100)   [%]",
+    "hygienic_risk": "hygienic_risk = clamp(soil / soil_risk_ref, 0, 1)",
+    "ehpi": "EHPI = 100 * (cleaning_score/100) / (1 + 0.25*(water_L/norm_water_L + total_energy_kWh/norm_energy_kWh + COD_mgL/norm_COD_mgL + CO2eq_kg/norm_CO2eq_kg))"
+  },
+  "parameters": {
+    "k_cal": 0.08,
+    "k_pre_base": 0.03,
+    "k_alk_base": 0.01,
+    "k_rinse_base": 0.006,
+    "T_ref": 60,
+    "alpha_T": 0.035,
+    "beta_Q": 0.45,
+    "gamma_NaOH": 0.6,
+    "Q_ref": 1.5,
+    "NaOH_ref": 1,
+    "COD_factor": 45,
+    "COD_chemical_factor": 0.15,
+    "rho": 1000,
+    "cp": 4.186,
+    "eta_heater": 0.85,
+    "deltaP": 180000,
+    "eta_pump": 0.6,
+    "EF_electricity": 0.25,
+    "EF_thermal": 0.2,
+    "min_cleaning_score": 95,
+    "max_hygienic_risk": 1,
+    "norm_water_L": 500,
+    "norm_energy_kWh": 20,
+    "norm_COD_mgL": 5000,
+    "norm_CO2eq_kg": 10,
+    "T_in_C": 15,
+    "soil_risk_ref": 0.05,
+    "eps_time": 1E-6
+  },
+  "parameter_source": "src/cip_model_params.m (single source of truth)",
+  "input_ranges": [
+    {
+      "name": "T_C",
+      "lb": 45,
+      "ub": 85,
+      "unit": "degC",
+      "role": "operator_setpoint"
+    },
+    {
+      "name": "Q_m3h",
+      "lb": 0.5,
+      "ub": 3,
+      "unit": "m3/h",
+      "role": "operator_setpoint"
+    },
+    {
+      "name": "t_pre",
+      "lb": 120,
+      "ub": 600,
+      "unit": "s",
+      "role": "operator_setpoint"
+    },
+    {
+      "name": "t_alk",
+      "lb": 300,
+      "ub": 1800,
+      "unit": "s",
+      "role": "operator_setpoint"
+    },
+    {
+      "name": "t_int",
+      "lb": 120,
+      "ub": 600,
+      "unit": "s",
+      "role": "operator_setpoint"
+    },
+    {
+      "name": "t_final",
+      "lb": 180,
+      "ub": 900,
+      "unit": "s",
+      "role": "operator_setpoint"
+    },
+    {
+      "name": "NaOH_pct",
+      "lb": 0.5,
+      "ub": 2.5,
+      "unit": "%",
+      "role": "operator_setpoint"
+    },
+    {
+      "name": "soil0",
+      "lb": 0.1,
+      "ub": 1,
+      "unit": "-",
+      "role": "uncertainty_condition"
+    },
+    {
+      "name": "heat_rec",
+      "lb": 0,
+      "ub": 0.7,
+      "unit": "-",
+      "role": "operator_setpoint"
+    },
+    {
+      "name": "water_rec",
+      "lb": 0,
+      "ub": 0.6,
+      "unit": "-",
+      "role": "operator_setpoint"
+    }
+  ],
+  "fixed_inputs": {
+    "T_in_C": 15
+  },
+  "output_definitions": [
+    {
+      "name": "water_L",
+      "unit": "L",
+      "definition": "per-cycle fresh water consumption"
+    },
+    {
+      "name": "thermal_energy_kWh",
+      "unit": "kWh",
+      "definition": "per-cycle heating energy (alkaline wash)"
+    },
+    {
+      "name": "pump_energy_kWh",
+      "unit": "kWh",
+      "definition": "per-cycle pumping energy"
+    },
+    {
+      "name": "total_energy_kWh",
+      "unit": "kWh",
+      "definition": "thermal + pump energy"
+    },
+    {
+      "name": "COD_mgL",
+      "unit": "mg/L",
+      "definition": "organic-load proxy from cumulative soil removed; excludes inorganic NaOH residual"
+    },
+    {
+      "name": "NaOH_residual_mgL",
+      "unit": "mg/L",
+      "definition": "cycle time-averaged NaOH residual"
+    },
+    {
+      "name": "CO2eq_kg",
+      "unit": "kg",
+      "definition": "per-cycle CO2-equivalent emissions"
+    },
+    {
+      "name": "cleaning_score",
+      "unit": "%",
+      "definition": "100*(1-residual soil); model-derived hygiene proxy (NOT microbiological)"
+    },
+    {
+      "name": "hygienic_risk",
+      "unit": "-",
+      "definition": "residual-soil risk proxy in [0,1]"
+    },
+    {
+      "name": "EHPI",
+      "unit": "-",
+      "definition": "proposed Environmental-Hygienic Performance Index (NOT a standard)"
+    }
+  ],
+  "expected_relations": [
+    {
+      "driver": "T_C",
+      "target": "total_energy_kWh",
+      "expected_sign": "positive",
+      "review_status": "expected_and_consistent",
+      "rationale": "Thermal power rises with (T_C - T_in_C), so higher setpoint increases energy."
+    },
+    {
+      "driver": "T_C",
+      "target": "cleaning_score",
+      "expected_sign": "positive",
+      "review_status": "expected_and_consistent",
+      "rationale": "Alkaline rate constant scales with exp(alpha_T*(T_C - T_ref))."
+    },
+    {
+      "driver": "water_rec",
+      "target": "water_L",
+      "expected_sign": "negative",
+      "review_status": "expected_and_consistent",
+      "rationale": "Water flow is scaled by (1 - water_rec)."
+    },
+    {
+      "driver": "heat_rec",
+      "target": "total_energy_kWh",
+      "expected_sign": "negative",
+      "review_status": "expected_and_consistent",
+      "rationale": "Thermal power is scaled by (1 - heat_rec)."
+    },
+    {
+      "driver": "heat_rec",
+      "target": "CO2eq_kg",
+      "expected_sign": "negative",
+      "review_status": "expected_and_consistent",
+      "rationale": "CO2eq is dominated by thermal energy, which falls with heat_rec."
+    },
+    {
+      "driver": "NaOH_pct",
+      "target": "cleaning_score",
+      "expected_sign": "positive",
+      "review_status": "expected_and_consistent",
+      "rationale": "Alkaline rate scales with (NaOH_pct/NaOH_ref)^gamma_NaOH."
+    },
+    {
+      "driver": "t_alk",
+      "target": "cleaning_score",
+      "expected_sign": "positive",
+      "review_status": "expected_and_consistent",
+      "rationale": "Longer alkaline phase removes more soil under first-order kinetics."
+    },
+    {
+      "driver": "soil0",
+      "target": "cleaning_score",
+      "expected_sign": "negative",
+      "review_status": "expected_and_consistent",
+      "rationale": "Higher initial soil leaves more residual soil at finite kinetics."
+    },
+    {
+      "driver": "soil0",
+      "target": "COD_mgL",
+      "expected_sign": "positive",
+      "review_status": "expected_and_consistent",
+      "rationale": "Organic COD is now based on cumulative soil removed, so larger initial soil loads should increase COD_mgL when a finite fraction is removed."
+    },
+    {
+      "driver": "NaOH_pct",
+      "target": "COD_mgL",
+      "expected_sign": "weak_or_indirect",
+      "review_status": "expected_and_consistent",
+      "rationale": "NaOH_pct can affect COD_mgL indirectly through alkaline soil-removal kinetics, but inorganic NaOH residual is not added to COD_mgL. It is reported separately as NaOH_residual_mgL and COD_chem_equiv_mgL."
+    }
+  ],
+  "declared_limitations": [
+    "Uncalibrated proof-of-concept coefficients (k_cal is a tuning knob).",
+    "COD chemistry is simplified: COD_mgL is an organic proxy from cumulative soil removed.",
+    "NaOH residual is reported separately and is not folded into COD_mgL.",
+    "cleaning_score is a soil-based proxy, NOT a microbiological/ATP measurement.",
+    "EHPI is a proposed index with ad-hoc weights and normalization, not a standard.",
+    "Thermal energy is modelled for the alkaline wash only (MVP).",
+    "No wastewater-treatment, no full LCA boundary, no real sensor noise."
+  ]
+}
