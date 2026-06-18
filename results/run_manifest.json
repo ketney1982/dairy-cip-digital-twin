@@ -11,7 +11,7 @@
     "dataset_success_rows": 5000,
     "ai_designed_rows": 6,
     "ai_designed_success_rows": 6,
-    "combined_dataset_rows": 5018,
+    "combined_dataset_rows": 5006,
     "dataset_summary_n_total": 5000,
     "dataset_summary_source": "dairy_cip_synthetic_dataset.csv",
     "validation_total_rows": 5000,

@@ -281,7 +281,7 @@ function localRunScriptSafe(scriptPath, label)
 end
 
 function localAppendCsv(srcCsv, accCsv)
-% Append the latest AI-designed batch to the accumulation file (common columns).
+% Append the latest AI-designed batch, retaining each unique design once.
     if exist(srcCsv,'file') ~= 2; return; end
     S = readtable(srcCsv);
     if exist(accCsv,'file')==2
@@ -291,6 +291,15 @@ function localAppendCsv(srcCsv, accCsv)
     else
         A = S;
     end
+    designVars = {'T_C','Q_m3h','t_pre','t_alk','t_int','t_final', ...
+        'NaOH_pct','soil0','heat_rec','water_rec','T_in_C','stopTime'};
+    designVars = intersect(designVars, A.Properties.VariableNames, 'stable');
+    if isempty(designVars)
+        [~, keep] = unique(A, 'stable');
+    else
+        [~, keep] = unique(A(:,designVars), 'stable');
+    end
+    A = A(keep,:);
     writetable(A, accCsv);
 end
 
