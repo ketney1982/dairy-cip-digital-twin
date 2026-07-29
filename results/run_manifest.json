@@ -155,7 +155,7 @@
       "md5": "7e4aebda773ea7361994cfbd7e7258db"
     }
   ],
-  "gemini_model": "gemini-2.5-pro",
+  "gemini_model": "gemini-3.5-flash",
   "gemini_key_configured": true,
   "gemini_mode": "MOCK",
   "gemini_mode_by_artifact": {

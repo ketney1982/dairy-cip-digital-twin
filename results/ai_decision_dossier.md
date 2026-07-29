@@ -11,7 +11,7 @@
 - **Generated:** 2026-06-03 10:21:19
 - **Scenarios (dataset rows):** 5000
 - **Data source:** simulation-generated synthetic data (mechanistic Simulink twin, proof-of-concept)
-- **Generative-AI mode:** MOCK (model: gemini-2.5-pro)
+- **Generative-AI mode:** MOCK (model: gemini-3.5-flash)
 
 ## Scientific framing
 This project implements an AI-supervised, self-explaining digital twin for sustainable dairy CIP decision support. The generative-AI layer is extended beyond post-hoc explanation to support hypothesis generation, active simulation design, model plausibility auditing, policy formalization, virtual supervisory control recommendation, and traceable human-in-the-loop decision dossiers. Direct real-time process control is explicitly excluded until calibration with industrial data, microbiological validation, and certified safety constraints are available.

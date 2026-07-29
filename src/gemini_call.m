@@ -44,7 +44,7 @@ function [text, info] = gemini_call(system_text, user_text, opts)
     end
     if ~isfield(opts,'json_only');   opts.json_only   = true;  end
     if ~isfield(opts,'temperature'); opts.temperature = 0.2;   end
-    % NOTE: thinking-capable models (e.g. gemini-2.5-pro) spend part of the
+    % NOTE: thinking-capable models (e.g. gemini-3.6-flash) spend part of the
     % output-token budget on internal reasoning (usageMetadata.thoughtsTokenCount).
     % The budget must cover BOTH the thinking and the visible answer, otherwise
     % the response finishes with finishReason=MAX_TOKENS and carries no

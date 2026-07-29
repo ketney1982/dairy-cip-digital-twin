@@ -83,7 +83,7 @@ function report = gemini_explain_pareto()
     usr = strjoin({'SCENARIO METRICS (JSON):', payloadTxt}, newline);
 
     % Budget must cover the model's internal thinking tokens plus the visible
-    % report (thinking-capable models, e.g. gemini-2.5-pro). 8192 is ample.
+    % report (thinking-capable models, e.g. gemini-3.6-flash). 8192 is ample.
     [txt, info] = gemini_call(sys, usr, struct('json_only',false,'temperature',0.3,'max_tokens',8192));
 
     usedMock = ~info.ok || isempty(strtrim(char(txt)));
