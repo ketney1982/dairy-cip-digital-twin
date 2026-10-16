@@ -338,7 +338,10 @@ S(t_end) = s0 * exp(-(k_pre t_pre + k_alk t_alk + k_rinse (t_int + t_final)))
 
 and every other output is an integral of a piecewise-constant rate.
 `src/cip_closed_form.py` implements this solution with the coefficients of
-`src/cip_model_params.m`; it reproduces the 5,000 Simulink scenarios with
+`src/cip_model_params.m`, which it reads from their JSON export
+`results/model_params.json` (written by `src/export_figure_data.m`); the EHPI
+penalty weight 0.25 is the fixed weight of the `output_metrics` block generated
+by `src/build_model.m`. It reproduces the 5,000 Simulink scenarios with
 R² > 0.9999 and makes direct Monte Carlo auditing on the simulator possible.
 
 ### Scripts and outputs
@@ -365,9 +368,28 @@ manuscript.
 | U2 | U1 + inlet-water temperature T_in ~ U(5, 25 °C) |
 | U3 | U2 + k_cal ~ logN(ln 0.08, 0.25); α_T ~ N(0.035, 0.007); β_Q ~ N(0.45, 0.09); γ_NaOH ~ N(0.60, 0.12) |
 
-A recipe is admitted if q0.10(CS) ≥ 95 %. The 30,000-candidate policy envelope
-and the original 5,000-scenario design are regenerated exactly from MATLAB
-`rng(42)` (`cip_closed_form.matlab_rand`).
+A recipe is admitted if q0.10(CS) ≥ 95 %. This is the only probabilistic
+rejection criterion and it is the same for all policy profiles; the
+policy-specific caps (e.g. R_hyg ≤ 0.1 for hygiene priority) are applied at
+nominal conditions. The 30,000-candidate policy envelope and the original
+5,000-scenario design are regenerated exactly from MATLAB `rng(42)`
+(`cip_closed_form.matlab_rand`).
+
+Two additional checks are written by `src/run_robustness_audit.py`:
+
+- *Policy cap in the upper tail.* `policy_recipes_MC_audit.csv`, column
+  `policy_Rhyg_cap_met_q90`, states whether the hygiene-priority recipe also
+  meets q0.90(R_hyg) ≤ 0.1 (it does not: 0.14–0.36). In
+  `candidate_level_admission_and_selection.csv`, the screenings
+  `U0_with_Rhyg_cap` and `U3_with_Rhyg_cap` add this condition to the
+  audit-then-select filter of the hygiene-priority profile; `candidate_q10.npz`
+  holds the candidate-level q0.90(R_hyg) (`Rhyg_q90_U0`, `Rhyg_q90_U3`).
+- *Setpoint errors at the bounds.* In U1–U3 the realised T, Q and c_NaOH can
+  leave the Table 1 bounds (setpoints near 85 °C or 2.5 %). The column
+  `frac_draws_outside_bounds` gives the share of such draws; the columns
+  `CS_q10_bounded`, `Rhyg_q90_bounded` and `admitted_bounded`, the screenings
+  `U0_bounded` and `U3_bounded` and the arrays `U0_bounded`, `U3_bounded` repeat
+  the audit with the realised values truncated to the bounds.
 
 ### Reproduction
 

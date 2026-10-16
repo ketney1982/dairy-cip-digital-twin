@@ -44,10 +44,24 @@ def draws(level, M, rng):
     return d
 
 
-def mc_eval(x, d):
+def realised(T_set, Q_set, C_set, d, bounded=False):
+    """Realised T, Q and c_NaOH under the setpoint errors of the draws. With
+    bounded=True they are truncated to the Table 1 bounds (sensitivity variant:
+    the plant cannot run outside the admissible setpoint range)."""
+    T, Q, C = T_set + d["dT"], Q_set * d["fQ"], C_set * d["fC"]
+    if bounded:
+        T, Q, C = np.clip(T, LB[0], UB[0]), np.clip(Q, LB[1], UB[1]), np.clip(C, LB[6], UB[6])
+    return T, Q, C
+
+
+def outside_bounds(T, Q, C):
+    return (T < LB[0]) | (T > UB[0]) | (Q < LB[1]) | (Q > UB[1]) | (C < LB[6]) | (C > UB[6])
+
+
+def mc_eval(x, d, bounded=False):
     """x: recipe vector (10,), d: draws dict -> outputs dict (arrays length M)."""
-    T = x[0] + d["dT"]
-    return simulate(T, x[1] * d["fQ"], x[2], x[3], x[4], x[5], x[6] * d["fC"], d["s0"],
+    T, Q, C = realised(x[0], x[1], x[6], d, bounded)
+    return simulate(T, Q, x[2], x[3], x[4], x[5], C, d["s0"],
                     x[8], x[9], T_in=d["T_in"], k_cal=d["k_cal"], alpha_T=d["alpha_T"],
                     beta_Q=d["beta_Q"], gamma=d["gamma"])
 
@@ -101,10 +115,22 @@ if __name__ == "__main__":
             y = mc_eval(x, d)
             s = summarise(y)
             s.update(profile=prof, uncertainty=lev, admitted=bool(s["CS_q10"] >= 95.0))
+            # the hygiene-priority profile also has the nominal cap Rhyg <= 0.1;
+            # check whether it holds in the upper tail as well (diagnostic only)
+            s["policy_Rhyg_cap_met_q90"] = bool(s["Rhyg_q90"] <= 0.1) if prof == "hygiene_priority" else None
+            # share of draws whose realised T, Q or c_NaOH leave the Table 1 bounds,
+            # and the audit repeated with the realised values truncated to the bounds
+            s["frac_draws_outside_bounds"] = float(np.mean(outside_bounds(*realised(x[0], x[1], x[6], d))))
+            yb = mc_eval(x, d, bounded=True)
+            s["CS_q10_bounded"] = float(np.quantile(yb["cleaning_score"], 0.10))
+            s["Rhyg_q90_bounded"] = float(np.quantile(yb["hygienic_risk"], 0.90))
+            s["admitted_bounded"] = bool(s["CS_q10_bounded"] >= 95.0)
             rows.append(s)
             store[(prof, lev)] = y["cleaning_score"]
     aud = pd.DataFrame(rows)[["profile", "uncertainty", "CS_mean", "CS_q10", "CS_q05", "P_CS_ge_95",
-                              "admitted", "Rhyg_q90", "COD_q90", "water_q90", "energy_q50", "energy_q90", "CF_q90"]]
+                              "admitted", "Rhyg_q90", "COD_q90", "water_q90", "energy_q50", "energy_q90", "CF_q90",
+                              "policy_Rhyg_cap_met_q90", "frac_draws_outside_bounds", "CS_q10_bounded",
+                              "Rhyg_q90_bounded", "admitted_bounded"]]
     aud.to_csv(os.path.join(OUT, "policy_recipes_MC_audit.csv"), index=False)
     print(aud.round(3).to_string())
     np.savez_compressed(os.path.join(OUT, "CS_draws.npz"),
@@ -125,22 +151,30 @@ if __name__ == "__main__":
              "cod_discharge_limit": [0.15, 0.10, 0.40, 0.10, 0.15],
              "hygiene_priority": [0.10, 0.10, 0.15, 0.10, 0.55]}
     Mc = 1000
-    q10 = {}
+    q10, r90, q10b = {}, {}, {}
     for lev in ["U0", "U3"]:
         rng = np.random.default_rng(SEED + 1)
         d = draws(lev, Mc, rng)
+        dd = {k: v[None, :] for k, v in d.items()}
         # vectorised over candidates in chunks: (n_cand, Mc)
-        q = np.empty(len(Xc))
+        q, r, qb = np.empty(len(Xc)), np.empty(len(Xc)), np.empty(len(Xc))
         for a in range(0, len(Xc), 500):
             Xb = Xc[a:a + 500]
-            T = Xb[:, [0]] + d["dT"][None, :]
-            y = simulate(T, Xb[:, [1]] * d["fQ"][None, :], Xb[:, [2]], Xb[:, [3]], Xb[:, [4]], Xb[:, [5]],
-                         Xb[:, [6]] * d["fC"][None, :], d["s0"][None, :], Xb[:, [8]], Xb[:, [9]],
-                         T_in=d["T_in"][None, :], k_cal=d["k_cal"][None, :], alpha_T=d["alpha_T"][None, :],
-                         beta_Q=d["beta_Q"][None, :], gamma=d["gamma"][None, :])
-            q[a:a + 500] = np.quantile(y["cleaning_score"], 0.10, axis=1)
-        q10[lev] = q
+            for bounded in (False, True):
+                T, Q, C = realised(Xb[:, [0]], Xb[:, [1]], Xb[:, [6]], dd, bounded)
+                y = simulate(T, Q, Xb[:, [2]], Xb[:, [3]], Xb[:, [4]], Xb[:, [5]],
+                             C, dd["s0"], Xb[:, [8]], Xb[:, [9]],
+                             T_in=dd["T_in"], k_cal=dd["k_cal"], alpha_T=dd["alpha_T"],
+                             beta_Q=dd["beta_Q"], gamma=dd["gamma"])
+                if bounded:
+                    qb[a:a + 500] = np.quantile(y["cleaning_score"], 0.10, axis=1)
+                else:
+                    q[a:a + 500] = np.quantile(y["cleaning_score"], 0.10, axis=1)
+                    r[a:a + 500] = np.quantile(y["hygienic_risk"], 0.90, axis=1)
+        q10[lev], r90[lev], q10b[lev] = q, r, qb
     np.savez_compressed(os.path.join(OUT, "candidate_q10.npz"), X=Xc, U0=q10["U0"], U3=q10["U3"],
+                        Rhyg_q90_U0=r90["U0"], Rhyg_q90_U3=r90["U3"],
+                        U0_bounded=q10b["U0"], U3_bounded=q10b["U3"],
                         **{k: Y[k] for k in ["water_L", "total_energy_kWh", "COD_mgL", "CO2eq_kg", "cleaning_score", "hygienic_risk", "EHPI"]})
 
     def select(mask, prof):
@@ -154,16 +188,27 @@ if __name__ == "__main__":
               + w[3] * nz(Y["CO2eq_kg"]) + w[4] * (1 - nz(Y["cleaning_score"])))
         return idx[np.argmin(sc)]
 
+    # screenings: nominal; audit-then-select (U0, U3); the same with the realised
+    # setpoints truncated to the Table 1 bounds; and, for hygiene priority, the
+    # audit extended to its own cap in the upper tail, q0.90(Rhyg) <= 0.1
+    screens = {"nominal": lambda m: m,
+               "U0": lambda m: m & (q10["U0"] >= 95), "U3": lambda m: m & (q10["U3"] >= 95),
+               "U0_bounded": lambda m: m & (q10b["U0"] >= 95), "U3_bounded": lambda m: m & (q10b["U3"] >= 95),
+               "U0_with_Rhyg_cap": lambda m: m & (q10["U0"] >= 95) & (r90["U0"] <= 0.1),
+               "U3_with_Rhyg_cap": lambda m: m & (q10["U3"] >= 95) & (r90["U3"] <= 0.1)}
     crow = []
     for prof, m in caps.items():
-        for lev in ["nominal", "U0", "U3"]:
-            mask = m if lev == "nominal" else (m & (q10[lev] >= 95))
+        for lev, f in screens.items():
+            if lev.endswith("Rhyg_cap") and prof != "hygiene_priority":
+                continue
+            mask = f(m)
             j = select(mask, prof)
             out = dict(profile=prof, screening=lev, n_nominal_feasible=int(m.sum()), n_admitted=int(mask.sum()))
             if j is not None:
                 out.update({v: Xc[j, i] for i, v in enumerate(VARS)})
                 out.update({k: Y[k][j] for k in ["water_L", "total_energy_kWh", "COD_mgL", "CO2eq_kg", "cleaning_score", "hygienic_risk", "EHPI"]})
-                out.update(q10_U0=q10["U0"][j], q10_U3=q10["U3"][j])
+                out.update(q10_U0=q10["U0"][j], q10_U3=q10["U3"][j],
+                           Rhyg_q90_U0=r90["U0"][j], Rhyg_q90_U3=r90["U3"][j])
             crow.append(out)
     cand = pd.DataFrame(crow)
     cand.to_csv(os.path.join(OUT, "candidate_level_admission_and_selection.csv"), index=False)

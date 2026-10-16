@@ -4,6 +4,8 @@
 
 # Dairy CIP Digital Twin
 
+> **Terminology (revision R1).** In the revised manuscript (*A safety-governed simulation framework for auditing the robustness of Pareto-optimal cleaning-in-place recipes in dairy processing*) this project is described as a **simulation framework**, i.e. a digital model in the sense of Kritzinger et al. (2018), and not as a digital twin, because it has no automated data exchange with a physical plant. The repository, file names and older sections of this README keep the term "digital twin" only for continuity of published links.
+
 Proof-of-concept MATLAB/Simulink project for a dairy Cleaning-in-Place (CIP) digital twin, surrogate modeling, Pareto optimization, and governed Gemini-based reporting.
 
 > All data, figures, metrics, and reports in this repository are **simulation-generated synthetic data**. The coefficients are proof-of-concept values and are **not calibrated to a real dairy plant**.
@@ -26,8 +28,6 @@ Gemini is never used inside the Simulink solver or the optimizer. It is a decisi
 - `data/` - the simulation-derived synthetic dataset.
 - `results/` - validation reports, surrogate metrics, Pareto solutions, policy JSON, and AI audit/explanation outputs (heavy binary `.mat` model states are ignored in Git but automatically rebuilt upon running the pipeline).
 - `docs/` - methodology and limitations notes; Section 11 of `docs/methodology_note.md` documents the analyses added in the manuscript revision R1 (closed-form simulator, simulator-based Monte Carlo robustness audit, threshold and Sobol sensitivity, extended surrogate validation), whose scripts are in `src/` and outputs in `results/`.
-
-> **Terminology (revision R1).** Because this project has no automated data exchange with a physical plant, the revised manuscript describes it as a *simulation framework* (a digital model in the sense of Kritzinger et al., 2018). File and repository names that contain "digital_twin" are kept for continuity of published links.
 
 The tracked `data/` and `results/` directories are intentional. They contain the reproducible study data and analytical results. Styling files, publication figures/tables, and heavy binary model states (`.mat`) are excluded from GitHub to maintain repository cleanliness and focus strictly on the code, data, and scientific logic.
 
