@@ -317,3 +317,74 @@ require experimental calibration before operational interpretation.
   (scatter + binned-mean trend).
 - **`fig_correlation_heatmap.png`** — Pearson correlation heatmap of key inputs
   and outputs in the synthetic dataset.
+
+## 11. Revision R1 analyses (Journal of Food Engineering)
+
+The analyses added in the first revision use the existing layout: scripts in
+`src/`, outputs in `results/`. The original pipeline (sections 1–10) is unchanged.
+In the revised manuscript the system is called a *simulation framework* (a
+digital model in the sense of Kritzinger et al., 2018), because it has no
+automated data exchange with a physical plant; file names containing
+`digital_twin` are kept for continuity of published links.
+
+### Closed-form simulator
+
+Because `k_phase` is constant within each phase, `dS/dt = -k_phase(t) S` has the
+exact solution
+
+```
+S(t_end) = s0 * exp(-(k_pre t_pre + k_alk t_alk + k_rinse (t_int + t_final)))
+```
+
+and every other output is an integral of a piecewise-constant rate.
+`src/cip_closed_form.py` implements this solution with the coefficients of
+`src/cip_model_params.m`; it reproduces the 5,000 Simulink scenarios with
+R² > 0.9999 and makes direct Monte Carlo auditing on the simulator possible.
+
+### Scripts and outputs
+
+| Script | Outputs in `results/` | Manuscript items |
+|---|---|---|
+| `src/verify_closed_form.py` | `closed_form_vs_simulink.csv`, `timing_closed_form.json` | Eq. (4a); Table S11 |
+| `src/run_robustness_audit.py` | `policy_recipes_unrounded.json`, `policy_recipes_nominal_surrogate_vs_simulator.csv`, `policy_recipes_MC_audit.csv`, `CS_draws.npz`, `candidate_level_admission_and_selection.csv`, `candidate_q10.npz`, `uncertainty_sets.json` | Tables 3–5, S7, S9; Fig. 5 |
+| `src/run_threshold_sensitivity.py` | `threshold_quantile_sensitivity.csv`, `water_energy_fronts_nominal_vs_robust.csv`, `candidates_quantiles.npz` | Table S10; Figs. 6, S8 |
+| `src/run_sobol_sensitivity.py` | `sobol_indices.csv` | Table S12; Fig. S7 |
+| `src/validate_surrogates_extended.m` | `surrogate_5fold_cv.csv`, `surrogate_random_and_region_splits.csv`, `surrogate_vs_simulator_MC_audit_U0.csv`, `timing_matlab.csv`, `surrogate_validation_log.txt` | Table 2, Tables S8, S11; Fig. S9 |
+| `src/qrf_prediction_intervals.m` | `QRF_PI_coverage_base5000.csv` | Table 2 (prediction intervals) |
+| `src/trace_original_table4_audit.m` | `QRF_trace_of_original_Table4.csv` | response to reviewers (R1.28) |
+
+The outputs contain the data underlying every table and figure of the revised
+manuscript.
+
+### Uncertainty sets of the robustness audit
+
+| Set | Uncertain quantities |
+|---|---|
+| U0 | initial soil load s0 ~ U(0.1, 1.0) |
+| U1 | U0 + T ~ N(T_set, 1.5 °C); Q and c_NaOH × (1 + N(0, 0.05)) |
+| U2 | U1 + inlet-water temperature T_in ~ U(5, 25 °C) |
+| U3 | U2 + k_cal ~ logN(ln 0.08, 0.25); α_T ~ N(0.035, 0.007); β_Q ~ N(0.45, 0.09); γ_NaOH ~ N(0.60, 0.12) |
+
+A recipe is admitted if q0.10(CS) ≥ 95 %. The 30,000-candidate policy envelope
+and the original 5,000-scenario design are regenerated exactly from MATLAB
+`rng(42)` (`cip_closed_form.matlab_rand`).
+
+### Reproduction
+
+Python 3.11 with `requirements.txt`; MATLAB R2026a with Simulink and the
+Statistics and Machine Learning Toolbox.
+
+```bash
+cd src
+python verify_closed_form.py
+python run_robustness_audit.py
+python run_threshold_sensitivity.py
+python run_sobol_sensitivity.py
+matlab -batch "validate_surrogates_extended"
+matlab -batch "qrf_prediction_intervals"
+matlab -batch "trace_original_table4_audit"
+```
+
+Seeds: MATLAB `rng(42)` (design, splits), NumPy 2026 (Monte Carlo audits), 7
+(Sobol samples). The Python scripts reproduce the files in `results/` byte for
+byte; only the timing files depend on the computer.

@@ -1,0 +1,74 @@
+region soil0_ge_0.85: n_test=832
+region T_ge_79C: n_test=730
+region Q_ge_2.6: n_test=763
+region t_alk_le_500s: n_test=650
+region NaOH_ge_2.2: n_test=749
+           profile           surrogate_q10_CS    surrogate_q90_Rhyg    simulator_q10_CS
+    _____________________    ________________    __________________    ________________
+
+    "balanced_default"            93.223              0.90741               92.876     
+    "cod_discharge_limit"         91.247              0.87213               90.009     
+    "hygiene_priority"            99.187              0.28879                99.31     
+
+    LSBoost_training_7targets_s    LSBoost_predict_s_per_scenario_7targets    Simulink_first_run_incl_compile_s    Simulink_fastrestart_s_per_run    Simulink_normal_s_per_run
+    ___________________________    _______________________________________    _________________________________    ______________________________    _________________________
+
+              9.4876                             0.00042644                                40.481                             0.34818                         0.69525         
+
+                 split                        target             R2        RMSE        MAE   
+    ________________________________    __________________    ________    _______    ________
+
+    "random_80_20"                      "water_L"               0.9921       38.6      28.164
+    "random_80_20"                      "total_energy_kWh"     0.99228     1.5187      1.0507
+    "random_80_20"                      "COD_mgL"              0.99776    0.51352     0.35424
+    "random_80_20"                      "CO2eq_kg"             0.99332    0.28257     0.20118
+    "random_80_20"                      "cleaning_score"       0.96899     1.0139      0.6494
+    "random_80_20"                      "EHPI"                 0.98537     1.3776      1.0762
+    "random_80_20"                      "hygienic_risk"        0.91833    0.10405    0.083481
+    "leave_region_out:soil0_ge_0.85"    "water_L"              0.99281     37.434       27.54
+    "leave_region_out:soil0_ge_0.85"    "total_energy_kWh"      0.9928     1.4788      1.0779
+    "leave_region_out:soil0_ge_0.85"    "COD_mgL"             0.032549     3.9301      3.4499
+    "leave_region_out:soil0_ge_0.85"    "CO2eq_kg"              0.9924    0.30396     0.21508
+    "leave_region_out:soil0_ge_0.85"    "cleaning_score"         0.892     2.6257      1.6318
+    "leave_region_out:soil0_ge_0.85"    "EHPI"                 0.94181     2.3766      1.6602
+    "leave_region_out:soil0_ge_0.85"    "hygienic_risk"        0.82641    0.12748     0.10574
+    "leave_region_out:T_ge_79C"         "water_L"              0.99406      33.83      24.798
+    "leave_region_out:T_ge_79C"         "total_energy_kWh"     0.97495     3.5189       2.381
+    "leave_region_out:T_ge_79C"         "COD_mgL"              0.99637    0.67788     0.48004
+    "leave_region_out:T_ge_79C"         "CO2eq_kg"             0.97555    0.69564     0.46879
+    "leave_region_out:T_ge_79C"         "cleaning_score"       0.85734     1.2332      0.8516
+    "leave_region_out:T_ge_79C"         "EHPI"                 0.97373     2.0101      1.6767
+    "leave_region_out:T_ge_79C"         "hygienic_risk"        0.80591    0.15514     0.12918
+    "leave_region_out:Q_ge_2.6"         "water_L"              0.87539     152.31      122.29
+    "leave_region_out:Q_ge_2.6"         "total_energy_kWh"     0.93901     5.5685      3.8889
+    "leave_region_out:Q_ge_2.6"         "COD_mgL"              0.99774    0.53182     0.38937
+    "leave_region_out:Q_ge_2.6"         "CO2eq_kg"             0.93581     1.1429     0.80775
+    "leave_region_out:Q_ge_2.6"         "cleaning_score"       0.92582    0.93256      0.6709
+    "leave_region_out:Q_ge_2.6"         "EHPI"                 0.90261     2.7285      2.3233
+    "leave_region_out:Q_ge_2.6"         "hygienic_risk"        0.88272    0.12297     0.10244
+    "leave_region_out:t_alk_le_500s"    "water_L"              0.92884      79.22       61.57
+    "leave_region_out:t_alk_le_500s"    "total_energy_kWh"     0.44027      4.021      3.1459
+    "leave_region_out:t_alk_le_500s"    "COD_mgL"              0.98543     1.1839     0.81942
+    "leave_region_out:t_alk_le_500s"    "CO2eq_kg"             0.40596    0.82917     0.64423
+    "leave_region_out:t_alk_le_500s"    "cleaning_score"       0.86706     2.5459      1.7075
+    "leave_region_out:t_alk_le_500s"    "EHPI"                 0.85769     3.0933      2.5458
+    "leave_region_out:t_alk_le_500s"    "hygienic_risk"        0.66854    0.11917    0.097579
+    "leave_region_out:NaOH_ge_2.2"      "water_L"              0.99194     38.391      27.478
+    "leave_region_out:NaOH_ge_2.2"      "total_energy_kWh"      0.9913     1.5686     0.99571
+    "leave_region_out:NaOH_ge_2.2"      "COD_mgL"              0.99709    0.57946     0.41469
+    "leave_region_out:NaOH_ge_2.2"      "CO2eq_kg"             0.99097     0.3199     0.20555
+    "leave_region_out:NaOH_ge_2.2"      "cleaning_score"       0.94875      1.166     0.75551
+    "leave_region_out:NaOH_ge_2.2"      "EHPI"                 0.98281     1.4809      1.1722
+    "leave_region_out:NaOH_ge_2.2"      "hygienic_risk"         0.9057    0.11581    0.096709
+
+          target          R2_mean      R2_sd       RMSE_mean     RMSE_sd     MAE_mean     MAE_sd  
+    __________________    _______    __________    _________    _________    ________    _________
+
+    "water_L"             0.99276    0.00065294      36.501        1.0297      26.702       1.0084
+    "total_energy_kWh"    0.99237     0.0006401       1.521      0.062817      1.0646     0.042299
+    "COD_mgL"             0.99727    0.00028641     0.56426      0.029012     0.37858     0.015477
+    "CO2eq_kg"            0.99237    0.00067183     0.30432      0.012963     0.21349    0.0081995
+    "cleaning_score"       0.9658     0.0045905      1.0683      0.072283      0.6791     0.037056
+    "EHPI"                0.98439     0.0011911      1.4193      0.057659      1.0994     0.038659
+    "hygienic_risk"       0.91603     0.0065426     0.10509     0.0035021    0.083542    0.0028171
+

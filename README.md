@@ -25,7 +25,9 @@ Gemini is never used inside the Simulink solver or the optimizer. It is a decisi
 - `model/` - the regenerable Simulink model `dairy_cip_digital_twin.slx`.
 - `data/` - the simulation-derived synthetic dataset.
 - `results/` - validation reports, surrogate metrics, Pareto solutions, policy JSON, and AI audit/explanation outputs (heavy binary `.mat` model states are ignored in Git but automatically rebuilt upon running the pipeline).
-- `docs/` - methodology and limitations notes.
+- `docs/` - methodology and limitations notes; Section 11 of `docs/methodology_note.md` documents the analyses added in the manuscript revision R1 (closed-form simulator, simulator-based Monte Carlo robustness audit, threshold and Sobol sensitivity, extended surrogate validation), whose scripts are in `src/` and outputs in `results/`.
+
+> **Terminology (revision R1).** Because this project has no automated data exchange with a physical plant, the revised manuscript describes it as a *simulation framework* (a digital model in the sense of Kritzinger et al., 2018). File and repository names that contain "digital_twin" are kept for continuity of published links.
 
 The tracked `data/` and `results/` directories are intentional. They contain the reproducible study data and analytical results. Styling files, publication figures/tables, and heavy binary model states (`.mat`) are excluded from GitHub to maintain repository cleanliness and focus strictly on the code, data, and scientific logic.
 

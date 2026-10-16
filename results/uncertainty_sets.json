@@ -1,0 +1,6 @@
+{
+  "U0": "initial soil load s0 ~ U(0.1, 1.0)",
+  "U1": "U0 + operational errors: T ~ N(T_set, 1.5 C); Q, c_NaOH x (1 + N(0, 0.05))",
+  "U2": "U1 + inlet-water temperature T_in ~ U(5, 25 C)",
+  "U3": "U2 + kinetic-parameter uncertainty: k_cal ~ LN(ln 0.08, 0.25); alpha_T ~ N(0.035, 0.007); beta_Q ~ N(0.45, 0.09); gamma_NaOH ~ N(0.60, 0.12)"
+}
