@@ -353,6 +353,7 @@ R² > 0.9999 and makes direct Monte Carlo auditing on the simulator possible.
 | `src/verify_closed_form.py` | `closed_form_vs_simulink.csv`, `timing_closed_form.json` | Eq. (4a); Table S11 |
 | `src/run_robustness_audit.py` | `policy_recipes_unrounded.json`, `policy_recipes_nominal_surrogate_vs_simulator.csv`, `policy_recipes_MC_audit.csv`, `CS_draws.npz`, `candidate_level_admission_and_selection.csv`, `candidate_q10.npz`, `uncertainty_sets.json`, `kcal_central_sensitivity.csv` | Tables 3–5, S7, S9, S13; Fig. 5 |
 | `src/run_counterfactual_closed_form.py` | `counterfactual_closed_form.csv` | Table S4; Fig. S4 |
+| `src/run_audit_benchmarks.py` | `audit_deterministic_benchmarks.csv`, `pareto_front_audit.csv`, `mc_threshold_stability.csv`, `structural_sensitivity.csv` | Table 5 (deterministic benchmarks); Tables S14, S15 |
 | `src/run_threshold_sensitivity.py` | `threshold_quantile_sensitivity.csv`, `water_energy_fronts_nominal_vs_robust.csv`, `candidates_quantiles.npz` | Table S10; Figs. 6, S8 |
 | `src/run_sobol_sensitivity.py` | `sobol_indices.csv` | Table S12; Fig. S7 |
 | `src/validate_surrogates_extended.m` | `surrogate_5fold_cv.csv`, `surrogate_random_and_region_splits.csv`, `surrogate_vs_simulator_MC_audit_U0.csv`, `timing_matlab.csv`, `surrogate_validation_log.txt` | Table 2, Tables S8, S11; Fig. S9 |
@@ -371,13 +372,46 @@ candidate-level and policy-recipe audits with the central value of the kinetic
 scaling factor `k_cal` set to 0.06-0.10 (the U3 log-normal spread is kept around
 the new centre; the policy recipes are held fixed).
 
-`run_counterfactual_closed_form.py` re-evaluates the local what-if interventions
-of `run_counterfactual_cip_study.m` (setpoints read from
-`counterfactual_cip_results.csv`) with the closed-form simulator and audits each
-intervened recipe under U0 and U3. The surrogate (quantile-regression-forest)
-predictions in `counterfactual_cip_results.csv` are not constrained by the water
-and energy balances (e.g. lower energy for a hotter wash at fixed flow and
-duration) and are kept for traceability only.
+`run_counterfactual_closed_form.py` applies nine local what-if interventions
+(one or two setpoints changed, clamped to the Table 1 bounds) to the
+balanced-default policy recipe of main Table 3 (`policy_recipes_unrounded.json`),
+evaluates them with the closed-form simulator at s0 = 0.5 and audits each
+intervened recipe under U0 and U3. The original `run_counterfactual_cip_study.m`
+used a baseline taken from the exploratory AI-supervisory layer
+(`ai_supervisory_recommendation.json`) and surrogate (quantile-regression-forest)
+predictions, which are not constrained by the water and energy balances (e.g.
+lower energy for a hotter wash at fixed flow and duration); its output
+`counterfactual_cip_results.csv` is kept for traceability only.
+
+`run_audit_benchmarks.py` (run after `run_robustness_audit.py`) writes four
+checks of the audit:
+
+- `audit_deterministic_benchmarks.csv`: because CS decreases linearly with s0
+  (Eq. 4a), q0.10(CS) under U0 equals the nominal CS at the 90th percentile of
+  the soil-load distribution (s0 = 0.91); the candidate audit is compared with
+  deterministic design-load checks at s0 = 0.91 and 1.0 and with a conservative
+  corner (s0 = 0.91, k_cal at its 10th percentile under U3, 0.0581): number of
+  admitted candidates, agreement with the U3 audit and the selected recipe.
+- `pareto_front_audit.csv`: the 76 recipes of the `gamultiobj` front
+  (`pareto_solutions.csv`) re-simulated at s0 = 0.5 and audited under U0 and U3
+  (M = 10,000, common random numbers as in Table 4).
+- `mc_threshold_stability.csv`: the candidate audit repeated with independent
+  seeds at M = 1,000 and M = 10,000; verdict changes, near-threshold counts,
+  re-selected recipes and distribution-free 95% intervals of q0.10(CS) for the
+  selected recipes.
+- `structural_sensitivity.csv`: ratio k_pre,base / k_alk,base of 0.5, 1, 2 and 3
+  (nominal) and triangular or beta distributions of s0 instead of the uniform
+  one.
+
+**Admission filter versus `safety_shield.m`.** The admission verdicts of the
+revised manuscript (Tables 4 and 5, Figs. 5 and 6) are produced by the
+simulator-level filter of `run_robustness_audit.py` (nominal caps with simulator
+values at s0 = 0.5, then q0.10(CS) >= 95% on the Monte Carlo distribution of the
+simulator). `src/safety_shield.m` is the single-recipe gate of the earlier
+surrogate-based supervisory pipeline (Section 9c): it uses conservative
+quantile-regression-forest bounds at s0 = 0.5 (q0.05 of CS, q0.95 of capped
+outputs) and no Monte Carlo propagation. The two procedures represent different
+uncertainties and their verdicts are not interchangeable.
 
 ### Figures: underlying data
 
@@ -394,7 +428,7 @@ explanatory schematic without data.
 | Fig. 6 | `results/candidates_quantiles.npz`, `results/water_energy_fronts_nominal_vs_robust.csv`, `results/threshold_quantile_sensitivity.csv`, `results/candidate_level_admission_and_selection.csv`, `results/policy_recipes_unrounded.json` |
 | Fig. S1 | `results/demo_timeseries_baseline.csv` |
 | Figs. S2, S3 | `data/dairy_cip_synthetic_dataset.csv` |
-| Fig. S4 | `results/counterfactual_closed_form.csv` |
+| Fig. S4 | `results/counterfactual_closed_form.csv` (baseline: balanced-default recipe) |
 | Fig. S5 | `results/policy_portfolio_results.csv` |
 | Fig. S6 | `results/figS1_phase_summary.csv` |
 | Fig. S7 | `results/sobol_indices.csv` |
@@ -444,13 +478,15 @@ Two additional checks are written by `src/run_robustness_audit.py`:
 
 ### Reproduction
 
-Python 3.11 with `requirements.txt`; MATLAB R2026a with Simulink and the
+Python 3.11 with the pinned `requirements.txt`; MATLAB R2026a with Simulink and the
 Statistics and Machine Learning Toolbox.
 
 ```bash
 cd src
 python verify_closed_form.py
 python run_robustness_audit.py
+python run_audit_benchmarks.py
+python run_counterfactual_closed_form.py
 python run_threshold_sensitivity.py
 python run_sobol_sensitivity.py
 matlab -batch "validate_surrogates_extended"
@@ -459,5 +495,8 @@ matlab -batch "trace_original_table4_audit"
 ```
 
 Seeds: MATLAB `rng(42)` (design, splits), NumPy 2026 (Monte Carlo audits), 7
-(Sobol samples). The Python scripts reproduce the files in `results/` byte for
-byte; only the timing files depend on the computer.
+(Sobol samples); `run_audit_benchmarks.py` uses the independent seeds 2127 and
+2228 for the Monte Carlo stability check. The Python scripts reproduce the files
+in `results/` to floating-point precision (differences of the order of 1e-13 can
+occur between NumPy versions or platforms); only the timing files depend on the
+computer.

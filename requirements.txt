@@ -1,3 +1,4 @@
-numpy>=1.26
-scipy>=1.11
-pandas>=2.1
+# Tested with Python 3.11.16
+numpy==2.4.6
+scipy==1.17.1
+pandas==2.3.3
