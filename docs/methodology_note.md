@@ -351,7 +351,8 @@ R² > 0.9999 and makes direct Monte Carlo auditing on the simulator possible.
 | Script | Outputs in `results/` | Manuscript items |
 |---|---|---|
 | `src/verify_closed_form.py` | `closed_form_vs_simulink.csv`, `timing_closed_form.json` | Eq. (4a); Table S11 |
-| `src/run_robustness_audit.py` | `policy_recipes_unrounded.json`, `policy_recipes_nominal_surrogate_vs_simulator.csv`, `policy_recipes_MC_audit.csv`, `CS_draws.npz`, `candidate_level_admission_and_selection.csv`, `candidate_q10.npz`, `uncertainty_sets.json` | Tables 3–5, S7, S9; Fig. 5 |
+| `src/run_robustness_audit.py` | `policy_recipes_unrounded.json`, `policy_recipes_nominal_surrogate_vs_simulator.csv`, `policy_recipes_MC_audit.csv`, `CS_draws.npz`, `candidate_level_admission_and_selection.csv`, `candidate_q10.npz`, `uncertainty_sets.json`, `kcal_central_sensitivity.csv` | Tables 3–5, S7, S9, S13; Fig. 5 |
+| `src/run_counterfactual_closed_form.py` | `counterfactual_closed_form.csv` | Table S4; Fig. S4 |
 | `src/run_threshold_sensitivity.py` | `threshold_quantile_sensitivity.csv`, `water_energy_fronts_nominal_vs_robust.csv`, `candidates_quantiles.npz` | Table S10; Figs. 6, S8 |
 | `src/run_sobol_sensitivity.py` | `sobol_indices.csv` | Table S12; Fig. S7 |
 | `src/validate_surrogates_extended.m` | `surrogate_5fold_cv.csv`, `surrogate_random_and_region_splits.csv`, `surrogate_vs_simulator_MC_audit_U0.csv`, `timing_matlab.csv`, `surrogate_validation_log.txt` | Table 2, Tables S8, S11; Fig. S9 |
@@ -360,6 +361,23 @@ R² > 0.9999 and makes direct Monte Carlo auditing on the simulator possible.
 
 The outputs contain the data underlying every table and figure of the revised
 manuscript.
+
+`candidate_level_admission_and_selection.csv` also contains a minimum-velocity
+screen (rows `*_min_velocity`): mean velocity of at least 1.5 m/s in the
+22.2-mm internal-diameter reference tube, i.e. Q >= 2.09 m3/h, combined with
+the nominal caps and the q0.10(CS) >= 95% audit (column `velocity_m_s` gives the
+velocity of every selected recipe). `kcal_central_sensitivity.csv` repeats the
+candidate-level and policy-recipe audits with the central value of the kinetic
+scaling factor `k_cal` set to 0.06-0.10 (the U3 log-normal spread is kept around
+the new centre; the policy recipes are held fixed).
+
+`run_counterfactual_closed_form.py` re-evaluates the local what-if interventions
+of `run_counterfactual_cip_study.m` (setpoints read from
+`counterfactual_cip_results.csv`) with the closed-form simulator and audits each
+intervened recipe under U0 and U3. The surrogate (quantile-regression-forest)
+predictions in `counterfactual_cip_results.csv` are not constrained by the water
+and energy balances (e.g. lower energy for a hotter wash at fixed flow and
+duration) and are kept for traceability only.
 
 ### Figures: underlying data
 
@@ -376,7 +394,7 @@ explanatory schematic without data.
 | Fig. 6 | `results/candidates_quantiles.npz`, `results/water_energy_fronts_nominal_vs_robust.csv`, `results/threshold_quantile_sensitivity.csv`, `results/candidate_level_admission_and_selection.csv`, `results/policy_recipes_unrounded.json` |
 | Fig. S1 | `results/demo_timeseries_baseline.csv` |
 | Figs. S2, S3 | `data/dairy_cip_synthetic_dataset.csv` |
-| Fig. S4 | `results/counterfactual_cip_results.csv` |
+| Fig. S4 | `results/counterfactual_closed_form.csv` |
 | Fig. S5 | `results/policy_portfolio_results.csv` |
 | Fig. S6 | `results/figS1_phase_summary.csv` |
 | Fig. S7 | `results/sobol_indices.csv` |

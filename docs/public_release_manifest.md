@@ -69,7 +69,8 @@ consistency warnings.
   `results/uncertainty_pred_vs_obs.csv` - surrogate performance evidence.
 - `results/pareto_solutions.csv`, `results/robust_pareto_solutions.csv`,
   `results/selected_policy_config.json`, `results/policy_portfolio*.csv`,
-  `results/counterfactual_cip_*.csv`, `results/counterfactual_cip_report.md` -
+  `results/counterfactual_cip_*.csv`, `results/counterfactual_cip_report.md`,
+  `results/counterfactual_closed_form.csv` -
   optimization and policy/counterfactual outputs.
 - `results/ai_*.json`, `results/ai_*.txt`, `results/ai_decision_dossier.md`,
   `results/gemini_decision_report.txt`, `results/model_audit_report.json`,

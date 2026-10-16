@@ -177,7 +177,7 @@ if __name__ == "__main__":
                         U0_bounded=q10b["U0"], U3_bounded=q10b["U3"],
                         **{k: Y[k] for k in ["water_L", "total_energy_kWh", "COD_mgL", "CO2eq_kg", "cleaning_score", "hygienic_risk", "EHPI"]})
 
-    def select(mask, prof):
+    def select(mask, prof, Y=Y):
         idx = np.where(mask)[0]
         if len(idx) == 0:
             return None
@@ -210,7 +210,73 @@ if __name__ == "__main__":
                 out.update(q10_U0=q10["U0"][j], q10_U3=q10["U3"][j],
                            Rhyg_q90_U0=r90["U0"][j], Rhyg_q90_U3=r90["U3"][j])
             crow.append(out)
+
+    # minimum-velocity screen (rows appended after the screenings above): mean
+    # velocity >= 1.5 m/s in the 22.2-mm internal-diameter tube of Section 2.3,
+    # i.e. Q >= 2.09 m3/h, combined with the nominal caps and the audit criterion
+    D_TUBE, V_MIN = 0.0222, 1.5
+    Q_MIN = V_MIN * np.pi / 4 * D_TUBE ** 2 * 3600.0
+    for prof, m in caps.items():
+        mv = m & (Xc[:, 1] >= Q_MIN)
+        for lev in ["nominal", "U0", "U3"]:
+            mask = screens[lev](mv)
+            j = select(mask, prof)
+            out = dict(profile=prof, screening=lev + "_min_velocity", n_nominal_feasible=int(mv.sum()),
+                       n_admitted=int(mask.sum()))
+            if j is not None:
+                out.update({v: Xc[j, i] for i, v in enumerate(VARS)})
+                out.update({k: Y[k][j] for k in ["water_L", "total_energy_kWh", "COD_mgL", "CO2eq_kg", "cleaning_score", "hygienic_risk", "EHPI"]})
+                out.update(q10_U0=q10["U0"][j], q10_U3=q10["U3"][j],
+                           Rhyg_q90_U0=r90["U0"][j], Rhyg_q90_U3=r90["U3"][j])
+            crow.append(out)
     cand = pd.DataFrame(crow)
+    cand["velocity_m_s"] = cand["Q_m3h"] / 3600.0 / (np.pi / 4 * D_TUBE ** 2)
     cand.to_csv(os.path.join(OUT, "candidate_level_admission_and_selection.csv"), index=False)
     print(cand[["profile", "screening", "n_nominal_feasible", "n_admitted", "water_L", "total_energy_kWh",
-                "CO2eq_kg", "cleaning_score", "EHPI", "q10_U0", "q10_U3"]].round(3).to_string())
+                "CO2eq_kg", "cleaning_score", "EHPI", "q10_U0", "q10_U3", "velocity_m_s"]].round(3).to_string())
+
+    # ------------- sensitivity to the central value of the kinetic scaling factor
+    # k_cal = 0.08 was set a priori (Supplementary Table S1). The candidate-level
+    # audit and the policy-recipe audit are repeated with the central value
+    # changed by -25% ... +25%; under U3 the log-normal spread (sigma_ln = 0.25)
+    # is kept around the new centre, and the policy recipes are held fixed.
+    base = pd.read_csv(src("dairy_cip_synthetic_dataset.csv"))
+    Xbase = base[VARS].to_numpy(float)
+    krows = []
+    for kc in [0.06, 0.07, 0.08, 0.09, 0.10]:
+        f = kc / P["k_cal"]
+        Yk = simulate_X(Xc, k_cal=kc)
+        nomk = Yk["cleaning_score"] >= 95
+        row = dict(k_cal=kc, base_share_CS_below_95=float(np.mean(simulate_X(Xbase, k_cal=kc)["cleaning_score"] < 95)),
+                   n_nominal_feasible=int(nomk.sum()))
+        for lev in ["U0", "U3"]:
+            d = draws(lev, Mc, np.random.default_rng(SEED + 1))
+            d["k_cal"] = d["k_cal"] * f
+            dd = {k: v[None, :] for k, v in d.items()}
+            qk = np.empty(len(Xc))
+            for a in range(0, len(Xc), 500):
+                Xb = Xc[a:a + 500]
+                T, Q, C = realised(Xb[:, [0]], Xb[:, [1]], Xb[:, [6]], dd)
+                y = simulate(T, Q, Xb[:, [2]], Xb[:, [3]], Xb[:, [4]], Xb[:, [5]], C, dd["s0"], Xb[:, [8]],
+                             Xb[:, [9]], T_in=dd["T_in"], k_cal=dd["k_cal"], alpha_T=dd["alpha_T"],
+                             beta_Q=dd["beta_Q"], gamma=dd["gamma"])
+                qk[a:a + 500] = np.quantile(y["cleaning_score"], 0.10, axis=1)
+            mask = nomk & (qk >= 95)
+            row["n_admitted_" + lev] = int(mask.sum())
+            j = select(mask, "balanced_default", Y=Yk)
+            row.update({f"bal_{lev}_{k}": float(Yk[k][j]) for k in ["water_L", "total_energy_kWh", "cleaning_score"]})
+            row[f"bal_{lev}_Q_m3h"] = float(Xc[j, 1])
+            # fixed policy recipes, M = 10,000 common random numbers as in Table 4
+            d = draws(lev, M, np.random.default_rng(SEED))
+            d["k_cal"] = d["k_cal"] * f
+            for prof, x in rec.items():
+                row[f"{prof}_CS_q10_{lev}"] = float(np.quantile(mc_eval(x, d)["cleaning_score"], 0.10))
+        j = select(nomk, "balanced_default", Y=Yk)
+        row.update({f"bal_nominal_{k}": float(Yk[k][j]) for k in ["water_L", "total_energy_kWh", "cleaning_score"]})
+        row["bal_nominal_q10_U3"] = float(np.nan)
+        for prof, x in rec.items():
+            row[f"{prof}_CS_nominal"] = float(simulate_X(x[None, :], k_cal=kc)["cleaning_score"][0])
+        krows.append(row)
+    ks = pd.DataFrame(krows).drop(columns=["bal_nominal_q10_U3"])
+    ks.to_csv(os.path.join(OUT, "kcal_central_sensitivity.csv"), index=False)
+    print(ks.round(3).T.to_string())

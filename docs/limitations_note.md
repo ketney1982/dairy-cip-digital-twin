@@ -91,7 +91,10 @@ limitations are explicit and must be stated in any derived report or manuscript.
 17. **Counterfactuals are surrogate-predicted, hence associational-through-a-
     learned-model.** The mechanistic twin defines the causal structure; the
     counterfactual engine predicts intervened outcomes via surrogates of that
-    twin. For exact mechanistic effects, re-simulate the intervened recipes.
+    twin. For exact mechanistic effects, re-simulate the intervened recipes;
+    `src/run_counterfactual_closed_form.py` does this with the closed-form
+    simulator (`results/counterfactual_closed_form.csv`), and the revised
+    manuscript reports only those simulator values.
 
 ---
 

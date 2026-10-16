@@ -184,7 +184,9 @@ Additional modules: `train_uncertainty_surrogates.m` (quantile regression
 forests → `models/uncertainty_surrogates.mat`, `results/uncertainty_surrogate_metrics.csv`),
 `optimize_cip_robust_pareto.m` (`results/robust_pareto_solutions.csv`),
 `safety_shield.m` (mandatory deterministic gate, used by the recommender),
-`run_counterfactual_cip_study.m` (`results/counterfactual_cip_results.csv`, `.md`).
+`run_counterfactual_cip_study.m` (`results/counterfactual_cip_results.csv`, `.md`;
+surrogate predictions, re-evaluated on the closed-form simulator by
+`src/run_counterfactual_closed_form.py` → `results/counterfactual_closed_form.csv`).
 
 **The eight layers, distinguished:**
 
