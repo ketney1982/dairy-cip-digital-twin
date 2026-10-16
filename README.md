@@ -22,12 +22,13 @@ cd src
 python verify_closed_form.py              # Eq. (4a) vs the 5,000 Simulink scenarios; Table S11
 python run_robustness_audit.py            # Tables 3-5, S7, S9, S13; Fig. 5
 python run_audit_benchmarks.py            # deterministic benchmarks (Table 5), Pareto-front audit (Table S14), structural sensitivity (Table S15), Monte Carlo stability (Table S16)
-python run_conservative_selection.py      # conservative confirmation: lower 95% confidence bound of q0.10(CS) (Table 5, Table S16)
+python run_conservative_selection.py      # conservative confirmation: lower 95% confidence bound of q0.10(CS) (Table 5, Table S17)
 python run_counterfactual_closed_form.py  # Table S4; Fig. S4
 python run_threshold_sensitivity.py       # Table S10; Figs. 6, S8
 python run_sobol_sensitivity.py           # Table S12; Fig. S7
 matlab -batch "validate_surrogates_extended"   # Table 2, Table S8, Fig. S9
 matlab -batch "qrf_prediction_intervals"       # Table 2 (prediction intervals)
+matlab -batch "verify_solver_convergence"      # Table S11 (Simulink solver settings vs closed form)
 ```
 
 The Python scripts reproduce the tracked result files to floating-point precision (differences of the order of 1e-13 can occur between NumPy versions or platforms); only the timing files depend on the computer.

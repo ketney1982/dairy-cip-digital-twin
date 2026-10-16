@@ -26,7 +26,7 @@ For the full profile-specific hygiene-priority criterion, q0.90(Rhyg) <= 0.1, wh
 is equivalent to q0.10(CS) >= 99.5% because both indicators are monotonic
 functions of the same residual soil, the same rule is applied with the floor 99.5%.
 
-Output: results/conservative_confirmation.csv
+Output: results/conservative_confirmation.csv (Supplementary Table S17)
 """
 import os, json
 import numpy as np, pandas as pd
