@@ -361,6 +361,37 @@ R² > 0.9999 and makes direct Monte Carlo auditing on the simulator possible.
 The outputs contain the data underlying every table and figure of the revised
 manuscript.
 
+### Figures: underlying data
+
+The plotting scripts are not distributed (graphical layout only); each data
+figure is a direct plot of the following tracked files. Fig. 1 is an
+explanatory schematic without data.
+
+| Figure | Underlying files |
+|---|---|
+| Fig. 2 | `data/dairy_cip_synthetic_dataset.csv` |
+| Fig. 3 | `results/surrogate_pred_vs_obs.csv` |
+| Fig. 4 | `results/pareto_solutions.csv` |
+| Fig. 5 | `results/CS_draws.npz`, `results/policy_recipes_MC_audit.csv` |
+| Fig. 6 | `results/candidates_quantiles.npz`, `results/water_energy_fronts_nominal_vs_robust.csv`, `results/threshold_quantile_sensitivity.csv`, `results/candidate_level_admission_and_selection.csv`, `results/policy_recipes_unrounded.json` |
+| Fig. S1 | `results/demo_timeseries_baseline.csv` |
+| Figs. S2, S3 | `data/dairy_cip_synthetic_dataset.csv` |
+| Fig. S4 | `results/counterfactual_cip_results.csv` |
+| Fig. S5 | `results/policy_portfolio_results.csv` |
+| Fig. S6 | `results/figS1_phase_summary.csv` |
+| Fig. S7 | `results/sobol_indices.csv` |
+| Fig. S8 | `results/threshold_quantile_sensitivity.csv` |
+| Fig. S9 | `results/surrogate_random_and_region_splits.csv`, `results/surrogate_5fold_cv.csv` |
+
+The feasible-candidate counts of Fig. S5 (e.g. 17,299 for the balanced
+default, 1,917 for hygiene priority) come from the original surrogate-based
+screening; `candidate_level_admission_and_selection.csv` re-evaluates the same
+30,000 candidates with the simulator (18,006 and 2,314), so the two sets of
+counts differ by evaluator, not by policy definition. In `sobol_indices.csv`, a
+few first-order estimates are slightly negative or slightly larger than the
+total-effect estimate (e.g. EHPI, `water_rec`); these are Monte Carlo
+estimation errors of the Saltelli/Jansen estimators.
+
 ### Uncertainty sets of the robustness audit
 
 | Set | Uncertain quantities |

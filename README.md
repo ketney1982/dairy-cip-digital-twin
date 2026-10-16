@@ -104,7 +104,7 @@ setenv('CIP_SATK_PATH', fullfile(getenv('HOME'), 'tools', 'agentic-toolkits', 's
 6. Dataset summary generation.
 7. Gemini plausibility audit.
 8. Gemini Pareto explanation.
-9. Figure generation.
+9. Figure generation (authors' local plotting step; the plotting scripts are not distributed, see below).
 
 The pipeline is designed to degrade gracefully. Missing optional toolboxes trigger documented fallbacks, and a missing Gemini key switches the AI layer to the Deterministic Offline Reproduction Mode instead of stopping the run.
 
@@ -214,7 +214,7 @@ results require experimental calibration before any operational interpretation.
 - `src/build_dataset_summary.m` - creates a compact dataset summary for auditing.
 - `src/gemini_plausibility_auditor.m` - flags suspicious summary patterns for human review.
 - `src/gemini_explain_pareto.m` - writes a post-hoc management explanation.
-- `src/plot_results.m` - generates the publication figures.
+- `src/plot_results.m` - exports the figure data and calls the authors' local plotting script, which is not part of this repository (see *Figures and Tables*).
 
 ## Expected Outputs
 
@@ -232,18 +232,9 @@ results require experimental calibration before any operational interpretation.
 - `results/gemini_decision_report.txt` - Gemini explanation output.
 - `results/run_manifest.json` - row counts, artifact fingerprints, Gemini mode, and pipeline status.
 
-### Figures and Tables (Manual Post-Processing)
+### Figures and Tables
 
-To maintain focus on the core scientific logic, the direct manuscript files (`manuscript/`), figure files (`figures/`), table files (`tables/`), and header utility tools (`tools/`) are excluded from GitHub. 
-
-However, they can be reproduced locally at any time. Once the MATLAB pipeline runs successfully and exports the CSV artifacts to `data/` and `results/`, you can manually generate the publication-ready assets by running:
-
-```powershell
-# In your local project root:
-python manuscript/make_figures.py
-python manuscript/make_tables.py
-```
-
+The plotting and table-formatting scripts (`manuscript/`, `figures/`, `tables/`, `tools/`) are the authors' presentation layer and are **not distributed** with this repository. They contain only graphical layout; no number shown in a figure or table is computed there. Every data figure and table of the manuscript is a direct rendering of the numerical files tracked in `data/` and `results/`, so all plotted and tabulated values can be checked and re-plotted with any software. The file underlying each figure and table is listed in `docs/methodology_note.md` (Section 11, *Figures: underlying data*). Fig. 1 of the revised manuscript is an explanatory schematic and contains no data.
 
 ## Simulink Model Architecture
 

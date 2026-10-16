@@ -7,8 +7,10 @@
 %% PLOT_RESULTS  Generate manuscript figures with the Python asset pipeline.
 %
 %   MATLAB is the data producer in this project. Publication figures are
-%   rendered by manuscript/make_figures.py from CSV/JSON artifacts in data/ and
-%   results/. This script intentionally does not create fallback MATLAB figures:
+%   rendered by the authors' local plotting script manuscript/make_figures.py,
+%   which is not distributed with the public repository, from CSV/JSON
+%   artifacts in data/ and results/ (files per figure: docs/methodology_note.md,
+%   Section 11). This script intentionally does not create fallback MATLAB figures:
 %   if the Python renderer fails, the pipeline should report the real problem
 %   instead of silently writing lower-quality plots.
 %
@@ -36,7 +38,9 @@ addpath(here);
 
 scriptPath = fullfile(root, 'manuscript', 'make_figures.py');
 if exist(scriptPath, 'file') ~= 2
-    error('plot_results:noPythonScript', 'Python figure script not found:\n  %s', scriptPath);
+    error('plot_results:noPythonScript', ['Python figure script not found:\n  %s\n' ...
+        'The plotting scripts are not distributed; the data underlying each figure\n' ...
+        'are listed in docs/methodology_note.md (Section 11).'], scriptPath);
 end
 
 required = { ...
