@@ -177,6 +177,20 @@ if __name__ == "__main__":
                                   gamma=dd["gamma"])["cleaning_score"])
             row[f"{prof}_sel_original_q10_CI95_low"] = cs[lo - 1]
             row[f"{prof}_sel_original_q10_CI95_high"] = cs[hi - 1]
+    # the same intervals from the independent M = 10,000 audit, for the original and the re-selected recipes
+    lo, hi = os_interval(10000)
+    for row in stab:
+        d = draws(row["uncertainty"], 10000, np.random.default_rng(SEED + 202))
+        for prof in ["balanced_default", "cod_discharge_limit"]:
+            for tag in ("original", "M10000"):
+                j = row[f"{prof}_sel_{tag}_index"]
+                T, Q, C = realised(Xc[j, 0], Xc[j, 1], Xc[j, 6], d)
+                cs = np.sort(simulate(T, Q, Xc[j, 2], Xc[j, 3], Xc[j, 4], Xc[j, 5], C, d["s0"], Xc[j, 8], Xc[j, 9],
+                                      T_in=d["T_in"], k_cal=d["k_cal"], alpha_T=d["alpha_T"], beta_Q=d["beta_Q"],
+                                      gamma=d["gamma"])["cleaning_score"])
+                row[f"{prof}_sel_{tag}_q10_M10000_CI95_low"] = cs[lo - 1]
+                row[f"{prof}_sel_{tag}_q10_M10000_CI95_high"] = cs[hi - 1]
+                row[f"{prof}_sel_{tag}_velocity_m_s"] = float(velocity(Xc[j, 1]))
     st = pd.DataFrame(stab)
     st.to_csv(os.path.join(OUT, "mc_threshold_stability.csv"), index=False)
     print(st.round(3).T.to_string())

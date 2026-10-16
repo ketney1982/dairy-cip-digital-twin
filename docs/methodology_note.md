@@ -353,7 +353,7 @@ R² > 0.9999 and makes direct Monte Carlo auditing on the simulator possible.
 | `src/verify_closed_form.py` | `closed_form_vs_simulink.csv`, `timing_closed_form.json` | Eq. (4a); Table S11 |
 | `src/run_robustness_audit.py` | `policy_recipes_unrounded.json`, `policy_recipes_nominal_surrogate_vs_simulator.csv`, `policy_recipes_MC_audit.csv`, `CS_draws.npz`, `candidate_level_admission_and_selection.csv`, `candidate_q10.npz`, `uncertainty_sets.json`, `kcal_central_sensitivity.csv` | Tables 3–5, S7, S9, S13; Fig. 5 |
 | `src/run_counterfactual_closed_form.py` | `counterfactual_closed_form.csv` | Table S4; Fig. S4 |
-| `src/run_audit_benchmarks.py` | `audit_deterministic_benchmarks.csv`, `pareto_front_audit.csv`, `mc_threshold_stability.csv`, `structural_sensitivity.csv` | Table 5 (deterministic benchmarks); Tables S14, S15 |
+| `src/run_audit_benchmarks.py` | `audit_deterministic_benchmarks.csv`, `pareto_front_audit.csv`, `mc_threshold_stability.csv`, `structural_sensitivity.csv` | Table 5 (deterministic benchmarks); Tables S14 (Pareto front), S15 (structural sensitivity), S16 (Monte Carlo stability) |
 | `src/run_threshold_sensitivity.py` | `threshold_quantile_sensitivity.csv`, `water_energy_fronts_nominal_vs_robust.csv`, `candidates_quantiles.npz` | Table S10; Figs. 6, S8 |
 | `src/run_sobol_sensitivity.py` | `sobol_indices.csv` | Table S12; Fig. S7 |
 | `src/validate_surrogates_extended.m` | `surrogate_5fold_cv.csv`, `surrogate_random_and_region_splits.csv`, `surrogate_vs_simulator_MC_audit_U0.csv`, `timing_matlab.csv`, `surrogate_validation_log.txt` | Table 2, Tables S8, S11; Fig. S9 |
@@ -398,7 +398,8 @@ checks of the audit:
 - `mc_threshold_stability.csv`: the candidate audit repeated with independent
   seeds at M = 1,000 and M = 10,000; verdict changes, near-threshold counts,
   re-selected recipes and distribution-free 95% intervals of q0.10(CS) for the
-  selected recipes.
+  selected recipes (from the original M = 1,000 draws and from the independent
+  M = 10,000 audit, for the original and the re-selected recipes).
 - `structural_sensitivity.csv`: ratio k_pre,base / k_alk,base of 0.5, 1, 2 and 3
   (nominal) and triangular or beta distributions of s0 instead of the uniform
   one.
