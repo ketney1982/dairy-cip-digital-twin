@@ -1,0 +1,38 @@
+U0 10 last point >= floor: 9 mean of last 3 >= floor: 3 min CS last point: 94.6
+U3 13 last point >= floor: 12 mean of last 3 >= floor: 4 min CS last point: 94.6
+nominal 8 last point >= floor: 7 mean of last 3 >= floor: 2 min CS last point: 94.6
+                                     0                1                 2                 3                 4
+parameterisation                    A0               A0                A0                A3                A3
+law                        first-order  uniform removal   uniform removal       first-order   uniform removal
+k_cal_mode                k_cal = 0.08     k_cal = 0.08  k_cal re-centred  k_cal re-centred  k_cal re-centred
+k_cal                             0.08             0.08          0.092643          0.173193          0.183386
+share_base_below_floor          0.3844            0.463            0.3844            0.3844            0.3844
+nominally_feasible               18006            18006             21840             17704             18509
+admitted_U0                      11294             2831              4974             14547             10052
+admitted_U3                       6880             1871              3682             11685              8562
+balanced_q10_U0              92.826441        58.170431         66.037328         99.759486             100.0
+balanced_q10_U3              89.263385        56.837551         63.766249         98.632836             100.0
+cleaning_priority_q10_U0     99.304912            100.0             100.0         99.996527             100.0
+cleaning_priority_q10_U3     98.196916         96.04605             100.0          99.90743             100.0
+balanced_CS_nom              96.084671         99.77908             100.0         99.868727             100.0
+cleaning_priority_CS_nom     99.620621            100.0             100.0         99.998104             100.0
+nominal_n                        18006            18006             21840             17704             18509
+nominal_water_L             145.100432       178.322917        139.045691        115.348824        143.563716
+nominal_energy_kWh            5.362997         5.922779          2.587455          2.603261          2.389703
+nominal_CS                   95.114026        95.155387         95.381546         95.067519         95.306758
+nominal_q10_U3               87.223613        52.230965          53.02605          85.74233         51.204865
+nominal_v_m_s                  0.41175         0.441711           0.42591          0.390079          0.522103
+ATS_U3_n                          6880             1871              3682             11685              8562
+ATS_U3_water_L              348.736447       376.107116        214.687595        218.393769        147.211373
+ATS_U3_energy_kWh             8.534494        14.430205         12.868964          5.438125          4.443018
+ATS_U3_CS                    98.686417            100.0             100.0         98.649494             100.0
+ATS_U3_q10_U3                95.331359            100.0         97.268047         95.069902         98.103457
+ATS_U3_v_m_s                  0.633613         0.841518          0.480534          0.421099          0.364576
+ATS_U3_v15_n                      4212             1353              2436              5065              3893
+ATS_U3_v15_water_L          675.501747       728.049578        725.400269        436.715431         454.50224
+ATS_U3_v15_energy_kWh         9.422008        18.781412          11.25148         13.113353         11.562859
+ATS_U3_v15_CS                98.567429            100.0             100.0         98.737255             100.0
+ATS_U3_v15_q10_U3            95.393806        98.179796         95.064004         95.498184         98.640166
+ATS_U3_v15_v_m_s              1.806474          1.79494          1.860145          1.590387          2.051272
+ATS_over_nominal_water        2.403414         2.109135          1.544008          1.893333          1.025408
+ATS_over_nominal_energy       1.591367         2.436391            4.9736          2.088967          1.859234

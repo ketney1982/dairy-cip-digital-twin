@@ -35,3 +35,7 @@ The model uses Simulink, Statistics and Machine Learning Toolbox, and Global Opt
 - `docs/` - methodology, limitations, and release notes.
 
 The project is a research artifact, not a validated control system. See [CITATION.cff](CITATION.cff) for citation information.
+
+## Acknowledgments
+
+This research was supported by the Google Cloud Research Credits program. All computations and data processing for this project were performed using infrastructure provided by Google Cloud.
