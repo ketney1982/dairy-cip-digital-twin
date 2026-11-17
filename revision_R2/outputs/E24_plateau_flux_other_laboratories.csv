@@ -1,0 +1,15 @@
+source,soil,T_C,v_cm_s,Re,flux_obs_g_m2_s,basis_obs,total_cleaning_time_obs_min,rate_pred_mm_min,flux_pred_g_dry_m2_s,ratio_pred_obs,inside_calibrated_T_and_v
+"Gillham et al. (1999), Table 3","whey-protein fouling deposit, tube",50,5.895,585,0.13,protein,22,0.07177,0.1675,1.288,True
+"Gillham et al. (1999), Table 3","whey-protein fouling deposit, tube",50,15.33,1500,0.14,protein,17,0.1003,0.2341,1.672,True
+"Gillham et al. (1999), Table 3","whey-protein fouling deposit, tube",50,23.58,2340,0.19,protein,12,0.1167,0.2723,1.433,False
+"Gillham et al. (1999), Table 3","whey-protein fouling deposit, tube",50,47.16,4680,0.17,protein,8,0.1488,0.3472,2.043,False
+"Xin et al. (2004), Table 1","WPC gel film, tube",35,29,6080,0.0825,gel solids (R_m x 0.25),,0.04366,0.1019,1.235,False
+"Xin et al. (2004), Table 1","WPC gel film, tube",45,24,6080,0.12,gel solids (R_m x 0.25),,0.0826,0.1927,1.606,False
+"Xin et al. (2004), Table 1","WPC gel film, tube",55,21,6080,0.21,gel solids (R_m x 0.25),,0.1593,0.3718,1.77,True
+"Xin et al. (2004), Table 1","WPC gel film, tube",65,18,6080,0.28,gel solids (R_m x 0.25),,0.3051,0.7119,2.543,True
+"Xin et al. (2004), Table 1","WPC gel film, tube",75,16,6080,0.5175,gel solids (R_m x 0.25),,0.5918,1.381,2.668,False
+"Xin et al. (2004), Table 2","WPC gel film, tube",65,9,,0.22,gel solids (R_m x 0.25),,0.2393,0.5583,2.538,True
+"Xin et al. (2004), Table 2","WPC gel film, tube",65,18,,0.3025,gel solids (R_m x 0.25),,0.3051,0.7119,2.354,True
+"Xin et al. (2004), Table 2","WPC gel film, tube",65,25,,0.3475,gel solids (R_m x 0.25),,0.3424,0.7989,2.299,False
+"Xin et al. (2004), Table 2","WPC gel film, tube",65,37,,0.4625,gel solids (R_m x 0.25),,0.3928,0.9166,1.982,False
+"Xin et al. (2004), Table 2","WPC gel film, tube",65,46,,0.5175,gel solids (R_m x 0.25),,0.424,0.9893,1.912,False

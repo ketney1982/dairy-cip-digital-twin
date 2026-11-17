@@ -1,0 +1,5 @@
+variant,nominally_feasible,admitted_point_estimate,admitted_confirmed_lower_limit,nominal_front_size,front_admitted,front_q10_U3_min,front_q10_U3_median,front_q10_U3_max
+V0 unrestricted,22767,18475,18271,23,0,60.564,67.688,73.381
+V1 clipped,22767,18513,18313,23,0,60.077,66.856,72.378
+V2 setpoints restricted,15323,12657,12529,21,0,61.699,68.541,73.794
+V3 restricted and clipped,15323,12657,12529,21,0,61.699,68.541,73.794

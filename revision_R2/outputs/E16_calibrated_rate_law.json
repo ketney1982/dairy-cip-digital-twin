@@ -1,0 +1,99 @@
+{
+  "calibration_curves": [
+    "Z6b:v=0.5",
+    "Z6b:v=1.0",
+    "Z6b:v=1.5",
+    "Z6b:v=12.0",
+    "Z6b:v=2.0",
+    "Z6b:v=23.0",
+    "Z6c:T=50",
+    "Z6c:T=60"
+  ],
+  "T_ref_C": 70.0,
+  "v_ref_cm_s": 1.0,
+  "M1": {
+    "ref": 0.09387714406986705,
+    "ref_unit": "1/min",
+    "alpha_per_degC": 0.05777449244273657,
+    "beta": 0.3570098478306955,
+    "jackknife_se": {
+      "ref": 0.011515128799802935,
+      "alpha": 0.01215047083555867,
+      "beta": 0.10022709921916222
+    },
+    "apparent_activation_energy_kJ_mol": 53.26406680117288,
+    "fit_rmse_calibration": 0.08697295012807503,
+    "loco_rmse": 0.12026825727292607,
+    "loco_log_t90_ratio_sd": 0.2513393292810346,
+    "validation_log_t90_ratio_mean": 0.529855748143142,
+    "validation_log_t90_ratio_sd": 0.13082491360807413,
+    "jackknife_cov_lnref_alpha_beta": [
+      [
+        0.013949328350750804,
+        0.0009021790972583625,
+        -0.0063935638240309525
+      ],
+      [
+        0.0009021790972583625,
+        0.00014763394152576177,
+        -0.0004366971225627753
+      ],
+      [
+        -0.0063935638240309525,
+        -0.0004366971225627753,
+        0.010045471417887785
+      ]
+    ]
+  },
+  "M0": {
+    "ref": 0.15742678797960405,
+    "ref_unit": "mm/min",
+    "alpha_per_degC": 0.07038117047765943,
+    "beta": 0.3506966006589431,
+    "jackknife_se": {
+      "ref": 0.015179760543394885,
+      "alpha": 0.010826187929533056,
+      "beta": 0.10890176948509864
+    },
+    "apparent_activation_energy_kJ_mol": 64.88654780623844,
+    "fit_rmse_calibration": 0.08554082509622998,
+    "loco_rmse": 0.14719439119042618,
+    "loco_log_t90_ratio_sd": 0.26403841279028223,
+    "validation_log_t90_ratio_mean": -0.026655988176969816,
+    "validation_log_t90_ratio_sd": 0.13601196667009047,
+    "jackknife_cov_lnref_alpha_beta": [
+      [
+        0.008757766838869621,
+        0.0005860065051353341,
+        -0.0031643111010710803
+      ],
+      [
+        0.0005860065051353341,
+        0.00011720634508556723,
+        -0.00025840427318751395
+      ],
+      [
+        -0.0031643111010710803,
+        -0.00025840427318751395,
+        0.01185959539698556
+      ]
+    ]
+  },
+  "water_rinse": {
+    "removed_mm_in_10_min": 0.3,
+    "fraction_of_mean_h0": 0.12295081967213115,
+    "k_water_per_min_first_order": 0.013119221027135041,
+    "k_NaOH_70C_23cms_per_min": 0.28754784458858984,
+    "ratio_first_order": 0.04562448049612549,
+    "r_water_mm_min": 0.03,
+    "r_NaOH_70C_23cms_mm_min": 0.47275045731197257,
+    "ratio_uniform": 0.06345842618657206,
+    "note": "water at 80 degC vs 0.5 wt% NaOH at 70 degC, both at 23 cm/s (Zhang et al., 2025)"
+  },
+  "R1_assumptions": {
+    "alpha_T_per_degC": 0.035,
+    "beta_Q": 0.45,
+    "k_pre_over_k_alk_at_reference": 3.0,
+    "kinetic_order": "first order in every phase"
+  }
+}

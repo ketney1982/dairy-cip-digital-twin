@@ -1,0 +1,154 @@
+{
+  "A_flat_channel_75C": {
+    "source": "Zhang et al. (2026), Fig. 8b",
+    "T_C": 75.0,
+    "v_cm_s": 23.65,
+    "NaOH_wt_pct": 0.5,
+    "n_points": 52,
+    "h0_mm": 2.7601913503824296,
+    "t_end_obs_min": 5.2,
+    "t90_obs_min": 4.999266667254992,
+    "t95_obs_min": 5.1388851861167,
+    "rate_obs_first_stage_mm_min": 0.5087416574438517,
+    "rate_published_mm_min": 0.5,
+    "single_curve_rmse_uniform": 0.026018103255257812,
+    "single_curve_rmse_first_order": 0.061515136246426606,
+    "outside_calibrated_range": "temperature (75 > 70 degC); velocity 23.65 vs 23 cm/s",
+    "M0": {
+      "rate_pred": 0.6787460525161512,
+      "rate_unit": "mm/min",
+      "t90_pred_min": 3.659943518102559,
+      "t90_ratio_pred_obs": 0.7320960776257547,
+      "ln_rate_sd_parameters": 0.32868127311559475,
+      "t90_pred_95ci_parameters": [
+        1.9217426791613421,
+        6.970333073700928
+      ],
+      "curve_rmse": 0.15886652928909742,
+      "curve_bias": -0.1394269448531869,
+      "rate_ratio_pred_obs_first_stage": 1.3341664528249535,
+      "audit_rule_at_unseen_condition": {
+        "nominal": {
+          "wash_time_min": 3.399199933327777,
+          "observed_CS": 65.06318995204418,
+          "observed_pass": false
+        },
+        "U0": {
+          "wash_time_min": 4.049037419784981,
+          "observed_CS": 74.26924105113788,
+          "observed_pass": false
+        },
+        "U3": {
+          "wash_time_min": 5.898574881240103,
+          "observed_CS": 100.0,
+          "observed_pass": true
+        }
+      }
+    },
+    "M1": {
+      "rate_pred": 0.3876919945751692,
+      "rate_unit": "1/min",
+      "t90_pred_min": 5.939212377901191,
+      "t90_ratio_pred_obs": 1.1880167178924077,
+      "ln_rate_sd_parameters": 0.2700389093788848,
+      "t90_pred_95ci_parameters": [
+        3.4983809154781045,
+        10.083019694553181
+      ],
+      "curve_rmse": 0.11471746225208687,
+      "curve_bias": -0.09919771181097399,
+      "audit_rule_at_unseen_condition": {
+        "nominal": {
+          "wash_time_min": 7.198249854154512,
+          "observed_CS": 100.0,
+          "observed_pass": true
+        },
+        "U0": {
+          "wash_time_min": 7.648137344778731,
+          "observed_CS": 100.0,
+          "observed_pass": true
+        },
+        "U3": {
+          "wash_time_min": 11.297224768730725,
+          "observed_CS": 100.0,
+          "observed_pass": true
+        }
+      }
+    },
+    "t_obs_CS95_min": 5.129257143739631
+  },
+  "B_plate_heat_exchanger": {
+    "source": "Zhang et al. (2026), Figs. 5 and 9d; laboratory plate heat exchanger, 2 channels x 3 passes",
+    "wet_density_g_cm3": 1.0,
+    "plate_area_cm2": 2087.2799999999997,
+    "mean_deposit_thickness_mm": 0.6167835652140586,
+    "nominal": {
+      "T_C": 80.0,
+      "v_cm_s": 27.46,
+      "NaOH_wt_pct": 0.5,
+      "t_end_min": 17.0,
+      "t_alkaline_obs_min": 12.0,
+      "rate_flat_channel_mm_min": 1.0169218068900043,
+      "t_uniform_pred_min": 0.6065201483881378,
+      "ratio_pred_obs": 0.050543345699011484,
+      "effluent_final_mass_g": 19.392430413994735,
+      "fraction_removed_at_first_sample": 0.9061143386431038,
+      "t_first_sample_min": 6.50234741784039,
+      "t95_uniform_pred_min": 0.5761941409687309,
+      "t98_uniform_pred_min": 0.594389745420375,
+      "t_alkaline_to_95pct_min": 2.6481881483482095,
+      "t_alkaline_to_98pct_min": 9.15907701010493
+    },
+    "ratio_pred_obs_range_0p5wt": [
+      0.040706318634352104,
+      0.09179193980989703
+    ],
+    "apparent_temperature_coefficient_per_degC": 0.042260203968003486,
+    "apparent_velocity_exponent": 0.44565841935232337,
+    "apparent_NaOH_order_0p125_to_0p5": 0.2924812503605777,
+    "calibrated_flat_channel": {
+      "alpha_per_degC": 0.07038117047765943,
+      "beta": 0.3506966006589431
+    },
+    "note": "t_end is the time at which the protein mass in the tank first reached its final value; it includes a 5-min water flush. Prediction: uniform removal of the mean deposit thickness over the whole plate area at the flat-channel rate; the part removed by the water flush is not subtracted (longer predicted time)."
+  },
+  "C_plateau_flux": {
+    "dry_matter_density_g_cm3": 0.14,
+    "by_source": {
+      "Gillham et al. (1999), Table 3": {
+        "n": 4,
+        "ratio_min": 1.2882062953044076,
+        "ratio_median": 1.552795813857884,
+        "ratio_max": 2.042633435997797
+      },
+      "Xin et al. (2004), Table 1": {
+        "n": 5,
+        "ratio_min": 1.234934970574029,
+        "ratio_median": 1.7702786330777909,
+        "ratio_max": 2.668434950045479
+      },
+      "Xin et al. (2004), Table 2": {
+        "n": 5,
+        "ratio_min": 1.9117795650183158,
+        "ratio_median": 2.2989136026923047,
+        "ratio_max": 2.5377659931803307
+      }
+    },
+    "all": {
+      "n": 14,
+      "ratio_min": 1.234934970574029,
+      "ratio_median": 1.9468265233809081,
+      "ratio_max": 2.668434950045479,
+      "n_inside_calibrated_range": 6
+    }
+  },
+  "D_sensitivities": {
+    "xin_velocity_exponent": 0.5285522076864471,
+    "gillham_time_exponent": 0.49204130220034414,
+    "gillham_plateau_exponent_regression": 0.1574151599782789,
+    "xin_Ea_check_kJ_mol": 40.22844771029844,
+    "NaOH_time_ratio_2p0_vs_0p5_wt_measured": 3.0,
+    "NaOH_time_ratio_2p0_vs_0p5_wt_assumed_power_law": 0.43527528164806206,
+    "NaOH_time_ratio_2p0_vs_1p0_wt_measured": 3.2142857142857144
+  }
+}

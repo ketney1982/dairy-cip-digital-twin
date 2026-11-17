@@ -1,0 +1,67 @@
+Third-party material used for the experimental benchmark (revision R2): provenance and licence notice
+=======================================================================================================
+
+1. Figure images in this folder (unchanged extracts of open-access articles, CC BY 4.0)
+----------------------------------------------------------------------------------------
+The raster images were extracted at native resolution from the published PDF files and were not edited.
+Each image remains the work of the authors named below and is redistributed here under the Creative
+Commons Attribution 4.0 International licence (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/),
+the licence under which the article was published. They are NOT covered by any other licence or terms
+that apply to the rest of this repository or evidence package.
+
+Zhang2025_JFE_Fig6.png, Zhang2025_JFE_Fig9.png, Zhang2025_JFE_Fig11.png
+  Zhang, Y., van den Berg, F.W.J., Andersen, M.L., Portela, L.M., Parjikolaei, B.R., Bakalis, S. (2025).
+  Cleaning in place of whey protein fouling - mechanisms of removal.
+  Journal of Food Engineering 400, 112636. https://doi.org/10.1016/j.jfoodeng.2025.112636
+  (c) 2025 The Authors. Published by Elsevier Ltd. Open access article under the CC BY licence
+  (http://creativecommons.org/licenses/by/4.0/). Figs. 6, 9 and 11 of the article. Changes: none.
+
+Zhang2026_CES_Fig5.png, Zhang2026_CES_Fig8.png, Zhang2026_CES_Fig9.png
+  Zhang, Y., van den Berg, F.W.J., Andersen, M.L., Parjikolaei, B.R., Bakalis, S. (2026).
+  Cleaning in place of plate heat exchangers - Removal behavior of whey protein fouling.
+  Chemical Engineering Science 320, 122395. https://doi.org/10.1016/j.ces.2025.122395
+  (c) 2025 The Author(s). Published by Elsevier Ltd. Open access article under the CC BY licence
+  (http://creativecommons.org/licenses/by/4.0/). Figs. 5, 8 and 9 of the article. Changes: none.
+
+Wiese2024_HMT_Fig10.png
+  Wiese, H., Geissler, H., Augustin, W., Scholl, S. (2024). Diffusive mass transfer and protein removal
+  in the alkaline cleaning of a jellylike whey protein fouling layer.
+  Heat and Mass Transfer 60, 829-840. https://doi.org/10.1007/s00231-023-03391-7
+  (c) The Author(s) 2023. Open access article licensed under a Creative Commons Attribution 4.0
+  International License (http://creativecommons.org/licenses/by/4.0/). Fig. 10 of the article. Changes: none.
+
+The licence of each article was checked in the published PDF and in the Crossref licence metadata of
+its DOI (16 November 2026).
+
+2. Data derived from these figures (adaptations)
+------------------------------------------------
+outputs/E15_digitised_curves.csv, E15_axis_calibration.csv and E24_digitised_Zhang2026.csv contain values
+read from the images above by the scripts e15_digitise_published_cleaning_data.py and
+e24_tests_beyond_calibration_data.py (colour segmentation and axis calibration on the tick/grid positions;
+no manual point picking). They are approximations of the plotted data points, made for this study (2026);
+they are not the original measurements of the authors, who have not reviewed or endorsed the digitised
+values or the analyses based on them. These derived files are made available under CC BY 4.0; when
+reusing them, cite the original article and state that the values were digitised from its figures.
+outputs/E15_published_scalar_observations.csv lists single values quoted from the text of the two
+articles (Zhang et al., 2025; Wiese et al., 2024), with their location.
+
+3. Values quoted from articles that are not open access
+--------------------------------------------------------
+The script e24_tests_beyond_calibration_data.py and its outputs (E24_plateau_flux_other_laboratories.csv,
+E24_published_sensitivities.csv) quote individual numerical results, with their source and location, from:
+  Gillham, C.R., Fryer, P.J., Hasting, A.P.M., Wilson, D.I. (1999). Food and Bioproducts Processing 77,
+    127-136. https://doi.org/10.1205/096030899532420 (Table 3, isothermal experiments; activation energies
+    and Reynolds exponent stated by the authors)
+  Xin, H., Chen, X.D., Ozkan, N. (2004). AIChE Journal 50, 1961-1973. https://doi.org/10.1002/aic.10149
+    (velocity, temperature and uniform-stage rate of Tables 1 and 2; activation energies of Table 3)
+  Tuladhar, T.R., Paterson, W.R., Wilson, D.I. (2002). Food and Bioproducts Processing 80, 199-214.
+    https://doi.org/10.1205/096030802760309223 (cleaning times, activation energies and reaction orders
+    stated in the text)
+Only numerical results (individual values and a few rows of tables) are quoted, for comparison and with citation. No figure, table layout or
+text of these articles is reproduced, and the articles themselves are not distributed here; they remain
+under the copyright of their publishers.
+
+4. Not used
+-----------
+No material was taken from sources whose terms require permission for reuse (e.g. theses with a
+copyright statement), and no plant-derived, confidential or proprietary data are included.

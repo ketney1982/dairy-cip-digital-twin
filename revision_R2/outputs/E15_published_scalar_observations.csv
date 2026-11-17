@@ -1,0 +1,21 @@
+source,location,observation,value,unit,note
+Zhang2025,Section 2.3,NaOH concentration of the cleaning solution,0.5,wt%,all runs
+Zhang2025,Section 3.1,"initial fouling-layer thickness h0, mean",2.44,mm,32 experiments (SD 0.045 as reported)
+Zhang2025,Section 2.2,"initial fouling-layer thickness, range of the average",2.0,mm,lower value of '2 and 3 mm'
+Zhang2025,Section 2.2,"initial fouling-layer thickness, range of the average",3.0,mm,upper value of '2 and 3 mm'
+Zhang2025,Section 3.1,"thickness at the transition to the second stage, mean",0.94,mm,32 experiments
+Zhang2025,Section 3.1,first stage as share of total cleaning time,79.0,%,32 experiments
+Zhang2025,Section 3.1,second-stage / first-stage removal-rate ratio,2.86,-,SD 0.81
+Zhang2025,Abstract,total cleaning time at Re 5500 (23 cm/s) and 70 degC,5.8,min,
+Zhang2025,Section 3.1,"cleaning time at x = 12 cm, 1 cm/s, 70 degC",12.2,min,
+Zhang2025,Section 3.1,"cleaning time at x = 22 cm, 1 cm/s, 70 degC",16.8,min,
+Zhang2025,Section 3.1,thickness removed by a 10-min water flush at 80 degC and 23 cm/s,0.3,mm,no NaOH; 'results not shown' in the source
+Zhang2025,Section 2.2,moisture content of the wet deposit,86.0,wt%,SD 2.79
+Wiese2024,Section 2.3,NaOH concentration,0.125,mol/L,= 0.5 wt%
+Wiese2024,Section 3.3,temperature of the run in Fig. 10,23.5,degC,SD 1.7
+Wiese2024,Section 3.3,flow velocity at start of the run in Fig. 10,0.096,m/s,Re 1200
+Wiese2024,Section 3.3,flow velocity at end of the run in Fig. 10,0.07,m/s,Re 1000
+Wiese2024,Section 3.3,cleaning duration (99.9% of maximum protein concentration),83.0,min,
+Wiese2024,Section 3.3,cleaning duration from layer height (side view),69.0,min,
+Wiese2024,Section 3.4,share of soil removed by the flow after 4.5 min,7.4,%,
+Wiese2024,Section 2.1,initial gel-layer thickness,3.0,mm,15% (w/w) WPI gel

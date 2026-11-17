@@ -1,0 +1,41 @@
+curve,role,kind,T_C,v_cm_s,model,n,rmse,mae,bias,max_abs,t90_obs_min,t90_pred_min,t90_ratio_pred_obs
+W10a_protein:protein,validation: independent laboratory,protein,23.5,8.3,M1,17,0.22374,0.18218,0.18218,0.3511,62.261,169.15,2.7168
+W10a_protein:protein,validation: independent laboratory,protein,23.5,8.3,M0,17,0.46422,0.40245,0.40245,0.67188,62.261,215.42,3.46
+Z11a:v=1.0,validation: whole-channel protein (UV-Vis),protein,70,1,M1,26,0.08737,0.078691,3.2187e-05,0.1361,17.972,24.528,1.3648
+Z11a:v=1.0,validation: whole-channel protein (UV-Vis),protein,70,1,M0,26,0.088724,0.07433,-0.074214,0.16667,17.972,13.949,0.77618
+Z11c:v=0.5,duplicate,protein,70,0.5,M1,28,0.10935,0.097722,-0.0028768,0.17137,21.005,31.414,1.4956
+Z11c:v=0.5,duplicate,protein,70,0.5,M0,28,0.083947,0.07451,-0.074384,0.12864,21.005,17.788,0.84684
+Z11d:v=23.0,validation: whole-channel protein (UV-Vis),protein,70,23,M1,14,0.11167,0.097637,0.097637,0.18658,4.7259,8.0077,1.6944
+Z11d:v=23.0,validation: whole-channel protein (UV-Vis),protein,70,23,M0,14,0.097295,0.064224,0.037892,0.24272,4.7259,4.6452,0.98291
+Z6a:x=12cm,validation: other axial position,thickness,70,1,M1,50,0.093587,0.068995,0.041411,0.29558,12.05,24.528,2.0355
+Z6a:x=12cm,validation: other axial position,thickness,70,1,M0,50,0.079219,0.070263,0.060015,0.20261,12.05,14.356,1.1914
+Z6a:x=16cm,duplicate,thickness,70,1,M1,51,0.068199,0.051516,-0.0094239,0.25299,13.176,24.528,1.8615
+Z6a:x=16cm,duplicate,thickness,70,1,M0,51,0.03373,0.024813,-0.0084286,0.11339,13.176,14.161,1.0747
+Z6a:x=19cm,validation: other axial position,thickness,70,1,M1,58,0.064609,0.049484,-0.024276,0.22664,14.226,24.528,1.7242
+Z6a:x=19cm,validation: other axial position,thickness,70,1,M0,58,0.064879,0.051769,-0.051271,0.14778,14.226,13.627,0.95795
+Z6a:x=22cm,validation: other axial position,thickness,70,1,M1,63,0.068955,0.060702,-0.036303,0.21081,15.27,24.528,1.6063
+Z6a:x=22cm,validation: other axial position,thickness,70,1,M0,63,0.067222,0.048869,-0.048506,0.14649,15.27,14.512,0.95033
+Z6b:v=0.5,calibration,thickness,70,0.5,M1,82,0.094401,0.089449,-0.071279,0.20183,19.96,31.414,1.5739
+Z6b:v=0.5,calibration,thickness,70,0.5,M0,82,0.083665,0.067929,-0.06734,0.16931,19.96,19.317,0.96779
+Z6b:v=1.0,calibration,thickness,70,1,M1,55,0.076261,0.05348,-0.0031381,0.26023,13.061,24.528,1.878
+Z6b:v=1.0,calibration,thickness,70,1,M0,55,0.038139,0.028336,-0.0028985,0.11195,13.061,14.167,1.0847
+Z6b:v=1.5,calibration,thickness,70,1.5,M1,39,0.10024,0.069891,0.012264,0.31366,9.2725,21.222,2.2887
+Z6b:v=1.5,calibration,thickness,70,1.5,M0,39,0.074837,0.048941,0.031,0.24917,9.2725,12.081,1.3028
+Z6b:v=12.0,calibration,thickness,70,12,M1,22,0.080917,0.052856,0.028926,0.22867,5.3008,10.101,1.9056
+Z6b:v=12.0,calibration,thickness,70,12,M0,22,0.11171,0.10444,0.095438,0.217,5.3008,6.816,1.2858
+Z6b:v=2.0,calibration,thickness,70,2,M1,29,0.14515,0.10421,0.046927,0.35647,7.6934,19.151,2.4892
+Z6b:v=2.0,calibration,thickness,70,2,M0,29,0.12371,0.092719,0.061898,0.29765,7.6934,10.732,1.395
+Z6b:v=23.0,calibration,thickness,70,23,M1,18,0.1141,0.10441,-0.073473,0.17848,4.906,8.0077,1.6322
+Z6b:v=23.0,calibration,thickness,70,23,M0,18,0.10787,0.10332,-0.10332,0.1578,4.906,4.6224,0.9422
+Z6c:T=50,calibration,thickness,50,1,M1,111,0.043662,0.034086,0.018179,0.14655,53.351,77.889,1.4599
+Z6c:T=50,calibration,thickness,50,1,M0,111,0.092853,0.076892,0.056421,0.16914,53.351,53.161,0.99643
+Z6c:T=60,calibration,thickness,60,1,M1,50,0.092478,0.075955,-0.045898,0.23252,24.879,43.709,1.7569
+Z6c:T=60,calibration,thickness,60,1,M0,50,0.065355,0.060072,-0.056733,0.1073,24.879,25.076,1.0079
+Z6c:T=70,duplicate,thickness,70,1,M1,27,0.090378,0.063117,0.0004926,0.2528,13.065,24.528,1.8773
+Z6c:T=70,duplicate,thickness,70,1,M0,27,0.044529,0.035091,-0.0097471,0.09118,13.065,14.043,1.0749
+Z9a:v=0.5,validation: whole-channel protein (UV-Vis),protein,70,0.5,M1,27,0.11088,0.098749,-0.0046103,0.171,20.877,31.414,1.5047
+Z9a:v=0.5,validation: whole-channel protein (UV-Vis),protein,70,0.5,M0,27,0.083699,0.075217,-0.075217,0.12498,20.877,17.788,0.85202
+Z9a:v=1.0,validation: whole-channel protein (UV-Vis),protein,70,1,M1,19,0.13676,0.11547,0.094137,0.21678,13.268,24.528,1.8487
+Z9a:v=1.0,validation: whole-channel protein (UV-Vis),protein,70,1,M0,19,0.062627,0.047472,0.040072,0.11625,13.268,13.949,1.0514
+Z9a:v=1.5,validation: whole-channel protein (UV-Vis),protein,70,1.5,M1,16,0.13855,0.11698,0.050787,0.23627,11.101,21.222,1.9118
+Z9a:v=1.5,validation: whole-channel protein (UV-Vis),protein,70,1.5,M0,16,0.041785,0.034208,0.0020274,0.075754,11.101,12.1,1.09

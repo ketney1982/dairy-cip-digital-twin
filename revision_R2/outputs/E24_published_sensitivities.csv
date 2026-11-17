@@ -1,0 +1,20 @@
+quantity,source,value,low,high,basis
+"apparent activation energy, kJ/mol","this work, uniform law (E16)",64.9,,,"calibrated, 50-70 degC; jackknife SE 10"
+"apparent activation energy, kJ/mol","this work, first-order law (E16)",53.3,,,"calibrated, 50-70 degC; jackknife SE 11"
+"apparent activation energy, kJ/mol",illustrative case (assumed alpha_T = 0.035 per degC),32.3,,,assumption of the pipe-circuit case
+"apparent activation energy, kJ/mol",Gillham et al. (1999),,44,63,"plateau rate, Re 585-4680; Fig. 7 caption (44, 51, 63, 50)"
+"apparent activation energy, kJ/mol",Xin et al. (2004),41,38,41,"uniform stage 41, decay stage 38; Table 3"
+"apparent activation energy, kJ/mol",Tuladhar et al. (2002),43,41,46,"overall cleaning 43, swelling 46, decay 41; Section 'Effect of temperature'"
+velocity (Reynolds) exponent of the rate,"this work, uniform law (E16)",0.351,,,"calibrated, 0.5-23 cm/s; jackknife SE 0.11"
+velocity (Reynolds) exponent of the rate,"this work, first-order law (E16)",0.357,,,"calibrated, 0.5-23 cm/s; jackknife SE 0.10"
+velocity (Reynolds) exponent of the rate,illustrative case (assumed beta_Q),0.45,,,assumption of the pipe-circuit case
+velocity (Reynolds) exponent of the rate,Gillham et al. (1999),,0.2,0.35,"plateau rate P ~ Re^n, as stated by the authors (p. 132)"
+velocity (Reynolds) exponent of the rate,"Gillham et al. (1999), total cleaning time",0.492,,,"regression of ln(tau) on ln(Re), isothermal runs at 50 degC, Table 3 (this work)"
+velocity (Reynolds) exponent of the rate,Xin et al. (2004),0.529,,,"regression of ln(R_m) on ln(v), 0.09-0.46 m/s at 65 degC, Table 2 (this work)"
+velocity (Reynolds) exponent of the rate,Tuladhar et al. (2002),,0.0792,0.301,10-fold increase of velocity (0.03-0.30 m/s) shortened cleaning by factors of 1.2 (22 degC) and 2.0 (50 degC)
+velocity (Reynolds) exponent of the rate,"Zhang et al. (2026), plate heat exchanger",0.446,,,"regression of ln(alkaline cleaning time) on ln(v), 6.87-27.46 cm/s at 80 degC, Fig. 5a3 (this work)"
+"temperature coefficient of the cleaning time, per degC","this work, uniform law (E16)",0.0704,,,"calibrated, 50-70 degC"
+"temperature coefficient of the cleaning time, per degC","Zhang et al. (2026), plate heat exchanger",0.0423,,,"regression of ln(alkaline cleaning time) on T, 60-80 degC at 27.46 cm/s, Fig. 5b3 (this work)"
+order in NaOH concentration,illustrative case (assumed gamma_NaOH),0.6,,,"monotonic power law, 0.5-2.0 wt%"
+order in NaOH concentration,Tuladhar et al. (2002),,0.3,0.4,"overall cleaning rate up to 1.0 wt% (Table 1); optimum at 0.5-1.0 wt%; cleaning time at 30 degC: 1060, 900, 840 and 2700 s at 0.3, 0.5, 1.0 and 2.0 wt%"
+order in NaOH concentration,"Zhang et al. (2026), plate heat exchanger",0.292,,,"regression of ln(alkaline cleaning time) on ln(c), 0.125-0.5 wt%, Fig. 5c3 (this work)"

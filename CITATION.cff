@@ -1,0 +1,16 @@
+# Author: Ketney Otto
+# Affiliation: "Lucian Blaga" University of Sibiu, Department of Agricultural
+#              Science and Food Engineering, Dr. I. Ratiu Street, no. 7-9,
+#              550012 Sibiu, Romania
+# Contact: otto.ketney@ulbsibiu.ro | orcid.org/0000-0003-1638-1154
+
+cff-version: 1.2.0
+message: "If you use this synthetic dairy CIP digital-twin proof-of-concept, please cite this repository and the associated manuscript when available."
+title: "Dairy CIP Digital Twin: Synthetic MATLAB/Simulink Proof-of-Concept"
+version: "0.1.0-public-release"
+date-released: "2026-06-02"
+authors:
+  - family-names: "Otto"
+    given-names: "Ketney"
+    orcid: "https://orcid.org/0000-0003-1638-1154"
+affiliation: "\"Lucian Blaga\" University of Sibiu, Department of Agricultural Science and Food Engineering"

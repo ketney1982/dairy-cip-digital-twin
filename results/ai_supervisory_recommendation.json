@@ -1,0 +1,202 @@
+{
+  "mode": "virtual_supervisory_control_recommendation",
+  "not_for_real_time_control": true,
+  "profile": "balanced_default",
+  "candidate_front": "robust_pareto_solutions.csv",
+  "timestamp": "2026-06-03 10:20:57",
+  "data_label": "simulation-generated synthetic data - NOT real industrial data",
+  "selected_recipe": {
+    "T_C": 78.2977,
+    "Q_m3h": 1.8384,
+    "t_pre": 565.3488,
+    "t_alk": 1776.572,
+    "t_int": 185.2355,
+    "t_final": 663.0702,
+    "NaOH_pct": 2.3998,
+    "soil0": 0.5,
+    "heat_rec": 0.5512,
+    "water_rec": 0.5782,
+    "soil0_note": "soil0 is a fixed uncertainty condition, not an operator setpoint.",
+    "predicted_metrics": {
+      "water_L": 685.6198,
+      "total_energy_kWh": 34.6973,
+      "COD_mgL": 21.6174,
+      "CO2eq_kg": 6.7622,
+      "cleaning_score": 99.8138,
+      "hygienic_risk": 0.0364
+    },
+    "selection_weights": {
+      "water_L": 0.2222,
+      "total_energy_kWh": 0.2222,
+      "COD_mgL": 0.2222,
+      "CO2eq_kg": 0.2222,
+      "cleaning_score": 0.1112
+    },
+    "pareto_label": "",
+    "prediction_basis": "ML surrogate over synthetic simulation (not measured)",
+    "conservative_bounds": {
+      "cleaning_score": {
+        "mean": 99.8138,
+        "lower": 99.0786,
+        "upper": 99.9603
+      },
+      "COD_mgL": {
+        "mean": 21.6174,
+        "lower": 15.5045,
+        "upper": 24.1914
+      },
+      "water_L": {
+        "mean": 685.6198,
+        "lower": 533.072,
+        "upper": 1046.6122
+      },
+      "total_energy_kWh": {
+        "mean": 34.6973,
+        "lower": 18.8444,
+        "upper": 52.0388
+      },
+      "CO2eq_kg": {
+        "mean": 6.7622,
+        "lower": 3.8109,
+        "upper": 10.5177
+      },
+      "hygienic_risk": {
+        "mean": 0.0364,
+        "lower": 0.0074,
+        "upper": 0.1847
+      }
+    },
+    "metrics_basis": "uncertainty_conservative"
+  },
+  "rejected_candidates": [],
+  "safety_gate": {
+    "passed": true,
+    "n_candidates": 149,
+    "n_passed": 149,
+    "n_rejected": 0,
+    "failed_checks": [],
+    "advisories": [
+      "Critical surrogate R^2 below 0.90 (uncertainty_surrogate_metrics): cleaning_score"
+    ],
+    "constraints_applied": {
+      "min_cleaning_score": 95,
+      "max_COD_mgL": null,
+      "max_hygienic_risk": null,
+      "max_water_L": null,
+      "max_total_energy_kWh": null,
+      "max_CO2eq_kg": null
+    },
+    "critical_surrogate_R2": {
+      "cleaning_score": 0.8603,
+      "COD_mgL": 0.9882,
+      "water_L": 0.963,
+      "total_energy_kWh": 0.948,
+      "CO2eq_kg": 0.9498
+    },
+    "r2_basis": "uncertainty_conservative",
+    "r2_floor": 0.9,
+    "r2_source": "uncertainty_surrogate_metrics"
+  },
+  "human_approval_required": true,
+  "research_only": true,
+  "model_audit_high_severity": 0,
+  "plausibility_high_severity": 0,
+  "hypothesis_validation": {
+    "available": true,
+    "n_total": 11,
+    "n_supported": 10,
+    "n_partially": 0,
+    "n_not_supported": 1,
+    "n_inconclusive": 0
+  },
+  "open_validation_requirements": [
+    "Calibrate model coefficients against industrial/literature CIP data.",
+    "Validate cleaning_score against microbiological / ATP measurements.",
+    "Independently verify mass/energy balances and effluent COD chemistry.",
+    "Time-resolved effluent COD per CIP phase.",
+    "Initial soil load (soil0) proxy and post-clean residual soil / ATP.",
+    "Inlet/outlet temperatures and thermal energy for heat-recovery validation.",
+    "Water flow and recovered-water fraction per phase."
+  ],
+  "safety_shield": {
+    "mode": "deterministic_safety_shield",
+    "not_for_real_time_control": true,
+    "human_approval_required": true,
+    "data_label": "simulation-generated synthetic data - synthetic feasibility check only",
+    "recipe": {
+      "T_C": 78.2977,
+      "Q_m3h": 1.8384,
+      "t_pre": 565.3488,
+      "t_alk": 1776.572,
+      "t_int": 185.2355,
+      "t_final": 663.0702,
+      "NaOH_pct": 2.3998,
+      "soil0": 0.5,
+      "heat_rec": 0.5512,
+      "water_rec": 0.5782
+    },
+    "constraints_applied": {
+      "min_cleaning_score": 95,
+      "max_COD_mgL": null,
+      "max_hygienic_risk": null,
+      "max_water_L": null,
+      "max_total_energy_kWh": null,
+      "max_CO2eq_kg": null
+    },
+    "basis": "uncertainty_conservative",
+    "predicted": {
+      "cleaning_score": {
+        "mean": 99.8138,
+        "lower": 99.0786,
+        "upper": 99.9603
+      },
+      "COD_mgL": {
+        "mean": 21.6174,
+        "lower": 15.5045,
+        "upper": 24.1914
+      },
+      "water_L": {
+        "mean": 685.6198,
+        "lower": 533.072,
+        "upper": 1046.6122
+      },
+      "total_energy_kWh": {
+        "mean": 34.6973,
+        "lower": 18.8444,
+        "upper": 52.0388
+      },
+      "CO2eq_kg": {
+        "mean": 6.7622,
+        "lower": 3.8109,
+        "upper": 10.5177
+      },
+      "hygienic_risk": {
+        "mean": 0.0364,
+        "lower": 0.0074,
+        "upper": 0.1847
+      }
+    },
+    "total_uncertainty": 0.1486,
+    "violations": [],
+    "advisories": [
+      "Critical surrogate R^2 below 0.90 (uncertainty_surrogate_metrics): cleaning_score"
+    ],
+    "surrogate_R2": {
+      "cleaning_score": 0.8603,
+      "COD_mgL": 0.9882,
+      "water_L": 0.963,
+      "total_energy_kWh": 0.948,
+      "CO2eq_kg": 0.9498
+    },
+    "surrogate_metrics_source": "uncertainty_surrogate_metrics",
+    "model_audit_high_severity": 0,
+    "gate_passed": true,
+    "research_only": true,
+    "usable_for_research": true,
+    "note": "Deterministic shield: AI/Gemini cannot bypass it. gate_passed reflects hard constraints; research_only reflects global caveats. Human approval mandatory; not for real-time control."
+  },
+  "manager_summary": "[MOCK] For the balanced_default context, the safety gate accepted 149 of 149 candidate recipes and selected one meeting the hygiene floor (predicted cleaning 99.8%). This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Human approval is required; figures are synthetic.",
+  "engineer_summary": "[MOCK] The selected recipe cleared all HARD deterministic checks (input bounds, hygiene floor and any finite environmental/hygienic caps) under conservative bounds. Critical surrogate R^2 are reported on the \"uncertainty_conservative\" basis and compared to the 0.90 floor; not all necessarily pass. Research-only advisories: Critical surrogate R^2 below 0.90 (uncertainty_surrogate_metrics): cleaning_score. This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Verify against plant data first.",
+  "explanation_source": "MOCK_fallback",
+  "governance_note": "Deterministic MATLAB safety gate decides feasibility; Gemini only explains. Human approval mandatory; not for real-time control."
+}

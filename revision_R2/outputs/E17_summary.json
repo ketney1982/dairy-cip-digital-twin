@@ -1,0 +1,205 @@
+{
+  "case": "laboratory flow channel (Zhang et al., 2025), 0.5 wt% NaOH",
+  "n_candidates": 30000,
+  "M_candidates": 4000,
+  "floor": 95.0,
+  "quantile": 0.1,
+  "h_ref_mm": 3.0,
+  "h_nominal_mm": 2.44,
+  "sigma_run_to_run": {
+    "M0": 0.21001849740710613,
+    "M1": 0.20035795025903064
+  },
+  "M0": {
+    "nominally_feasible": 22767,
+    "admitted_U0": 21318,
+    "admitted_U3": 18475,
+    "confirmed_U0": 21300,
+    "confirmed_U3": 18271,
+    "det_check_h0_2p9": 21303,
+    "det_check_h0_3p0": 20985,
+    "det_2p9_admitted_but_fail_U3": 2828,
+    "det_3p0_admitted_but_fail_U3": 2510,
+    "U3_admitted_but_fail_det_3p0": 0,
+    "nominal_front_size": 23,
+    "nominal_front_admitted_U0": 0,
+    "nominal_front_admitted_U3": 0,
+    "nominal_front_q10_U3_min": 60.56390418334631,
+    "nominal_front_q10_U3_median": 67.6877826230983,
+    "nominal_front_q10_U3_max": 73.38071627075661,
+    "nominal_front_CS_nom_median": 96.7438854100139,
+    "nominal_front_CS_nom_max": 100.0
+  },
+  "M1": {
+    "nominally_feasible": 17291,
+    "admitted_U0": 16602,
+    "admitted_U3": 12236,
+    "confirmed_U0": 16591,
+    "confirmed_U3": 11998,
+    "det_check_h0_2p9": 16597,
+    "det_check_h0_3p0": 16464,
+    "det_2p9_admitted_but_fail_U3": 4361,
+    "det_3p0_admitted_but_fail_U3": 4228,
+    "U3_admitted_but_fail_det_3p0": 0,
+    "nominal_front_size": 26,
+    "nominal_front_admitted_U0": 8,
+    "nominal_front_admitted_U3": 0,
+    "nominal_front_q10_U3_min": 86.99755184942308,
+    "nominal_front_q10_U3_median": 89.15723460377994,
+    "nominal_front_q10_U3_max": 90.77277714883836,
+    "nominal_front_CS_nom_median": 95.436870811461,
+    "nominal_front_CS_nom_max": 96.33327038318896
+  },
+  "retrospective": [
+    {
+      "model": "M0",
+      "wash_time_rule": "U0",
+      "n_curves": 16,
+      "n_pass": 14,
+      "min_observed_CS": 90.65705456122015,
+      "median_wash_time": 17.49351168896112
+    },
+    {
+      "model": "M0",
+      "wash_time_rule": "U3",
+      "n_curves": 16,
+      "n_pass": 16,
+      "min_observed_CS": 98.11507451121724,
+      "median_wash_time": 21.442030253781724
+    },
+    {
+      "model": "M0",
+      "wash_time_rule": "nominal",
+      "n_curves": 16,
+      "n_pass": 10,
+      "min_observed_CS": 76.3146325675126,
+      "median_wash_time": 14.594599324915615
+    },
+    {
+      "model": "M1",
+      "wash_time_rule": "U0",
+      "n_curves": 16,
+      "n_pass": 16,
+      "min_observed_CS": 99.49300139008376,
+      "median_wash_time": 31.588223527940993
+    },
+    {
+      "model": "M1",
+      "wash_time_rule": "U3",
+      "n_curves": 16,
+      "n_pass": 16,
+      "min_observed_CS": 100.0,
+      "median_wash_time": 41.33456682085261
+    },
+    {
+      "model": "M1",
+      "wash_time_rule": "nominal",
+      "n_curves": 16,
+      "n_pass": 16,
+      "min_observed_CS": 98.96874231859316,
+      "median_wash_time": 29.738917364670584
+    }
+  ],
+  "retrospective_crossvalidated": [
+    {
+      "model": "M0",
+      "wash_time_rule": "U0",
+      "n_curves": 16,
+      "n_pass": 11,
+      "min_observed_CS": 73.12402475206265
+    },
+    {
+      "model": "M0",
+      "wash_time_rule": "U3",
+      "n_curves": 16,
+      "n_pass": 16,
+      "min_observed_CS": 97.09748703043287
+    },
+    {
+      "model": "M0",
+      "wash_time_rule": "nominal",
+      "n_curves": 16,
+      "n_pass": 10,
+      "min_observed_CS": 63.51680751173709
+    },
+    {
+      "model": "M1",
+      "wash_time_rule": "U0",
+      "n_curves": 16,
+      "n_pass": 16,
+      "min_observed_CS": 98.02222968837609
+    },
+    {
+      "model": "M1",
+      "wash_time_rule": "U3",
+      "n_curves": 16,
+      "n_pass": 16,
+      "min_observed_CS": 100.0
+    },
+    {
+      "model": "M1",
+      "wash_time_rule": "nominal",
+      "n_curves": 16,
+      "n_pass": 16,
+      "min_observed_CS": 97.85551471547517
+    }
+  ],
+  "retrospective_validation_curves_only": [
+    {
+      "model": "M0",
+      "wash_time_rule": "U0",
+      "n_curves": 8,
+      "n_pass": 6,
+      "min_observed_CS": 90.65705456122015
+    },
+    {
+      "model": "M0",
+      "wash_time_rule": "U3",
+      "n_curves": 8,
+      "n_pass": 8,
+      "min_observed_CS": 98.11507451121724
+    },
+    {
+      "model": "M0",
+      "wash_time_rule": "nominal",
+      "n_curves": 8,
+      "n_pass": 4,
+      "min_observed_CS": 82.09453080601742
+    },
+    {
+      "model": "M1",
+      "wash_time_rule": "U0",
+      "n_curves": 8,
+      "n_pass": 8,
+      "min_observed_CS": 99.49300139008376
+    },
+    {
+      "model": "M1",
+      "wash_time_rule": "U3",
+      "n_curves": 8,
+      "n_pass": 8,
+      "min_observed_CS": 100.0
+    },
+    {
+      "model": "M1",
+      "wash_time_rule": "nominal",
+      "n_curves": 8,
+      "n_pass": 8,
+      "min_observed_CS": 98.96874231859316
+    }
+  ],
+  "price_of_robustness_time_ratio": {
+    "M0": {
+      "U0_median": 1.1996100685813085,
+      "U3_median": 1.553151053808841,
+      "U3_min": 1.4691756708371095,
+      "U3_max": 1.9042786974896866
+    },
+    "M1": {
+      "U0_median": 1.0616881038174109,
+      "U3_median": 1.4779427192736092,
+      "U3_min": 1.3708727056556271,
+      "U3_max": 1.7876804179713408
+    }
+  }
+}

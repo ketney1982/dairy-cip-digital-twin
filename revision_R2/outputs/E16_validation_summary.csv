@@ -1,0 +1,9 @@
+role,model,n_curves,n_points,rmse,mae,bias,t90_ratio_min,t90_ratio_median,t90_ratio_max
+calibration,M0,8,406,0.09108,0.07283,0.001809,0.9422,1.046,1.395
+calibration,M1,8,406,0.09738,0.07304,-0.01094,1.46,1.817,2.489
+validation: independent laboratory,M0,1,17,0.4642,0.4024,0.4024,3.46,3.46,3.46
+validation: independent laboratory,M1,1,17,0.2237,0.1822,0.1822,2.717,2.717,2.717
+validation: other axial position,M0,3,171,0.07072,0.05697,-0.01325,0.9503,0.9579,1.191
+validation: other axial position,M1,3,171,0.07678,0.05973,-0.006389,1.606,1.724,2.036
+validation: whole-channel protein (UV-Vis),M0,5,102,0.07748,0.05909,-0.01389,0.7762,0.9829,1.09
+validation: whole-channel protein (UV-Vis),M1,5,102,0.1186,0.1015,0.0476,1.365,1.694,1.912

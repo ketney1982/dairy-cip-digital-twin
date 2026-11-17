@@ -1,0 +1,93 @@
+================================================================
+ DAIRY CIP DIGITAL TWIN - AI HYPOTHESIS VALIDATION REPORT
+ (SIMULATION-GENERATED SYNTHETIC DATA - NOT real measurements)
+ Deterministic statistics only; Gemini is NOT used in this step.
+================================================================
+
+Rows tested : 5006  (synthetic=5000 + AI-designed=6)
+Hypotheses  : 11
+  supported           : 10
+  partially_supported : 0
+  not_supported       : 1
+  inconclusive        : 0
+
+---- H1 [SUPPORTED] ----
+  Statement : Higher water recovery reduces per-cycle water consumption.
+  Test      : correlation of water_rec -> water_L (expected negative)
+  Pearson r : -0.451 (p=1.13e-249, n=5006) -> observed negative
+  Regression: primary coef=-1118 (p=1.13e-249), adj R^2=0.203
+  Verdict   : supported - Observed negative relationship (r=-0.451, p=1.13e-249) matches expected negative.
+
+---- H2 [NOT_SUPPORTED] ----
+  Statement : Reducing fresh water (higher water_rec) concentrates the effluent, raising COD_mgL.
+  Test      : regression of water_rec -> COD_mgL (expected positive)
+  Pearson r : 0.005 (p=0.736, n=5006) -> observed negligible
+  Regression: primary coef=0.2976 (p=0.736), adj R^2=-0.000
+  Verdict   : not_supported - No detectable relationship (r=0.005, p=0.736); expected positive.
+
+---- H3 [SUPPORTED] ----
+  Statement : Heat recovery reduces total energy use.
+  Test      : correlation of heat_rec -> total_energy_kWh (expected negative)
+  Pearson r : -0.413 (p=1.87e-205, n=5006) -> observed negative
+  Regression: primary coef=-35.58 (p=1.87e-205), adj R^2=0.170
+  Verdict   : supported - Observed negative relationship (r=-0.413, p=1.87e-205) matches expected negative.
+
+---- H4 [SUPPORTED] ----
+  Statement : Heat recovery reduces CO2-equivalent emissions.
+  Test      : correlation of heat_rec -> CO2eq_kg (expected negative)
+  Pearson r : -0.413 (p=2.97e-205, n=5006) -> observed negative
+  Regression: primary coef=-7.117 (p=2.97e-205), adj R^2=0.170
+  Verdict   : supported - Observed negative relationship (r=-0.413, p=2.97e-205) matches expected negative.
+
+---- H5 [SUPPORTED] ----
+  Statement : Longer alkaline-wash duration increases cleaning score.
+  Test      : correlation of t_alk -> cleaning_score (expected positive)
+  Pearson r : 0.398 (p=7.37e-190, n=5006) -> observed positive
+  Regression: primary coef=0.005383 (p=7.37e-190), adj R^2=0.158
+  Verdict   : supported - Observed positive relationship (r=0.398, p=7.37e-190) matches expected positive.
+
+---- H6 [SUPPORTED] ----
+  Statement : Higher wash temperature increases cleaning score.
+  Test      : correlation of T_C -> cleaning_score (expected positive)
+  Pearson r : 0.335 (p=1.65e-131, n=5006) -> observed positive
+  Regression: primary coef=0.1688 (p=1.65e-131), adj R^2=0.112
+  Verdict   : supported - Observed positive relationship (r=0.335, p=1.65e-131) matches expected positive.
+
+---- H7 [SUPPORTED] ----
+  Statement : Higher NaOH concentration increases cleaning score.
+  Test      : correlation of NaOH_pct -> cleaning_score (expected positive)
+  Pearson r : 0.193 (p=4.73e-43, n=5006) -> observed positive
+  Regression: primary coef=1.95 (p=4.73e-43), adj R^2=0.037
+  Verdict   : supported - Observed positive relationship (r=0.193, p=4.73e-43) matches expected positive.
+
+---- H8 [SUPPORTED] ----
+  Statement : Higher initial soil load decreases cleaning score.
+  Test      : correlation of soil0 -> cleaning_score (expected negative)
+  Pearson r : -0.447 (p=1.23e-244, n=5006) -> observed negative
+  Regression: primary coef=-10.01 (p=1.23e-244), adj R^2=0.200
+  Verdict   : supported - Observed negative relationship (r=-0.447, p=1.23e-244) matches expected negative.
+
+---- H9 [SUPPORTED] ----
+  Statement : Higher initial soil load should increase effluent COD.
+  Test      : regression of soil0 -> COD_mgL (expected positive)
+  Pearson r : 0.976 (p=0, n=5006) -> observed positive
+  Regression: primary coef=40.5 (p=0), adj R^2=0.953
+  Verdict   : supported - Observed positive relationship (r=0.976, p=0) matches expected positive.
+
+---- H10 [SUPPORTED] ----
+  Statement : Higher temperature increases total energy use.
+  Test      : correlation of T_C -> total_energy_kWh (expected positive)
+  Pearson r : 0.318 (p=3.63e-118, n=5006) -> observed positive
+  Regression: primary coef=0.4793 (p=3.63e-118), adj R^2=0.101
+  Verdict   : supported - Observed positive relationship (r=0.318, p=3.63e-118) matches expected positive.
+
+---- H11 [SUPPORTED] ----
+  Statement : EHPI rewards low-burden recipes: it rises as water use falls.
+  Test      : correlation of water_L -> EHPI (expected negative)
+  Pearson r : -0.839 (p=0, n=5006) -> observed negative
+  Regression: primary coef=-0.02217 (p=0), adj R^2=0.703
+  Verdict   : supported - Observed negative relationship (r=-0.839, p=0) matches expected negative.
+
+NOTE: "supported" means the relationship holds IN THE SIMULATOR.
+It is NOT evidence about a real dairy plant. Calibration with
+industrial data and microbiological validation remain required.

@@ -1,0 +1,7 @@
+model,wash_time_rule,n_curves,n_pass,min_observed_CS
+M0,U0,16,11,73.124
+M0,U3,16,16,97.097
+M0,nominal,16,10,63.517
+M1,U0,16,16,98.022
+M1,U3,16,16,100
+M1,nominal,16,16,97.856

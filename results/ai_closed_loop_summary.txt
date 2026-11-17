@@ -1,0 +1,35 @@
+================================================================
+ AI-SUPERVISED CLOSED-LOOP DIGITAL TWIN - STUDY SUMMARY
+ (SIMULATION-GENERATED SYNTHETIC DATA; agentic loop in simulator)
+================================================================
+
+Iterations : 3   Elapsed : 175.1 s
+Gemini proposes; deterministic MATLAB validates and decides; safety gate gates; human approval mandatory; no real-time control.
+
+---- ITERATION 1 ----
+  AI proposed     : 11 hypotheses (MOCK_fallback); experiments "MOCK_archetypal_batch" x6 (MOCK_fallback)
+  Simulator ran   : 6/6 scenarios succeeded; combined training rows=5006
+  Hypotheses      : supported=10 partial=0 not=1 inconclusive=0
+  Safety gate     : passed=1 (121/121 candidates); research_only=1
+  Recommendation  : cleaning=99.82 COD=22 water=686 energy=33.62 CO2=7.06
+  Uncertainty     : model-audit HIGH flags=0
+
+---- ITERATION 2 ----
+  AI proposed     : 11 hypotheses (MOCK_fallback); experiments "MOCK_archetypal_batch" x6 (MOCK_fallback)
+  Simulator ran   : 6/6 scenarios succeeded; combined training rows=5012
+  Hypotheses      : supported=10 partial=0 not=1 inconclusive=0
+  Safety gate     : passed=1 (121/121 candidates); research_only=1
+  Recommendation  : cleaning=99.82 COD=22 water=686 energy=33.62 CO2=7.06
+  Uncertainty     : model-audit HIGH flags=0
+
+---- ITERATION 3 ----
+  AI proposed     : 11 hypotheses (MOCK_fallback); experiments "MOCK_archetypal_batch" x6 (MOCK_fallback)
+  Simulator ran   : 6/6 scenarios succeeded; combined training rows=5018
+  Hypotheses      : supported=10 partial=0 not=1 inconclusive=0
+  Safety gate     : passed=1 (121/121 candidates); research_only=1
+  Recommendation  : cleaning=99.82 COD=22 water=686 energy=33.62 CO2=7.06
+  Uncertainty     : model-audit HIGH flags=0
+
+CONCLUSION: The loop demonstrates AI-proposed, MATLAB-verified, safety-gated
+decision support in the digital twin. Recommendations remain research-only
+pending calibration with industrial data and food-safety validation.

@@ -1,0 +1,17 @@
+variant,screening,selection,T_C,v_cm_s,t_min,V_L,E_kWh,q10_U3,q10_U3_lower95,P_CS_ge_floor,share_draws_outside_domain,share_T_above_70,share_v_below_0p5
+V0 unrestricted,nominal,minimum volume,69.056,0.50671,19.938,1.0911,0.080685,67.398,66.838,0.4876,0.5586,0.263,0.3992
+V0 unrestricted,nominal,minimum time,69.023,20.164,5.4963,11.97,0.88459,60.574,59.833,0.4974,0.2581,0.2568,0
+V0 unrestricted,audit-then-select U3,minimum volume,69.396,0.51852,29.772,1.6672,0.12406,98.273,97.237,0.9187,0.5012,0.343,0.2373
+V0 unrestricted,audit-then-select U3,minimum time,69.632,15.328,10.035,16.612,1.2415,98.508,97.226,0.9153,0.4014,0.4014,0
+V1 clipped,nominal,minimum volume,69.056,0.50671,19.938,1.0911,0.080685,67.351,66.757,0.4726,0.5586,0.263,0.3992
+V1 clipped,nominal,minimum time,69.023,20.164,5.4963,11.97,0.88459,60.062,59.344,0.4822,0.2581,0.2568,0
+V1 clipped,audit-then-select U3,minimum volume,69.404,0.55442,31.416,1.8811,0.14,100,100,0.9506,0.3616,0.3446,0.0258
+V1 clipped,audit-then-select U3,minimum time,69.883,18.161,10.36,20.321,1.5257,100,100,0.9386,0.4687,0.4687,0
+V2 setpoints restricted,nominal,minimum volume,66.791,0.58534,23.397,1.4791,0.10479,71.149,70.48,0.5611,0.0193,0.0171,0.0022
+V2 setpoints restricted,nominal,minimum time,66.735,20.225,6.9174,15.11,1.0693,64.031,63.215,0.5627,0.0183,0.0157,0
+V2 setpoints restricted,audit-then-select U3,minimum volume,66.252,0.5959,36.031,2.3189,0.16258,100,99.931,0.9331,0.0075,0.0068,0.0007
+V2 setpoints restricted,audit-then-select U3,minimum time,66.605,15.791,12.274,20.932,1.4777,97.758,96.593,0.914,0.0125,0.0125,0
+V3 restricted and clipped,nominal,minimum volume,66.791,0.58534,23.397,1.4791,0.10479,71.085,70.462,0.5607,0.0193,0.0171,0.0022
+V3 restricted and clipped,nominal,minimum time,66.735,20.225,6.9174,15.11,1.0693,63.996,63.215,0.5625,0.0183,0.0157,0
+V3 restricted and clipped,audit-then-select U3,minimum volume,66.252,0.5959,36.031,2.3189,0.16258,100,99.931,0.9331,0.0075,0.0068,0.0007
+V3 restricted and clipped,audit-then-select U3,minimum time,66.605,15.791,12.274,20.932,1.4777,97.758,96.593,0.914,0.0125,0.0125,0
