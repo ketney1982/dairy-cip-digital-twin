@@ -140,8 +140,10 @@ def fig1():
     ax.text(0, 75.5, "(c)", fontsize=8.5, fontweight="bold", va="top")
     ax.text(7, 75.5, "Workflow of the framework", fontsize=7.5, fontweight="bold", va="top")
 
-    def step(x, y, w, h, n, title, body, fc):
-        rbox(ax, x, y, w, h, fc=fc, r=1.2)
+    def step(x, y, w, h, n, title, body, fc, ls="-", foot=None):
+        rbox(ax, x, y, w, h, fc=fc, r=1.2, ls=ls)
+        if foot:
+            ax.text(x + 3, y + 2.2, foot, fontsize=5.8, va="bottom", style="italic", color="#555555")
         ax.text(x + 4.2, y + h - 4.5, str(n), color="white", fontsize=7, fontweight="bold", ha="center", va="center",
                 bbox=dict(boxstyle="circle,pad=0.25", fc=OI["navy"], ec="none"))
         ax.text(x + 8.2, y + h - 4.5, title, fontsize=6.7, fontweight="bold", va="center")
@@ -156,11 +158,13 @@ def fig1():
             (5, "Nominal screening", "Pareto search and policy\nselection at the nominal\nsoil load", "#E8F1FA")]
     row2 = [(6, "Re-verification", "selected recipes\nre-simulated with the\nmechanistic simulator", "#F4F4F4"),
             (7, "Monte Carlo audit", "uncertainty sets U0–U3;\nlower tail of CS:\nq$_{0.10}$(CS) ≥ CS$_{min}$", "#FFF1DD"),
-            (8, "Safety shield", "fixed rules admit or\nreject each recipe", "#FDECEA"),
+            (8, "Admission check", "fixed rules admit or\nreject each recipe", "#FDECEA"),
             (9, "Admitted recipes", "only admitted recipes\nare retained for\nselection", "#E8F1FA"),
             (10, "Human review", "screening results;\nplant-specific validation\nremains required", "#F4F4F4")]
     for x, (n, title, body, fc) in zip(xs, row1):
-        step(x, y1, w, h, n, title, body, fc)
+        # steps 3-4: surrogate branch, used in the pipe-circuit case only (dashed outline)
+        branch = n in (3, 4)
+        step(x, y1, w, h, n, title, body, fc, ls=(0, (4, 2)) if branch else "-", foot="pipe-circuit case (b) only" if branch else None)
     for x, (n, title, body, fc) in zip(xs[::-1], row2):
         step(x, y2, w, h, n, title, body, fc)
     for i in range(4):
@@ -172,8 +176,9 @@ def fig1():
     pipe(ax, [(xs[2] + w / 2, y2 + h), (xs[2] + w / 2, 40.2), (xs[4] + w / 2 - 6, 40.2), (xs[4] + w / 2 - 6, y1)], color=OI["orange"], lw=1.2)
     ax.text(xs[2] + w / 2 + 2, 41.6, "audit-then-select: the audit is applied to all candidates before the selection", fontsize=6.2,
             color="#B37400", style="italic", va="bottom")
-    ax.text(100, 4.6, "Verification (Sections 2.4, 3.1 and 3.2): the removal kinetics of step 1 were calibrated on, and compared with, published cleaning curves "
-            "measured in system (a).", ha="center", va="center", fontsize=6.2, color=OI["verm"], style="italic")
+    ax.text(100, 4.6, "Validation (Sections 2.4, 3.1 and 3.2): the removal law of the simulator (step 2) was calibrated on, and compared with, published cleaning "
+            "curves measured in system (a);\nin that case the closed form of step 2 is evaluated directly in step 5.", ha="center", va="center",
+            fontsize=6.2, color=OI["verm"], style="italic", linespacing=1.25)
     save(fig, FIG_MAIN, "Fig1_reference_systems_and_workflow")
 
 

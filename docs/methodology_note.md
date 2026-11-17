@@ -558,6 +558,16 @@ sections 1–11.
   (same source), compared with uniform removal of the mean deposit thickness at the flat-channel rate; and plateau removal fluxes,
   activation energies, velocity exponents and orders in NaOH concentration quoted from Gillham et al. (1999), Xin et al. (2004) and
   Tuladhar et al. (2002).
+- **Later checks.** `e26_R21_checks.py` repeats the audit of the calibrated case with the realised values clipped to, and the
+  setpoints restricted to, the calibrated domain, separates the contributions of the parameter covariance and of the
+  prediction-error factor to the robust margin, propagates the digitisation error into the calibration (300 replicates) and
+  records, for every curve of the retrospective check, whether the prescribed wash time lies within or after the measured
+  record. `e28_R22_checks.py` reads the cleaning score at the last measured point of the curves concerned and re-audits the
+  pipe-circuit case with a uniform-removal law in place of the first-order law.
+- **Audit against deterministic rules.** `e29_decision_rule_comparison.py` classifies the 30,000 candidates of `e17` by the
+  nominal check, a check at the maximum deposit thickness, fixed margins on the nominally sufficient wash time and the audits
+  under U0 and U3, and counts the candidates that each rule admits although they fail the U3 audit or rejects although they
+  pass it. It reads `outputs/E17_candidates.csv` (run `e17` first) and runs no new simulation.
 
 Seeds: NumPy 42 (candidates), 100–103 and 900–903 (Monte Carlo draws), 2026–2027 (pipe-circuit case). The scripts
 reproduce the files in `revision_R2/outputs/`.

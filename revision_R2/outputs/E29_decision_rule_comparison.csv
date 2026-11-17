@@ -1,0 +1,19 @@
+law,rule,admitted,admitted_but_fail_U3,rejected_but_pass_U3,share_of_admitted_failing_U3,margin_min,margin_median,margin_max_of_rejected
+uniform removal,nominal,22767,4292,0,0.18852,,,
+uniform removal,maximum load (3 mm),20985,2510,0,0.11961,,,
+uniform removal,fixed margin 1.20,21310,2835,0,0.13304,,,
+uniform removal,fixed margin 1.50,19082,614,7,0.032177,,,
+uniform removal,fixed margin 2.00,15802,0,2673,0,,,
+uniform removal,fixed margin 1.88 (smallest without false admission),16510,0,1965,0,,,
+uniform removal,"audit, U0",21318,2843,0,0.13336,,,
+uniform removal,"audit, U3 (reference)",18475,0,0,0,,,
+uniform removal,margin of the U3-admitted candidates: minimum / median,18475,0,0,0,1.4935,3.3135,1.8747
+first order,nominal,17291,5055,0,0.29235,,,
+first order,maximum load (3 mm),16464,4228,0,0.2568,,,
+first order,fixed margin 1.20,15045,2809,0,0.18671,,,
+first order,fixed margin 1.50,12102,310,444,0.025616,,,
+first order,fixed margin 2.00,8116,0,4120,0,,,
+first order,fixed margin 1.80 (smallest without false admission),9524,0,2712,0,,,
+first order,"audit, U0",16602,4366,0,0.26298,,,
+first order,"audit, U3 (reference)",12236,0,0,0,,,
+first order,margin of the U3-admitted candidates: minimum / median,12236,0,0,0,1.388,2.3427,1.7962
