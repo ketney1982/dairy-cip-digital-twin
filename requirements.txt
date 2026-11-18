@@ -2,3 +2,7 @@
 numpy==2.4.6
 scipy==1.17.1
 pandas==2.3.3
+# image digitisation of the published curves (revision_R2/scripts/e15, e24)
+Pillow==12.3.0
+# figures only (revision_R2/scripts/e19, e27); not needed to reproduce the numerical results
+matplotlib==3.11.1

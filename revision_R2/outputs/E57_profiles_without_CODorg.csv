@@ -1,0 +1,13 @@
+profile,weights,candidate,water_L,energy_kWh,CS_nominal,q10_U3_M1000,q10_U3_M10000,q10_lower_U3_M10000,admitted_U3
+balanced default,original weights,12079,145.1,5.363,95.114,87.2236,87.3863,87.0672,False
+balanced default,CODorg weight = 0,7927,313.056,6.05491,98.9069,95.6168,95.7244,95.5932,True
+water scarcity,original weights,12079,145.1,5.363,95.114,87.2236,87.3863,87.0672,False
+water scarcity,CODorg weight = 0,16812,189.483,6.37469,98.2566,93.9757,94.1002,93.9238,False
+energy-price spike,original weights,18296,609.935,2.60987,95.4525,88.9807,88.6899,88.4449,False
+energy-price spike,CODorg weight = 0,18296,609.935,2.60987,95.4525,88.9807,88.6899,88.4449,False
+COD-weighted,original weights,17548,178.323,5.92278,95.0396,87.0272,87.2363,86.998,False
+COD-weighted,CODorg weight = 0,25072,376.107,14.4302,99.8334,98.8957,98.9047,98.8486,True
+carbon reduction,original weights,18296,609.935,2.60987,95.4525,88.9807,88.6899,88.4449,False
+carbon reduction,CODorg weight = 0,18296,609.935,2.60987,95.4525,88.9807,88.6899,88.4449,False
+cleaning priority,original weights,15310,543.655,21.9027,99.9346,99.4134,99.4135,99.3764,True
+cleaning priority,CODorg weight = 0,15310,543.655,21.9027,99.9346,99.4134,99.4135,99.3764,True

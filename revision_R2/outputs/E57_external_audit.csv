@@ -1,0 +1,13 @@
+source,condition,T_eval,v_cm_s,nearest_calibrated,nominal_ratio,margin_U3,robust_ratio,margin_prediction_error_only,robust_ratio_pe_only,margin_without_thickness,robust_ratio_without_thickness
+"Aselmeyer et al. (2026), gel","45 degC, 12 cm/s, three plates",45.21,12,"50 degC, 12.0 cm/s",0.6587,1.787,1.177,1.436,0.9457,1.488,0.9804
+"Aselmeyer et al. (2026), gel","45 degC, 12 cm/s, one plate",45.21,12,"50 degC, 12.0 cm/s",0.6473,1.787,1.157,1.436,0.9294,1.488,0.9634
+"Gillham et al. (2000), tubes","0.5 wt% NaOH, T = 50 degC, Re 1500 (v = 15 cm/s), 139 g m-2",50,15.12,"50 degC, 12.0 cm/s",0.8286,1.787,1.481,1.436,1.19,1.488,1.233
+"Gillham et al. (2000), tubes","0.5 wt% NaOH, T = 70 degC, Re 1500 (v = 15 cm/s), 139 g m-2",70,15.12,"70 degC, 12.0 cm/s",0.2028,1.647,0.3341,1.434,0.2909,1.367,0.2773
+"Gillham et al. (2000), tubes","0.5 wt% NaOH, T = 50 degC, Re 1500 (v = 15 cm/s), 108 g m-2",50,15.12,"50 degC, 12.0 cm/s",0.8584,1.787,1.534,1.436,1.232,1.488,1.278
+"Gillham et al. (2000), tubes","0.5 wt% NaOH, T = 70 degC, Re 1500 (v = 15 cm/s), 108 g m-2",70,15.12,"70 degC, 12.0 cm/s",0.2101,1.647,0.3461,1.434,0.3014,1.367,0.2873
+"Gillham et al. (2000), tubes","0.5 wt% NaOH, T = 50 degC, Re 2340 (v = 24 cm/s), 91 g m-2",50,23.58,"50 degC, 23.0 cm/s",0.7956,1.904,1.515,1.436,1.142,1.588,1.264
+"Gillham et al. (2000), tubes","0.5 wt% NaOH, T = 70 degC, Re 2340 (v = 24 cm/s), 91 g m-2",70,23.58,"70 degC, 23.0 cm/s",0.1947,1.742,0.3392,1.443,0.281,1.444,0.2812
+"Gillham et al. (2000), tubes","0.5 wt% NaOH, T = 50 degC, Re 4680 (v = 47 cm/s), 96 g m-2",50,47.16,"50 degC, 23.0 cm/s",0.8377,1.904,1.595,1.436,1.203,1.588,1.33
+"Gillham et al. (2000), tubes","0.5 wt% NaOH, T = 70 degC, Re 4680 (v = 47 cm/s), 96 g m-2",70,47.16,"70 degC, 23.0 cm/s",0.205,1.742,0.3572,1.443,0.2959,1.444,0.2961
+"Gillham et al. (2000), tubes","0.5 wt% NaOH, T = 50 degC, Re 9120 (v = 92 cm/s), 70 g m-2",50,91.9,"50 degC, 23.0 cm/s",0.4154,1.904,0.791,1.436,0.5964,1.588,0.6598
+"Gillham et al. (2000), tubes","0.5 wt% NaOH, T = 70 degC, Re 9120 (v = 92 cm/s), 70 g m-2",70,91.9,"70 degC, 23.0 cm/s",0.1017,1.742,0.1772,1.443,0.1468,1.444,0.1469

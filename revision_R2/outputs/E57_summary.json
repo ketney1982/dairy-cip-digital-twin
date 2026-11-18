@@ -1,0 +1,76 @@
+{
+  "profiles": {
+    "n": 6,
+    "admitted_U3_original": {
+      "balanced default": false,
+      "water scarcity": false,
+      "energy-price spike": false,
+      "COD-weighted": false,
+      "carbon reduction": false,
+      "cleaning priority": true
+    },
+    "admitted_U3_without_CODorg": {
+      "balanced default": true,
+      "water scarcity": false,
+      "energy-price spike": false,
+      "COD-weighted": true,
+      "carbon reduction": false,
+      "cleaning priority": true
+    },
+    "CS_without_CODorg": {
+      "balanced default": 98.91,
+      "water scarcity": 98.26,
+      "energy-price spike": 95.45,
+      "COD-weighted": 99.83,
+      "carbon reduction": 95.45,
+      "cleaning priority": 99.93
+    },
+    "q10_lower_without_CODorg": {
+      "balanced default": 95.59,
+      "water scarcity": 93.92,
+      "energy-price spike": 88.44,
+      "COD-weighted": 98.85,
+      "carbon reduction": 88.44,
+      "cleaning priority": 99.38
+    }
+  },
+  "external": {
+    "gel_nominal": [
+      0.6473263200108724,
+      0.6587365132990586
+    ],
+    "gel_robust": [
+      1.1568368664914301,
+      1.1772280229167476
+    ],
+    "gel_robust_pe_only": [
+      0.9293663976396095,
+      0.9457480121434584
+    ],
+    "gel_margin": 1.7871,
+    "tubes_50C_nominal": [
+      0.7956,
+      0.8584
+    ],
+    "tubes_50C_robust": [
+      1.4807910599999998,
+      1.59523211
+    ],
+    "gel_robust_without_thickness": [
+      0.9633884631007912,
+      0.9803697725822348
+    ],
+    "tubes_50C_robust_without_thickness": [
+      1.2331704363757494,
+      1.330468815679733
+    ],
+    "tubes_70C_robust": [
+      0.334113,
+      0.3571715
+    ],
+    "tubes_92cms_robust": [
+      0.17719190999999998,
+      0.79104622
+    ]
+  }
+}
