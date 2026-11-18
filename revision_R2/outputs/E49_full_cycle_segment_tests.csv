@@ -1,0 +1,67 @@
+segment,source,condition,simulator_rate,quantity,predicted,observed,observed_basis,T_eval,v_cm_s,ratio_pred_obs
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 0.72 m/s, 20 s",pre,residual film (%),96.07,26.9,quoted,,,3.572
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 0.72 m/s, 20 s",rinse,residual film (%),99.2,26.9,quoted,,,3.688
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 0.72 m/s, 60 s",pre,residual film (%),88.68,,,,,
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 0.72 m/s, 60 s",rinse,residual film (%),97.63,,,,,
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 1.25 m/s, 20 s",pre,residual film (%),95,17.81,authors' fit,,,5.332
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 1.25 m/s, 20 s",rinse,residual film (%),98.98,17.81,authors' fit,,,5.556
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 1.25 m/s, 60 s",pre,residual film (%),85.73,,,,,
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 1.25 m/s, 60 s",rinse,residual film (%),96.97,,,,,
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 1.67 m/s, 20 s",pre,residual film (%),94.32,13.39,authors' fit,,,7.045
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 1.67 m/s, 20 s",rinse,residual film (%),98.84,13.39,authors' fit,,,7.382
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 1.67 m/s, 60 s",pre,residual film (%),83.91,,,,,
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 1.67 m/s, 60 s",rinse,residual film (%),96.55,,,,,
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 2.26 m/s, 20 s",pre,residual film (%),93.52,9.3,quoted,,,10.06
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 2.26 m/s, 20 s",rinse,residual film (%),98.67,9.3,quoted,,,10.61
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 2.26 m/s, 60 s",pre,residual film (%),81.79,,,,,
+"A pre-rinse, pipe",Fan et al. (2015),"22 degC, 2.26 m/s, 60 s",rinse,residual film (%),96.06,,,,,
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 20.5 degC, pipe 22.2 mm (v = 3.44 m/s)",rinse,residual fouling (%),23.26,26.88,quoted,,,0.8655
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 20.5 degC, pipe 22.2 mm (v = 3.44 m/s)",pre,residual fouling (%),0.06815,26.88,quoted,,,0.002535
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 50 degC, pipe 22.2 mm (v = 3.44 m/s)",rinse,residual fouling (%),23.26,13.98,quoted,,,1.664
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 50 degC, pipe 22.2 mm (v = 3.44 m/s)",pre,residual fouling (%),0.06815,13.98,quoted,,,0.004875
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 75 degC, pipe 22.2 mm (v = 3.44 m/s)",rinse,residual fouling (%),23.26,11.14,quoted,,,2.088
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 75 degC, pipe 22.2 mm (v = 3.44 m/s)",pre,residual fouling (%),0.06815,11.14,quoted,,,0.006117
+"B pilot test bed, 30 min",Pant et al. (2025),"1% NaOH, 75 degC, pipe 22.2 mm (v = 3.44 m/s)",alk,residual fouling (%),1.643,0.1,quoted,,,16.43
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 20.5 degC, pipe 50.8 mm (v = 0.66 m/s)",rinse,residual fouling (%),50.04,26.88,quoted,,,1.862
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 20.5 degC, pipe 50.8 mm (v = 0.66 m/s)",pre,residual fouling (%),3.139,26.88,quoted,,,0.1168
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 50 degC, pipe 50.8 mm (v = 0.66 m/s)",rinse,residual fouling (%),50.04,13.98,quoted,,,3.58
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 50 degC, pipe 50.8 mm (v = 0.66 m/s)",pre,residual fouling (%),3.139,13.98,quoted,,,0.2245
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 75 degC, pipe 50.8 mm (v = 0.66 m/s)",rinse,residual fouling (%),50.04,11.14,quoted,,,4.492
+"B pilot test bed, 30 min",Pant et al. (2025),"water, 75 degC, pipe 50.8 mm (v = 0.66 m/s)",pre,residual fouling (%),3.139,11.14,quoted,,,0.2818
+"B pilot test bed, 30 min",Pant et al. (2025),"1% NaOH, 75 degC, pipe 50.8 mm (v = 0.66 m/s)",alk,residual fouling (%),14.22,0.1,quoted,,,142.2
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 50 degC, Re 1500 (v = 15 cm/s), 139 g m-2",alk,time to clean (min); simulator: 99% removal,499.2,12,quoted,50,15.12,41.6
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 50 degC, Re 1500 (v = 15 cm/s), 139 g m-2",calibrated uniform-removal law (E16),time to clean (min); law: complete removal,9.943,12,quoted,50,15.12,0.8286
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 70 degC, Re 1500 (v = 15 cm/s), 139 g m-2",alk,time to clean (min); simulator: 99% removal,247.9,12,quoted,70,15.12,20.66
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 70 degC, Re 1500 (v = 15 cm/s), 139 g m-2",calibrated uniform-removal law (E16),time to clean (min); law: complete removal,2.433,12,quoted,70,15.12,0.2028
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 50 degC, Re 1500 (v = 15 cm/s), 108 g m-2",alk,time to clean (min); simulator: 99% removal,499.2,9,quoted,50,15.12,55.47
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 50 degC, Re 1500 (v = 15 cm/s), 108 g m-2",calibrated uniform-removal law (E16),time to clean (min); law: complete removal,7.725,9,quoted,50,15.12,0.8584
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 70 degC, Re 1500 (v = 15 cm/s), 108 g m-2",alk,time to clean (min); simulator: 99% removal,247.9,9,quoted,70,15.12,27.54
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 70 degC, Re 1500 (v = 15 cm/s), 108 g m-2",calibrated uniform-removal law (E16),time to clean (min); law: complete removal,1.891,9,quoted,70,15.12,0.2101
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 50 degC, Re 2340 (v = 24 cm/s), 91 g m-2",alk,time to clean (min); simulator: 99% removal,408.7,7,quoted,50,23.58,58.38
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 50 degC, Re 2340 (v = 24 cm/s), 91 g m-2",calibrated uniform-removal law (E16),time to clean (min); law: complete removal,5.569,7,quoted,50,23.58,0.7956
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 70 degC, Re 2340 (v = 24 cm/s), 91 g m-2",alk,time to clean (min); simulator: 99% removal,202.9,7,quoted,70,23.58,28.99
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 70 degC, Re 2340 (v = 24 cm/s), 91 g m-2",calibrated uniform-removal law (E16),time to clean (min); law: complete removal,1.363,7,quoted,70,23.58,0.1947
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 50 degC, Re 4680 (v = 47 cm/s), 96 g m-2",alk,time to clean (min); simulator: 99% removal,299.2,5.5,quoted,50,47.16,54.39
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 50 degC, Re 4680 (v = 47 cm/s), 96 g m-2",calibrated uniform-removal law (E16),time to clean (min); law: complete removal,4.608,5.5,quoted,50,47.16,0.8377
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 70 degC, Re 4680 (v = 47 cm/s), 96 g m-2",alk,time to clean (min); simulator: 99% removal,148.6,5.5,quoted,70,47.16,27.01
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 70 degC, Re 4680 (v = 47 cm/s), 96 g m-2",calibrated uniform-removal law (E16),time to clean (min); law: complete removal,1.128,5.5,quoted,70,47.16,0.205
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 50 degC, Re 9120 (v = 92 cm/s), 70 g m-2",alk,time to clean (min); simulator: 99% removal,221.6,6.4,quoted,50,91.9,34.62
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 50 degC, Re 9120 (v = 92 cm/s), 70 g m-2",calibrated uniform-removal law (E16),time to clean (min); law: complete removal,2.659,6.4,quoted,50,91.9,0.4154
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 70 degC, Re 9120 (v = 92 cm/s), 70 g m-2",alk,time to clean (min); simulator: 99% removal,110,6.4,quoted,70,91.9,17.19
+"C alkaline stage, 6-mm tube",Gillham et al. (2000),"0.5 wt% NaOH, T = 70 degC, Re 9120 (v = 92 cm/s), 70 g m-2",calibrated uniform-removal law (E16),time to clean (min); law: complete removal,0.6507,6.4,quoted,70,91.9,0.1017
+"D water balance, industrial CIP",Alvarez et al. (2010),"initial sequence, flushing-first rinse",once-through (Q x t),volume (L): once-through vs effluent,912.7,450,quoted,,,2.028
+"D water balance, industrial CIP",Alvarez et al. (2010),"initial sequence, NaOH-1",once-through (Q x t),volume (L): once-through vs effluent,2007,415,quoted,,,4.835
+"D water balance, industrial CIP",Alvarez et al. (2010),"initial sequence, IR",once-through (Q x t),volume (L): once-through vs effluent,1438,1433,quoted,,,1.003
+"D water balance, industrial CIP",Alvarez et al. (2010),"initial sequence, HNO3-1",once-through (Q x t),volume (L): once-through vs effluent,2113,469,quoted,,,4.505
+"D water balance, industrial CIP",Alvarez et al. (2010),"initial sequence, IR",once-through (Q x t),volume (L): once-through vs effluent,1959,1457,quoted,,,1.344
+"D water balance, industrial CIP",Alvarez et al. (2010),"initial sequence, NaOH-2",once-through (Q x t),volume (L): once-through vs effluent,2091,456,quoted,,,4.585
+"D water balance, industrial CIP",Alvarez et al. (2010),"initial sequence, IR",once-through (Q x t),volume (L): once-through vs effluent,1420,1415,quoted,,,1.004
+"D water balance, industrial CIP",Alvarez et al. (2010),"initial sequence, HNO3-2",once-through (Q x t),volume (L): once-through vs effluent,2085,449,quoted,,,4.643
+"D water balance, industrial CIP",Alvarez et al. (2010),"initial sequence, FR",once-through (Q x t),volume (L): once-through vs effluent,1628,1734,quoted,,,0.9389
+"D water balance, industrial CIP",Alvarez et al. (2010),"revised sequence, flushing-first rinse",once-through (Q x t),volume (L): once-through vs effluent,888,542,quoted,,,1.638
+"D water balance, industrial CIP",Alvarez et al. (2010),"revised sequence, NaOH-1",once-through (Q x t),volume (L): once-through vs effluent,1702,423,quoted,,,4.024
+"D water balance, industrial CIP",Alvarez et al. (2010),"revised sequence, IR",once-through (Q x t),volume (L): once-through vs effluent,814.8,815,quoted,,,0.9998
+"D water balance, industrial CIP",Alvarez et al. (2010),"revised sequence, HNO3-1",once-through (Q x t),volume (L): once-through vs effluent,840.2,469,quoted,,,1.792
+"D water balance, industrial CIP",Alvarez et al. (2010),"revised sequence, IR",once-through (Q x t),volume (L): once-through vs effluent,816.9,816,quoted,,,1.001
+"D water balance, industrial CIP",Alvarez et al. (2010),"revised sequence, HNO3-2",once-through (Q x t),volume (L): once-through vs effluent,839.4,466,quoted,,,1.801
+"D water balance, industrial CIP",Alvarez et al. (2010),"revised sequence, FR",once-through (Q x t),volume (L): once-through vs effluent,907.9,907,quoted,,,1.001

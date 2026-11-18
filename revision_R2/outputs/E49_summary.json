@@ -1,0 +1,166 @@
+{
+  "simulator": "closed-form pipe-circuit simulator with the assumed parameters (no refit)",
+  "A_pre_rinse": {
+    "pred_residual_pct_20s_pre": [
+      93.51781148193372,
+      96.07377218740383
+    ],
+    "pred_residual_pct_60s_pre": [
+      81.78676012777692,
+      88.67772212314972
+    ],
+    "obs_residual_pct_20s_22C": [
+      9.3,
+      26.9
+    ],
+    "obs_residual_pct_20s_all": [
+      5.1,
+      26.9
+    ]
+  },
+  "B_pilot": {
+    "water_pred_residual_rinse_rate": [
+      23.26436317555868,
+      50.04419279584914
+    ],
+    "water_pred_residual_pre_rate": [
+      0.06814842836348421,
+      3.138834682829625
+    ],
+    "water_obs": [
+      11.14,
+      26.88
+    ],
+    "caustic_pred_residual": [
+      1.6432203495878013,
+      14.221638582317606
+    ],
+    "caustic_obs": [
+      0.1,
+      0.21
+    ]
+  },
+  "C_tubes": {
+    "simulator_ratio_t_50C_v_15_47": [
+      41.600730008973436,
+      58.381881684566245
+    ],
+    "simulator_ratio_t_50C_v_92": [
+      34.62147871721291,
+      34.62147871721291
+    ],
+    "simulator_ratio_t_70C_v_15_47": [
+      20.658311149450487,
+      28.991584452244464
+    ],
+    "simulator_ratio_t_70C_v_92": [
+      17.192517526494992,
+      17.192517526494992
+    ],
+    "uniform_law_ratio_t_50C_v_15_47": [
+      0.7956318382541658,
+      0.8583772277938384
+    ],
+    "uniform_law_ratio_t_50C_v_92": [
+      0.41543462158496697,
+      0.41543462158496697
+    ],
+    "uniform_law_ratio_t_70C_v_15_47": [
+      0.1947103665253014,
+      0.2100656818955992
+    ],
+    "uniform_law_ratio_t_70C_v_92": [
+      0.10166690615800691,
+      0.10166690615800691
+    ]
+  },
+  "D_water_balance": {
+    "initial": {
+      "detergent": {
+        "once_through_L": 8294.953333333333,
+        "effluent_L": 1789.0,
+        "ratio": 4.63664244456866
+      },
+      "rinse": {
+        "once_through_L": 7357.4366666666665,
+        "effluent_L": 6489.0,
+        "ratio": 1.1338321261622233
+      },
+      "total": {
+        "once_through_L": 15652.39,
+        "effluent_L": 8278.0,
+        "ratio": 1.8908419908190384
+      }
+    },
+    "revised": {
+      "detergent": {
+        "once_through_L": 3381.946666666667,
+        "effluent_L": 1358.0,
+        "ratio": 2.4903878252331864
+      },
+      "rinse": {
+        "once_through_L": 3427.5866666666666,
+        "effluent_L": 3080.0,
+        "ratio": 1.1128528138528138
+      },
+      "total": {
+        "once_through_L": 6809.533333333333,
+        "effluent_L": 4438.0,
+        "ratio": 1.5343698362625806
+      }
+    }
+  },
+  "E_rate_scale_invariance": {
+    "scale_factor": 30.0,
+    "n_candidates": 30000,
+    "M": 1000,
+    "nominal_max_abs_diff": {
+      "cleaning_score": 1.4210854715202004e-14,
+      "hygienic_risk": 1.4432899320127035e-15,
+      "COD_mgL": 7.105427357601002e-15
+    },
+    "resource_ratio": {
+      "water_L": [
+        29.999999999999986,
+        30.000000000000014
+      ],
+      "total_energy_kWh": [
+        29.999999999999986,
+        30.000000000000014
+      ],
+      "CO2eq_kg": [
+        29.999999999999986,
+        30.000000000000018
+      ]
+    },
+    "EEPI_not_invariant_ratio": [
+      0.24935565542120827,
+      0.9483383658137876
+    ],
+    "caps_identical": true,
+    "U0_max_abs_diff_q10_CS": 2.842170943040401e-14,
+    "U0_max_abs_diff_q90_Rres": 1.5543122344752192e-15,
+    "U0_verdict_mismatches": 0,
+    "U3_max_abs_diff_q10_CS": 2.842170943040401e-14,
+    "U3_max_abs_diff_q90_Rres": 1.2212453270876722e-15,
+    "U3_verdict_mismatches": 0,
+    "selections_compared": 12,
+    "selections_different": 0,
+    "verdicts_identical": true,
+    "max_abs_diff_q10_CS": 2.842170943040401e-14
+  },
+  "F_alkaline_rate_factor_implied": {
+    "gillham_tubes_50C": [
+      34.62147871721291,
+      58.381881684566245
+    ],
+    "gillham_tubes_70C": [
+      17.192517526494992,
+      28.991584452244464
+    ],
+    "pant_test_bed_lower_bound": [
+      1.5007422569158984,
+      3.5417020442287304
+    ]
+  }
+}

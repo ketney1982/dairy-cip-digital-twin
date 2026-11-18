@@ -1,0 +1,39 @@
+{
+  "source": "Aselmeyer et al. (2026) FBP 159:517-530, doi:10.1016/j.fbp.2026.07.012",
+  "conditions": {
+    "T_degC": 45.21,
+    "v_cm_s": 12.0,
+    "h0_mm": 0.52,
+    "NaOH": "0.125 M"
+  },
+  "observed_total_time_s": {
+    "three plates": 720.5,
+    "one plate": 733.2
+  },
+  "M0": {
+    "law": "uniform removal",
+    "predicted_time_to_complete_removal_s": 474.6196578319717,
+    "parameter_interval_95_s": [
+      226.8725045572143,
+      988.4295591695818
+    ],
+    "ratio_pred_obs": {
+      "three plates": 0.6587365132990586,
+      "one plate": 0.6473263200108724
+    },
+    "obs_inside_parameter_interval": true
+  },
+  "M1": {
+    "law": "first order",
+    "predicted_t90_s": 2538.2721172970805,
+    "predicted_t99_s": 5076.544234594161,
+    "ratio_t90_to_obs_total": {
+      "three plates": 3.52293146050948,
+      "one plate": 3.461909598059302
+    },
+    "parameter_interval_95_t90_s": [
+      1194.3465548750355,
+      5266.768833304357
+    ]
+  }
+}
