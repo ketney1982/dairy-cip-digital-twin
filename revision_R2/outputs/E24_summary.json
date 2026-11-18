@@ -147,6 +147,7 @@
       0.040706318634352104,
       0.09179193980989703
     ],
+    "n_conditions_within_calibrated_domain": 0,
     "apparent_temperature_coefficient_per_degC": 0.042260203968003486,
     "apparent_velocity_exponent": 0.44565841935232337,
     "apparent_NaOH_order_0p125_to_0p5": 0.2924812503605777,

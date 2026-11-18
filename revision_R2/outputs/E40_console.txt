@@ -1,0 +1,154 @@
+             profile             weights             screening  q10_U3  q10_U3_M10000  q10_lower_U3_M10000  q10_U0_M10000  confirmed_U3
+0   balanced_default  with CODorg weight               nominal   87.22          87.39                87.07          91.09         False
+1   balanced_default  with CODorg weight  audit-then-select U0   91.80          91.97                91.79          95.25         False
+2   balanced_default  with CODorg weight  audit-then-select U3   95.33          95.35                95.19          97.60          True
+3   balanced_default   CODorg weight = 0               nominal   95.62          95.72                95.59          98.01          True
+4   balanced_default   CODorg weight = 0  audit-then-select U0   97.15          97.23                97.08          98.93          True
+5   balanced_default   CODorg weight = 0  audit-then-select U3   98.90          98.90                98.85          99.70          True
+6   hygiene_priority  with CODorg weight               nominal   99.41          99.41                99.38          99.88          True
+7   hygiene_priority  with CODorg weight  audit-then-select U0   99.41          99.41                99.38          99.88          True
+8   hygiene_priority  with CODorg weight  audit-then-select U3   99.41          99.41                99.38          99.88          True
+9   hygiene_priority   CODorg weight = 0               nominal   99.41          99.41                99.38          99.88          True
+10  hygiene_priority   CODorg weight = 0  audit-then-select U0   99.41          99.41                99.38          99.88          True
+11  hygiene_priority   CODorg weight = 0  audit-then-select U3   99.41          99.41                99.38          99.88          True
+                                                    objective_set  n_feasible  n_nondominated  share_of_feasible  admitted_U0  admitted_U3  share_admitted_U3  q10_U3_min  q10_U3_median  q10_U3_max  CS_nominal_min  CS_nominal_median  CS_nominal_max  water_L_min  energy_kWh_min
+0            five objectives (water, energy, CODorg, carbon, -CS)       18006           18006              1.000        11294         6880              0.382      86.460         93.706      99.935          95.000             97.884          99.997       130.35            2.61
+1                    four objectives (water, energy, carbon, -CS)       18006              97              0.005           75           59              0.608      87.224         96.989      99.935          95.114             99.407          99.997       130.35            2.61
+2  three burdens (water, energy, carbon); CS >= 95% as constraint       18006               9              0.000            0            0              0.000      87.224         88.903      90.149          95.114             95.856          96.513       130.35            2.61
+             profile             weights             screening      n  water_L  energy_kWh  CS_nominal  q10_U3  admitted_U3  water_over_nominal  energy_over_nominal
+0   balanced_default  with CODorg weight               nominal  18006  145.100       5.363      95.114  87.224        False               1.000                1.000
+1   balanced_default  with CODorg weight  audit-then-select U0  11294  212.262       6.237      97.396  91.803        False               1.463                1.163
+2   balanced_default  with CODorg weight  audit-then-select U3   6880  348.736       8.534      98.686  95.331         True               2.403                1.591
+3   balanced_default   CODorg weight = 0               nominal  18006  313.056       6.055      98.907  95.617         True               1.000                1.000
+4   balanced_default   CODorg weight = 0  audit-then-select U0  11294  214.688      12.869      99.411  97.148         True               0.686                2.125
+5   balanced_default   CODorg weight = 0  audit-then-select U3   6880  376.107      14.430      99.833  98.896         True               1.201                2.383
+6   hygiene_priority  with CODorg weight               nominal   2314  543.655      21.903      99.935  99.413         True               1.000                1.000
+7   hygiene_priority  with CODorg weight  audit-then-select U0   2314  543.655      21.903      99.935  99.413         True               1.000                1.000
+8   hygiene_priority  with CODorg weight  audit-then-select U3   2314  543.655      21.903      99.935  99.413         True               1.000                1.000
+9   hygiene_priority   CODorg weight = 0               nominal   2314  543.655      21.903      99.935  99.413         True               1.000                1.000
+10  hygiene_priority   CODorg weight = 0  audit-then-select U0   2314  543.655      21.903      99.935  99.413         True               1.000                1.000
+11  hygiene_priority   CODorg weight = 0  audit-then-select U3   2314  543.655      21.903      99.935  99.413         True               1.000                1.000
+{
+ "A": {
+  "CODorg_linear_in_CS": {
+   "slope": 0.44999999999999973,
+   "intercept": -22.500000000000004,
+   "max_abs_residual": 3.907985046680551e-14
+  },
+  "gamultiobj_front": {
+   "n_front": 76,
+   "n_feasible": 75,
+   "n_nondominated_5obj": 75,
+   "n_nondominated_4obj": 16,
+   "admitted_U0_4obj": 8,
+   "admitted_U3_4obj": 5,
+   "admitted_U0_all_feasible": 61,
+   "admitted_U3_all_feasible": 56
+  },
+  "robustness_of_finding": {
+   "CS_bands": {
+    "n_CS_below_98": 9372,
+    "pass_U3_CS_below_98": 0,
+    "n_CS_at_least_98p9": 4917,
+    "pass_U3_CS_at_least_98p9": 4917
+   },
+   "weight_sweep": [
+    {
+     "w_COD": 0.0,
+     "w_CS": 0.1,
+     "candidate": 7927,
+     "CS": 98.90692698846799,
+     "q10_U3": 95.61679510716506,
+     "admitted_U3": true
+    },
+    {
+     "w_COD": 0.05,
+     "w_CS": 0.1,
+     "candidate": 16812,
+     "CS": 98.25663084101774,
+     "q10_U3": 93.97573024680739,
+     "admitted_U3": false
+    },
+    {
+     "w_COD": 0.0,
+     "w_CS": 0.05,
+     "candidate": 16812,
+     "CS": 98.25663084101774,
+     "q10_U3": 93.97573024680739,
+     "admitted_U3": false
+    },
+    {
+     "w_COD": 0.1,
+     "w_CS": 0.1,
+     "candidate": 12079,
+     "CS": 95.11402624073047,
+     "q10_U3": 87.22361286903076,
+     "admitted_U3": false
+    },
+    {
+     "w_COD": 0.2,
+     "w_CS": 0.1,
+     "candidate": 12079,
+     "CS": 95.11402624073047,
+     "q10_U3": 87.22361286903076,
+     "admitted_U3": false
+    }
+   ],
+   "ATS_U3_with_CODorg": {
+    "candidate": 7796,
+    "n_admitted_dominating": 3,
+    "example_dominating": 7927
+   },
+   "selection_ranges_fixed_on_feasible_set": {
+    "ATS_U3_with_CODorg": 7927,
+    "ATS_U3_CODorg_0": 7927,
+    "nominal_CODorg_0": 7927
+   },
+   "r_CO2_energy_feasible": 0.9999998939692433
+  }
+ },
+ "B": {
+  "sd_y_digitisation": 0.005385164807134504,
+  "by_rule": {
+   "U0": {
+    "n_curves": 16,
+    "within_record": 6,
+    "observed_below_floor": 5,
+    "within_record_reversible_2sd": 0,
+    "after_record": 10,
+    "pass_last_point": 9,
+    "pass_last_two_points": 4,
+    "pass_mean_last3": 3,
+    "pass_last_minus_2sd": 9,
+    "pass_crossing_before_wash_time": 9,
+    "min_CS_last": 94.60703923333334
+   },
+   "U3": {
+    "n_curves": 16,
+    "within_record": 3,
+    "observed_below_floor": 0,
+    "within_record_reversible_2sd": 0,
+    "after_record": 13,
+    "pass_last_point": 12,
+    "pass_last_two_points": 5,
+    "pass_mean_last3": 4,
+    "pass_last_minus_2sd": 11,
+    "pass_crossing_before_wash_time": 12,
+    "min_CS_last": 94.60703923333334
+   },
+   "nominal": {
+    "n_curves": 16,
+    "within_record": 8,
+    "observed_below_floor": 6,
+    "within_record_reversible_2sd": 0,
+    "after_record": 8,
+    "pass_last_point": 7,
+    "pass_last_two_points": 3,
+    "pass_mean_last3": 2,
+    "pass_last_minus_2sd": 7,
+    "pass_crossing_before_wash_time": 7,
+    "min_CS_last": 94.60703923333334
+   }
+  }
+ }
+}

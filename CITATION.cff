@@ -5,12 +5,14 @@
 # Contact: otto.ketney@ulbsibiu.ro | orcid.org/0000-0003-1638-1154
 
 cff-version: 1.2.0
-message: "If you use this synthetic dairy CIP digital-twin proof-of-concept, please cite this repository and the associated manuscript when available."
+message: "If you use this repository, please cite it as below and the associated manuscript when available."
 title: "Dairy CIP Digital Twin: Synthetic MATLAB/Simulink Proof-of-Concept"
-version: "0.1.0-public-release"
-date-released: "2026-06-02"
+abstract: "Simulation framework for auditing the robustness of Pareto-optimal alkaline cleaning-in-place recipes: a synthetic MATLAB/Simulink proof-of-concept of a dairy pipe circuit with assumed parameters, and (folder revision_R2) the benchmark of the alkaline removal kinetics against published whey-protein cleaning curves, the audit of the experimentally calibrated case and the tests beyond the calibration data."
+version: "2.0.0"
+date-released: "2026-11-18"
 authors:
-  - family-names: "Otto"
-    given-names: "Ketney"
+  - family-names: "Ketney"
+    given-names: "Otto"
     orcid: "https://orcid.org/0000-0003-1638-1154"
-affiliation: "\"Lucian Blaga\" University of Sibiu, Department of Agricultural Science and Food Engineering"
+    affiliation: "\"Lucian Blaga\" University of Sibiu, Department of Agricultural Science and Food Engineering"
+repository-code: "https://github.com/ketney1982/dairy-cip-digital-twin"

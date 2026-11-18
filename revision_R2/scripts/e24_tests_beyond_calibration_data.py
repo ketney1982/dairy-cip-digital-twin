@@ -208,7 +208,15 @@ def main():
     phe["rate_flat_channel_mm_min"] = e16.rate(phe.T_C, phe.v_cm_s, P["M0"])
     phe["t_uniform_pred_min"] = h_mean / phe.rate_flat_channel_mm_min
     phe["ratio_pred_obs"] = phe.t_uniform_pred_min / phe.t_alkaline_obs_min
-    phe["within_model_scope"] = phe.NaOH_wt_pct == 0.5                       # the law was calibrated for 0.5 wt% only
+    # Domain of the calibration (main Table 3): 0.5 wt% NaOH, 50-70 degC, 0.5-23 cm/s, flat channel, whey-protein deposit.
+    # Each condition is checked separately; no plate-heat-exchanger condition lies inside the calibrated domain
+    # (geometry differs for all of them), so the comparison is a test of transfer, not of prediction in the domain.
+    phe["matches_calibrated_NaOH"] = phe.NaOH_wt_pct == 0.5
+    phe["T_within_calibrated_range"] = phe.T_C.between(50.0, 70.0)
+    phe["v_within_calibrated_range"] = phe.v_cm_s.between(0.5, 23.0)
+    phe["geometry_as_calibrated"] = False                                    # corrugated plate channels, not the flat duct
+    phe["within_calibrated_domain"] = (phe.matches_calibrated_NaOH & phe.T_within_calibrated_range
+                                       & phe.v_within_calibrated_range & phe.geometry_as_calibrated)
     phe.to_csv(os.path.join(OUT, "E24_plate_heat_exchanger_test.csv"), index=False, float_format="%.5g")
 
     pts, c = blobs("Z26_9d", 5)
@@ -241,8 +249,9 @@ def main():
                           t95_uniform_pred_min=0.95 * float(nom.t_uniform_pred_min), t98_uniform_pred_min=0.98 * float(nom.t_uniform_pred_min),
                           t_alkaline_to_95pct_min=t_frac(0.95) - PHE["t_water_flush_min"],
                           t_alkaline_to_98pct_min=t_frac(0.98) - PHE["t_water_flush_min"]),
-             ratio_pred_obs_range_0p5wt=[float(phe[phe.within_model_scope].ratio_pred_obs.min()),
-                                         float(phe[phe.within_model_scope].ratio_pred_obs.max())],
+             ratio_pred_obs_range_0p5wt=[float(phe[phe.matches_calibrated_NaOH].ratio_pred_obs.min()),
+                                         float(phe[phe.matches_calibrated_NaOH].ratio_pred_obs.max())],
+             n_conditions_within_calibrated_domain=int(phe.within_calibrated_domain.sum()),
              apparent_temperature_coefficient_per_degC=-slope_ln(phe[phe.series == "T_C"], "T_C", False),
              apparent_velocity_exponent=-slope_ln(phe[phe.series == "v_cm_s"], "v_cm_s", True),
              apparent_NaOH_order_0p125_to_0p5=-slope_ln(phe[phe.series == "NaOH_wt_pct"], "NaOH_wt_pct", True),

@@ -1,0 +1,197 @@
+{
+  "calibration_curves": {
+    "phi_min": 0.0171454394,
+    "phi_max": 0.79146229,
+    "phi_median": 0.5254863470000001,
+    "rho_min": 0.36898,
+    "rho_max": 5.5289,
+    "rho_median": 2.9295999999999998,
+    "n_second_stage_slower": 2,
+    "n": 8
+  },
+  "thickness_curves": {
+    "phi_median": 0.6650162127,
+    "rho_median": 2.9071,
+    "n": 11
+  },
+  "variants": [
+    {
+      "variant": "A",
+      "phi": 0.5254863470000001,
+      "rho": 2.9295999999999998,
+      "r_ref": 0.13560605621506755,
+      "alpha": 0.07478217275159456,
+      "beta": 0.3799370302520407,
+      "se_r_ref": 0.017388536665710913,
+      "se_alpha": 0.01272231152246408,
+      "se_beta": 0.11353077942475173,
+      "rmse_calibration": 0.12939260674555497,
+      "rmse_validation": 0.10860965659406889,
+      "t90_ratio_loco_min": 0.5577939131634309,
+      "t90_ratio_loco_max": 1.2215135454807546,
+      "t90_ratio_val_min": 0.6541082803661755,
+      "t90_ratio_val_max": 1.0039915380947435,
+      "t90_ratio_val_median": 0.8040763979259805,
+      "sigma_prediction_error": 0.21687326833382745,
+      "nominally_feasible": 23929,
+      "admitted_U0": 22693,
+      "admitted_U3": 20093,
+      "confirmed_U3": 19873,
+      "front_size": 22,
+      "front_admitted_U0": 1,
+      "front_admitted_U3": 0,
+      "front_q10_U3_min": 45.60044961475943,
+      "front_q10_U3_max": 56.434352306945314,
+      "nominal_min_volume": {
+        "T_C": 69.93926967989486,
+        "v_cm_s": 0.5640684131459246,
+        "t_min": 15.348191563418172,
+        "V_L": 0.9350024464623912,
+        "q10_U3": 50.29181269358409
+      },
+      "U3_min_volume": {
+        "T_C": 68.97998476991143,
+        "v_cm_s": 0.5071532731672337,
+        "t_min": 28.324247552548293,
+        "V_L": 1.5513913644775785,
+        "q10_U3": 100.0
+      },
+      "t_70C_1cms": {
+        "U0": 14.346462205183762,
+        "U3": 18.095524627052253,
+        "nominal": 11.997049754146177
+      },
+      "U3_over_nominal_70C_1cms": 1.5083312145803551,
+      "retrospective_full_calibration": [
+        {
+          "model": "M2",
+          "wash_time_rule": "U0",
+          "n_curves": 16,
+          "n_within_record": 9,
+          "n_observed_pass": 2,
+          "n_observed_fail": 7,
+          "n_after_record": 7,
+          "n_after_record_last_point_pass": 6,
+          "n_floor_crossed_by_wash_time": 8,
+          "min_observed_CS": 76.2743817818,
+          "min_last_measured_CS_after_record": 94.607
+        },
+        {
+          "model": "M2",
+          "wash_time_rule": "U3",
+          "n_curves": 16,
+          "n_within_record": 3,
+          "n_observed_pass": 2,
+          "n_observed_fail": 1,
+          "n_after_record": 13,
+          "n_after_record_last_point_pass": 12,
+          "n_floor_crossed_by_wash_time": 14,
+          "min_observed_CS": 92.1364836902,
+          "min_last_measured_CS_after_record": 94.607
+        },
+        {
+          "model": "M2",
+          "wash_time_rule": "nominal",
+          "n_curves": 16,
+          "n_within_record": 14,
+          "n_observed_pass": 1,
+          "n_observed_fail": 13,
+          "n_after_record": 2,
+          "n_after_record_last_point_pass": 2,
+          "n_floor_crossed_by_wash_time": 3,
+          "min_observed_CS": 62.6042570214,
+          "min_last_measured_CS_after_record": 96.7294333333
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "phi": 0.6650162127,
+      "rho": 2.9071,
+      "r_ref": 0.14406692996053622,
+      "alpha": 0.07263046165418872,
+      "beta": 0.3820888707037988,
+      "se_r_ref": 0.019753155333765576,
+      "se_alpha": 0.010250842777513224,
+      "se_beta": 0.10626445488719277,
+      "rmse_calibration": 0.11374202630848922,
+      "rmse_validation": 0.09243105925365594,
+      "t90_ratio_loco_min": 0.5943133802681826,
+      "t90_ratio_loco_max": 1.2903415618907355,
+      "t90_ratio_val_min": 0.7028871144121511,
+      "t90_ratio_val_max": 1.078862225548618,
+      "t90_ratio_val_median": 0.8640388083586392,
+      "sigma_prediction_error": 0.2148703239258684,
+      "nominally_feasible": 23663,
+      "admitted_U0": 22376,
+      "admitted_U3": 19948,
+      "confirmed_U3": 19765,
+      "front_size": 20,
+      "front_admitted_U0": 0,
+      "front_admitted_U3": 0,
+      "front_q10_U3_min": 51.21879151710065,
+      "front_q10_U3_max": 58.20570697237544,
+      "nominal_min_volume": {
+        "T_C": 69.96588679721037,
+        "v_cm_s": 0.5013587799665096,
+        "t_min": 17.920660489560667,
+        "V_L": 0.970345491757938,
+        "q10_U3": 58.04889149782833
+      },
+      "U3_min_volume": {
+        "T_C": 69.3960096418921,
+        "v_cm_s": 0.5185153127666655,
+        "t_min": 29.771752202787123,
+        "V_L": 1.6672078157443013,
+        "q10_U3": 100.0
+      },
+      "t_70C_1cms": {
+        "U0": 15.346212184348694,
+        "U3": 19.395199599966663,
+        "nominal": 12.896824735394613
+      },
+      "U3_over_nominal_70C_1cms": 1.5038740153409718,
+      "retrospective_full_calibration": [
+        {
+          "model": "M2",
+          "wash_time_rule": "U0",
+          "n_curves": 16,
+          "n_within_record": 8,
+          "n_observed_pass": 2,
+          "n_observed_fail": 6,
+          "n_after_record": 8,
+          "n_after_record_last_point_pass": 7,
+          "n_floor_crossed_by_wash_time": 9,
+          "min_observed_CS": 83.3536632219,
+          "min_last_measured_CS_after_record": 94.607
+        },
+        {
+          "model": "M2",
+          "wash_time_rule": "U3",
+          "n_curves": 16,
+          "n_within_record": 3,
+          "n_observed_pass": 2,
+          "n_observed_fail": 1,
+          "n_after_record": 13,
+          "n_after_record_last_point_pass": 12,
+          "n_floor_crossed_by_wash_time": 14,
+          "min_observed_CS": 94.5141752392,
+          "min_last_measured_CS_after_record": 94.607
+        },
+        {
+          "model": "M2",
+          "wash_time_rule": "nominal",
+          "n_curves": 16,
+          "n_within_record": 12,
+          "n_observed_pass": 0,
+          "n_observed_fail": 12,
+          "n_after_record": 4,
+          "n_after_record_last_point_pass": 4,
+          "n_floor_crossed_by_wash_time": 5,
+          "min_observed_CS": 65.8444025335,
+          "min_last_measured_CS_after_record": 96.7294333333
+        }
+      ]
+    }
+  ]
+}

@@ -404,7 +404,7 @@ def figS13():
 
     # (b) plate heat exchanger: observed alkaline cleaning time against uniform removal at the flat-channel rate
     ax = axs[1]
-    p5 = phe[phe.within_model_scope]
+    p5 = phe[phe.matches_calibrated_NaOH]
     for ser, mk, lab in (("v_cm_s", "o", "velocity series, 80 °C"), ("T_C", "s", "temperature series, 27.5 cm s$^{-1}$")):
         q_ = p5[p5.series == ser]
         ax.plot(q_.t_alkaline_obs_min, q_.t_uniform_pred_min, mk, ms=4, mfc=OI["blue"] if ser == "v_cm_s" else OI["orange"], mec="white", mew=0.4, ls="", label=lab)

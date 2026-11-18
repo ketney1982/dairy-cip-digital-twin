@@ -1,0 +1,4 @@
+objective_set,n_feasible,n_nondominated,share_of_feasible,admitted_U0,admitted_U3,share_admitted_U3,q10_U3_min,q10_U3_median,q10_U3_max,CS_nominal_min,CS_nominal_median,CS_nominal_max,water_L_min,energy_kWh_min
+"five objectives (water, energy, CODorg, carbon, -CS)",18006,18006,1,11294,6880,0.382095,86.4602,93.7063,99.9348,95.0002,97.8839,99.997,130.35,2.60987
+"four objectives (water, energy, carbon, -CS)",18006,97,0.00538709,75,59,0.608247,87.2236,96.9888,99.9348,95.114,99.4066,99.997,130.35,2.60987
+"three burdens (water, energy, carbon); CS >= 95% as constraint",18006,9,0.000499833,0,0,0,87.2236,88.9032,90.149,95.114,95.8558,96.5129,130.35,2.60987

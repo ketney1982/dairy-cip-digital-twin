@@ -1,0 +1,124 @@
+{
+ "A": {
+  "CODorg_linear_in_CS": {
+   "slope": 0.44999999999999973,
+   "intercept": -22.500000000000004,
+   "max_abs_residual": 3.907985046680551e-14
+  },
+  "gamultiobj_front": {
+   "n_front": 76,
+   "n_feasible": 75,
+   "n_nondominated_5obj": 75,
+   "n_nondominated_4obj": 16,
+   "admitted_U0_4obj": 8,
+   "admitted_U3_4obj": 5,
+   "admitted_U0_all_feasible": 61,
+   "admitted_U3_all_feasible": 56
+  },
+  "robustness_of_finding": {
+   "CS_bands": {
+    "n_CS_below_98": 9372,
+    "pass_U3_CS_below_98": 0,
+    "n_CS_at_least_98p9": 4917,
+    "pass_U3_CS_at_least_98p9": 4917
+   },
+   "weight_sweep": [
+    {
+     "w_COD": 0.0,
+     "w_CS": 0.1,
+     "candidate": 7927,
+     "CS": 98.90692698846799,
+     "q10_U3": 95.61679510716506,
+     "admitted_U3": true
+    },
+    {
+     "w_COD": 0.05,
+     "w_CS": 0.1,
+     "candidate": 16812,
+     "CS": 98.25663084101774,
+     "q10_U3": 93.97573024680739,
+     "admitted_U3": false
+    },
+    {
+     "w_COD": 0.0,
+     "w_CS": 0.05,
+     "candidate": 16812,
+     "CS": 98.25663084101774,
+     "q10_U3": 93.97573024680739,
+     "admitted_U3": false
+    },
+    {
+     "w_COD": 0.1,
+     "w_CS": 0.1,
+     "candidate": 12079,
+     "CS": 95.11402624073047,
+     "q10_U3": 87.22361286903076,
+     "admitted_U3": false
+    },
+    {
+     "w_COD": 0.2,
+     "w_CS": 0.1,
+     "candidate": 12079,
+     "CS": 95.11402624073047,
+     "q10_U3": 87.22361286903076,
+     "admitted_U3": false
+    }
+   ],
+   "ATS_U3_with_CODorg": {
+    "candidate": 7796,
+    "n_admitted_dominating": 3,
+    "example_dominating": 7927
+   },
+   "selection_ranges_fixed_on_feasible_set": {
+    "ATS_U3_with_CODorg": 7927,
+    "ATS_U3_CODorg_0": 7927,
+    "nominal_CODorg_0": 7927
+   },
+   "r_CO2_energy_feasible": 0.9999998939692433
+  }
+ },
+ "B": {
+  "sd_y_digitisation": 0.005385164807134504,
+  "by_rule": {
+   "U0": {
+    "n_curves": 16,
+    "within_record": 6,
+    "observed_below_floor": 5,
+    "within_record_reversible_2sd": 0,
+    "after_record": 10,
+    "pass_last_point": 9,
+    "pass_last_two_points": 4,
+    "pass_mean_last3": 3,
+    "pass_last_minus_2sd": 9,
+    "pass_crossing_before_wash_time": 9,
+    "min_CS_last": 94.60703923333334
+   },
+   "U3": {
+    "n_curves": 16,
+    "within_record": 3,
+    "observed_below_floor": 0,
+    "within_record_reversible_2sd": 0,
+    "after_record": 13,
+    "pass_last_point": 12,
+    "pass_last_two_points": 5,
+    "pass_mean_last3": 4,
+    "pass_last_minus_2sd": 11,
+    "pass_crossing_before_wash_time": 12,
+    "min_CS_last": 94.60703923333334
+   },
+   "nominal": {
+    "n_curves": 16,
+    "within_record": 8,
+    "observed_below_floor": 6,
+    "within_record_reversible_2sd": 0,
+    "after_record": 8,
+    "pass_last_point": 7,
+    "pass_last_two_points": 3,
+    "pass_mean_last3": 2,
+    "pass_last_minus_2sd": 7,
+    "pass_crossing_before_wash_time": 7,
+    "min_CS_last": 94.60703923333334
+   }
+  }
+ }
+}

@@ -1,0 +1,18 @@
+curve,role,kind,T_C,v_cm_s,phi,M2_rate_ratio,M0_rmse,M2_rmse
+W10a_protein:protein,validation: independent laboratory,protein,23.5,8.3,0.8352,0.5853,0.0159,0.008177
+Z11a:v=1.0,validation: whole-channel protein (UV-Vis),protein,70,1,0.8099,0.4802,0.03294,0.02188
+Z11d:v=23.0,validation: whole-channel protein (UV-Vis),protein,70,23,0.8385,0.119,0.07393,0.0541
+Z6a:x=12cm,validation: other axial position,thickness,70,1,0.8497,2.664,0.02721,0.02347
+Z6a:x=19cm,validation: other axial position,thickness,70,1,0.8207,4.704,0.03358,0.02898
+Z6a:x=22cm,validation: other axial position,thickness,70,1,0.8007,2.907,0.03325,0.0272
+Z6b:v=0.5,calibration,thickness,70,0.5,0.7355,3.645,0.03687,0.02241
+Z6b:v=1.0,calibration,thickness,70,1,0.7915,4.039,0.03808,0.0266
+Z6b:v=1.5,calibration,thickness,70,1.5,0.665,3.164,0.05155,0.0245
+Z6b:v=12.0,calibration,thickness,70,12,0.1895,0.8195,0.03521,0.03259
+Z6b:v=2.0,calibration,thickness,70,2,0.1481,2.695,0.07544,0.03238
+Z6b:v=23.0,calibration,thickness,70,23,0.6607,2.192,0.05188,0.03845
+Z6c:T=50,calibration,thickness,50,1,0.3903,0.369,0.08991,0.02541
+Z6c:T=60,calibration,thickness,60,1,0.01715,5.529,0.04553,0.03067
+Z9a:v=0.5,validation: whole-channel protein (UV-Vis),protein,70,0.5,0.9028,0.3933,0.04032,0.038
+Z9a:v=1.0,validation: whole-channel protein (UV-Vis),protein,70,1,0.74,0.5694,0.03354,0.01931
+Z9a:v=1.5,validation: whole-channel protein (UV-Vis),protein,70,1.5,0.09274,2.121,0.03668,0.009748
