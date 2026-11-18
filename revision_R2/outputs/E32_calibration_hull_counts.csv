@@ -1,0 +1,3 @@
+variant,candidates,candidates_excluded,nominally_feasible,admitted_U0_point_estimate,admitted_U3_point_estimate,admitted_U3_confirmed_lower_limit,nominal_front_size,front_admitted_U0,front_admitted_U3,front_q10_U3_min,front_q10_U3_median,front_q10_U3_max
+V0 unrestricted,30000,0,22767,21318,18475,18271,23,0,0,60.564,67.688,73.381
+V4 setpoints inside the convex hull of the calibration conditions,14953,15047,11798,11186,10066,9980,23,0,0,62.384,67.85,73.381

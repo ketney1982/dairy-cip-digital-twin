@@ -30,18 +30,39 @@
       "audit_rule_at_unseen_condition": {
         "nominal": {
           "wash_time_min": 3.399199933327777,
+          "t_end_obs_min": 5.2,
+          "within_record": true,
+          "observed_residual_fraction": 0.37972160926214693,
           "observed_CS": 65.06318995204418,
-          "observed_pass": false
+          "observed_pass": false,
+          "last_measured_CS": 97.93669058317485,
+          "last_measured_pass": true,
+          "t_floor_crossing_obs_min": 5.129257143739631,
+          "floor_crossed_by_wash_time": false
         },
         "U0": {
           "wash_time_min": 4.049037419784981,
+          "t_end_obs_min": 5.2,
+          "within_record": true,
+          "observed_residual_fraction": 0.2796627735098556,
           "observed_CS": 74.26924105113788,
-          "observed_pass": false
+          "observed_pass": false,
+          "last_measured_CS": 97.93669058317485,
+          "last_measured_pass": true,
+          "t_floor_crossing_obs_min": 5.129257143739631,
+          "floor_crossed_by_wash_time": false
         },
         "U3": {
           "wash_time_min": 5.898574881240103,
-          "observed_CS": 100.0,
-          "observed_pass": true
+          "t_end_obs_min": 5.2,
+          "within_record": false,
+          "observed_residual_fraction": null,
+          "observed_CS": null,
+          "observed_pass": null,
+          "last_measured_CS": 97.93669058317485,
+          "last_measured_pass": true,
+          "t_floor_crossing_obs_min": 5.129257143739631,
+          "floor_crossed_by_wash_time": true
         }
       }
     },
@@ -60,22 +81,45 @@
       "audit_rule_at_unseen_condition": {
         "nominal": {
           "wash_time_min": 7.198249854154512,
-          "observed_CS": 100.0,
-          "observed_pass": true
+          "t_end_obs_min": 5.2,
+          "within_record": false,
+          "observed_residual_fraction": null,
+          "observed_CS": null,
+          "observed_pass": null,
+          "last_measured_CS": 97.93669058317485,
+          "last_measured_pass": true,
+          "t_floor_crossing_obs_min": 5.129257143739631,
+          "floor_crossed_by_wash_time": true
         },
         "U0": {
           "wash_time_min": 7.648137344778731,
-          "observed_CS": 100.0,
-          "observed_pass": true
+          "t_end_obs_min": 5.2,
+          "within_record": false,
+          "observed_residual_fraction": null,
+          "observed_CS": null,
+          "observed_pass": null,
+          "last_measured_CS": 97.93669058317485,
+          "last_measured_pass": true,
+          "t_floor_crossing_obs_min": 5.129257143739631,
+          "floor_crossed_by_wash_time": true
         },
         "U3": {
           "wash_time_min": 11.297224768730725,
-          "observed_CS": 100.0,
-          "observed_pass": true
+          "t_end_obs_min": 5.2,
+          "within_record": false,
+          "observed_residual_fraction": null,
+          "observed_CS": null,
+          "observed_pass": null,
+          "last_measured_CS": 97.93669058317485,
+          "last_measured_pass": true,
+          "t_floor_crossing_obs_min": 5.129257143739631,
+          "floor_crossed_by_wash_time": true
         }
       }
     },
-    "t_obs_CS95_min": 5.129257143739631
+    "t_obs_CS95_min": 5.129257143739631,
+    "CS_last_measured_point": 97.93669058317485,
+    "CS_mean_last_three_points": 94.18906271112253
   },
   "B_plate_heat_exchanger": {
     "source": "Zhang et al. (2026), Figs. 5 and 9d; laboratory plate heat exchanger, 2 channels x 3 passes",

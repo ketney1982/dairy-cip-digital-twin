@@ -176,12 +176,17 @@ def main():
         t3 = e17.wash_time(model, TA, VA, p, e17.draws(model, e17.M_POLICY, 3, np.random.default_rng(903)))
         chk = {}
         for label, tw in (("nominal", tn), ("U0", t0), ("U3", t3)):
-            yo = float(np.interp(tw, tt, y, right=0.0)) if tw <= tt.max() + 1.0 else 0.0
-            cso = 100.0 * (1.0 - yo * h0 / e17.H_REF)
-            chk[label] = dict(wash_time_min=tw, observed_CS=cso, observed_pass=bool(cso >= e17.FLOOR))
+            # the measured curve is read only inside its record: after the last measured point observed_CS and
+            # observed_pass are null, and the last measured score and the observed floor crossing are given separately
+            rc = e17.read_curve(tw, tt, y, h0)
+            chk[label] = dict(wash_time_min=tw, **{k: (None if isinstance(v, float) and np.isnan(v) else v) for k, v in rc.items()})
         A[model]["audit_rule_at_unseen_condition"] = chk
-    # time at which the measured curve reaches the cleaning floor (CS = 95% with h_ref = 3 mm)
+    # time at which the measured curve reaches the cleaning floor (CS = 95% with h_ref = 3 mm), the score at the last
+    # measured point and the mean score of the last three points (the residual is still decreasing at the end of the record)
     A["t_obs_CS95_min"] = e16.t_cross(tt, y * h0 / e17.H_REF, 0.05)
+    cs_obs = 100.0 * (1.0 - y * h0 / e17.H_REF)
+    A["CS_last_measured_point"] = float(cs_obs[-1])
+    A["CS_mean_last_three_points"] = float(cs_obs[-3:].mean())
 
     # ================================================================== B. laboratory plate heat exchanger
     phe_rows = []

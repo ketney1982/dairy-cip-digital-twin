@@ -21,7 +21,10 @@ Uncertainty sets (data-derived where possible):
   U2  U1 + inlet-water temperature Tin ~ U(5, 25 degC)   (energy only)
   U3  U2 + kinetics: (ln r_ref, alpha, beta) ~ N(estimate, jackknife covariance) and a run-to-run
       factor eps ~ LN(0, sigma), sigma = SD of ln(predicted/observed t90) in E16
-Also: retrospective check of nominal and robust wash times against the observed cleaning curves.
+Also: retrospective check of nominal and robust wash times against the observed cleaning curves. A measured curve is
+read only inside its record: for a wash time after the last measured point the fields observed_CS / observed_pass
+are left empty (within_record = False) and the score of the last measured point is given in last_measured_CS; the
+time at which the measured curve first crossed the floor is given in t_floor_crossing_obs_min (function read_curve).
 Output: ../outputs/E17_*.csv / .json
 """
 import os
@@ -138,6 +141,56 @@ def nondominated(F):
         keep &= ~dom
         keep[i] = True
     return order[keep]
+
+
+def read_curve(tw, t, y, h0):
+    """Cleaning score of a measured curve (times t, normalised residual soil y, initial thickness h0) at the wash time tw.
+
+    The curve is read by linear interpolation only inside the measured record. If tw lies after the last measured
+    point, nothing was observed at tw: the 'observed' fields stay empty, and the score of the last measured point is
+    reported in fields of its own. The time at which the measured curve first crosses the floor (linear interpolation
+    between the two neighbouring points) is reported separately; it answers a different question (had the floor been
+    crossed by tw?) from the score at tw."""
+    t = np.asarray(t, float)
+    y = np.asarray(y, float)
+    c = 100.0 * (1.0 - y * h0 / H_REF)
+    within = bool(tw <= t[-1])
+    k = np.where(c >= FLOOR)[0]
+    if len(k) == 0:
+        t_cross = np.nan
+    elif k[0] == 0:
+        t_cross = float(t[0])
+    else:
+        a = k[0]
+        t_cross = float(t[a - 1] + (FLOOR - c[a - 1]) * (t[a] - t[a - 1]) / (c[a] - c[a - 1]))
+    y_tw = float(np.interp(tw, t, y)) if within else np.nan
+    c_tw = 100.0 * (1.0 - y_tw * h0 / H_REF) if within else np.nan
+    return dict(t_end_obs_min=float(t[-1]), within_record=within, observed_residual_fraction=y_tw, observed_CS=c_tw,
+                observed_pass=bool(c_tw >= FLOOR) if within else None,
+                last_measured_CS=float(c[-1]), last_measured_pass=bool(c[-1] >= FLOOR),
+                t_floor_crossing_obs_min=t_cross, floor_crossed_by_wash_time=bool(np.isfinite(t_cross) and t_cross <= tw))
+
+
+def retro_summary(df, by):
+    """Counts of the retrospective check; curves whose wash time lies after the record are counted separately."""
+    w = df.within_record.astype(bool)
+    ok = (df.observed_CS >= FLOOR).fillna(False).astype(bool)   # empty (not observed) counts neither as pass nor as fail
+    d = df.assign(n_within_record=w, n_observed_pass=w & ok, n_observed_fail=w & ~ok, n_after_record=~w,
+                  n_after_record_last_point_pass=~w & df.last_measured_pass.astype(bool),
+                  n_floor_crossed_by_wash_time=df.floor_crossed_by_wash_time.astype(bool))
+    cols = ["n_within_record", "n_observed_pass", "n_observed_fail", "n_after_record", "n_after_record_last_point_pass",
+            "n_floor_crossed_by_wash_time"]
+    g = d.groupby(by)
+    out = g[cols].sum().astype(int)
+    out.insert(0, "n_curves", g.size())
+    out["min_observed_CS"] = g.observed_CS.min()                # within the record only (empty if no curve extends to tw)
+    out["min_last_measured_CS_after_record"] = d[~w].groupby(by).last_measured_CS.min()
+    return out.reset_index()
+
+
+def records(df):
+    """Rows as dictionaries with empty cells written as null (valid JSON)."""
+    return json.loads(df.to_json(orient="records"))
 
 
 def main():
@@ -268,18 +321,14 @@ def main():
                 continue
             gr = gr.iloc[0]
             for label, tw in (("nominal", gr.t_nominal_min), ("U0", gr.t_U0_min), ("U3", gr.t_U3_min)):
-                y = float(np.interp(tw, g.t_min, g.y_obs, right=0.0)) if tw <= g.t_min.max() + 1.0 else 0.0
-                cs_obs = 100.0 * (1.0 - y * c.h0_mm / H_REF)
                 retro.append(dict(curve=c.curve, role=c.role, T_C=c.T_C, v_cm_s=c.v_cm_s, model=model, wash_time_rule=label,
-                                  wash_time_min=tw, t_end_obs_min=c.t_end_obs_min, observed_residual_fraction=y,
-                                  observed_CS=cs_obs, observed_pass=bool(cs_obs >= FLOOR)))
+                                  wash_time_min=tw, **read_curve(tw, g.t_min, g.y_obs, c.h0_mm)))
     retro = pd.DataFrame(retro)
     retro.to_csv(os.path.join(OUT, "E17_retrospective_check.csv"), index=False, float_format="%.5g")
-    rs = retro.groupby(["model", "wash_time_rule"]).agg(n_curves=("curve", "size"), n_pass=("observed_pass", "sum"),
-                                                        min_observed_CS=("observed_CS", "min"),
-                                                        median_wash_time=("wash_time_min", "median")).reset_index()
+    rs = retro_summary(retro, ["model", "wash_time_rule"]).merge(
+        retro.groupby(["model", "wash_time_rule"]).wash_time_min.median().rename("median_wash_time").reset_index())
     rs.to_csv(os.path.join(OUT, "E17_retrospective_summary.csv"), index=False, float_format="%.5g")
-    summary["retrospective"] = rs.to_dict(orient="records")
+    summary["retrospective"] = records(rs)
 
     # ---- cross-validated retrospective check: for the condition (T, v) of each measured curve, the rate law, its jackknife
     # covariance and the prediction-error factor are re-estimated WITHOUT any curve measured at that condition
@@ -314,19 +363,15 @@ def main():
             t_u3 = wash_time(model, Tc, vc, p, draws(model, M_POLICY, 3, np.random.default_rng(903), p=p, cov=cov, sigma=sig))
             for c in [c for c in inlab if (c["T"], c["v"]) == (Tc, vc)]:
                 for label, tw in (("nominal", t_nom), ("U0", t_u0), ("U3", t_u3)):
-                    y = float(np.interp(tw, c["t"], c["y"], right=0.0)) if tw <= c["t"].max() + 1.0 else 0.0
-                    co = 100.0 * (1.0 - y * c["h0"] / H_REF)
                     cvrows.append(dict(curve=c["id"], role=c["role"], T_C=Tc, v_cm_s=vc, model=model, wash_time_rule=label, wash_time_min=tw,
-                                       n_calibration_curves=n, sigma_prediction_error=sig, observed_CS=co, observed_pass=bool(co >= FLOOR)))
+                                       n_calibration_curves=n, sigma_prediction_error=sig, **read_curve(tw, c["t"], c["y"], c["h0"])))
     cv = pd.DataFrame(cvrows)
     cv.to_csv(os.path.join(OUT, "E17_retrospective_check_crossvalidated.csv"), index=False, float_format="%.5g")
-    cvs = cv.groupby(["model", "wash_time_rule"]).agg(n_curves=("curve", "size"), n_pass=("observed_pass", "sum"),
-                                                      min_observed_CS=("observed_CS", "min")).reset_index()
+    cvs = retro_summary(cv, ["model", "wash_time_rule"])
     cvs.to_csv(os.path.join(OUT, "E17_retrospective_crossvalidated_summary.csv"), index=False, float_format="%.5g")
-    summary["retrospective_crossvalidated"] = cvs.to_dict(orient="records")
-    rv = retro[retro.role != "calibration"].groupby(["model", "wash_time_rule"]).agg(
-        n_curves=("curve", "size"), n_pass=("observed_pass", "sum"), min_observed_CS=("observed_CS", "min")).reset_index()
-    summary["retrospective_validation_curves_only"] = rv.to_dict(orient="records")
+    summary["retrospective_crossvalidated"] = records(cvs)
+    rv = retro_summary(retro[retro.role != "calibration"], ["model", "wash_time_rule"])
+    summary["retrospective_validation_curves_only"] = records(rv)
     summary["price_of_robustness_time_ratio"] = {
         m: dict(U0_median=float(grid[grid.model == m].U0_over_nominal.median()), U3_median=float(grid[grid.model == m].U3_over_nominal.median()),
                 U3_min=float(grid[grid.model == m].U3_over_nominal.min()), U3_max=float(grid[grid.model == m].U3_over_nominal.max()))
@@ -340,10 +385,11 @@ def main():
     print(rs.round(2).to_string(index=False))
     print("validation curves only:"); print(rv.round(2).to_string(index=False))
     print("cross-validated:"); print(cvs.round(2).to_string(index=False))
-    print(cv[cv.model == "M0"].pivot_table(index=["curve", "T_C", "v_cm_s"], columns="wash_time_rule", values=["wash_time_min", "observed_CS"]).round(1).to_string())
+    show = ["curve", "T_C", "v_cm_s", "wash_time_rule", "wash_time_min", "t_end_obs_min", "within_record", "observed_CS",
+            "last_measured_CS", "t_floor_crossing_obs_min"]
+    print(cv[cv.model == "M0"][show].round(1).to_string(index=False))
     print(grid.groupby("model")[["U0_over_nominal", "U3_prediction_error_only_over_nominal", "U3_over_nominal"]].agg(["min", "median", "max"]).round(2))
-    print(retro[(retro.model == "M0")].pivot_table(index=["curve", "T_C", "v_cm_s", "t_end_obs_min"], columns="wash_time_rule",
-                                                   values=["wash_time_min", "observed_CS"]).round(1).to_string())
+    print("full calibration:"); print(retro[retro.model == "M0"][show].round(1).to_string(index=False))
 
 
 if __name__ == "__main__":

@@ -568,6 +568,70 @@ sections 1–11.
   nominal check, a check at the maximum deposit thickness, fixed margins on the nominally sufficient wash time and the audits
   under U0 and U3, and counts the candidates that each rule admits although they fail the U3 audit or rejects although they
   pass it. It reads `outputs/E17_candidates.csv` (run `e17` first) and runs no new simulation.
+- **Reading of the measured curves.** In `e17` and `e24` a measured curve is read only inside its record (function
+  `read_curve` of `e17`). For a wash time after the last measured point the fields `observed_CS` and `observed_pass` are
+  empty (`within_record` = False); the score of the last measured point (`last_measured_CS`) and the time at which the
+  measured curve first crossed the floor (`t_floor_crossing_obs_min`, linear interpolation) are given in fields of their own.
+- **Combinations of temperature and velocity.** `e32_calibration_hull_check.py` restricts the nominal setpoints of the
+  calibrated case to the convex hull of the eight calibration conditions in the plane (temperature, ln velocity) and repeats
+  the nominal screening, the non-dominated set and the audit on the candidates inside the hull. It reads
+  `outputs/E17_candidates.csv` (run `e17` first).
 
 Seeds: NumPy 42 (candidates), 100–103 and 900–903 (Monte Carlo draws), 2026–2027 (pipe-circuit case). The scripts
 reproduce the files in `revision_R2/outputs/`.
+
+## 13. Reproducing the stored results (checked on 17 November 2026)
+
+The stored data and results were regenerated from a clean clone of the repository with MATLAB/Simulink R2026a
+(Statistics and Machine Learning, Global Optimization and Parallel Computing Toolboxes) and the pinned Python
+environment (`requirements.txt`), without a `.env` file and with `CIP_GEMINI_MODE=mock`, in this order:
+
+```
+% MATLAB, from the repository root
+addpath('src'); setenv('CIP_GEMINI_MODE','mock');
+run('src/build_model.m')
+run('src/run_innovation_pipeline.m')      % optional exploratory AI-supervised layer (Section 9b); see the note below
+run('src/run_full_pipeline.m')            % 5,000 Simulink scenarios, surrogates, Pareto front, policy recipes
+run('src/verify_solver_convergence.m')
+run('src/validate_surrogates_extended.m')
+run('src/qrf_prediction_intervals.m')
+run('src/trace_original_table4_audit.m')
+```
+
+```
+# Python
+cd src
+python verify_closed_form.py
+python run_robustness_audit.py
+python run_audit_benchmarks.py
+python run_conservative_selection.py
+python run_threshold_sensitivity.py
+python run_sobol_sensitivity.py
+python run_counterfactual_closed_form.py
+cd ../revision_R2/scripts
+python e15_digitise_published_cleaning_data.py
+python e16_experimental_benchmark.py
+python e17_calibrated_case_audit.py
+python e18_anchored_sensitivity_illustrative_case.py
+python e24_tests_beyond_calibration_data.py
+python e26_R21_checks.py
+python e28_R22_checks.py
+python e29_decision_rule_comparison.py
+python e32_calibration_hull_check.py
+```
+
+Result of the check: the simulated data set (`data/dairy_cip_synthetic_dataset.csv`), the surrogate, Pareto and
+policy outputs and the outputs of all Python analyses were regenerated identically. The only differences were
+run-time measurements (`timing_matlab.csv`, `timing_closed_form.json`, time stamps and elapsed times in
+`run_manifest.json` and in the files of the exploratory layer), the binary model file rebuilt by `build_model.m`,
+and a rounding difference of about 4e-9 (relative) in `revision_R2/outputs/E26_B_digitisation_summary.json`.
+The stored timing files are those quoted in the manuscript and are not overwritten in the repository.
+
+**Order matters for the exploratory layer.** `run_innovation_pipeline.m` retrains the surrogates on the combined
+data set (base scenarios plus the six AI-designed scenarios) and recomputes the Pareto front, so that it overwrites
+`results/pareto_solutions.csv`, `results/surrogate_metrics.csv` and `results/surrogate_pred_vs_obs.csv` with versions
+that are NOT those of the manuscript (for example 70 instead of 76 recipes on the front). `run_full_pipeline.m`
+restores the files used in the manuscript; it must therefore be run after the exploratory layer, as above, or the
+exploratory layer must be skipped. The files of the exploratory layer (`ai_*`, `robust_pareto_solutions.csv`,
+`uncertainty_surrogate_metrics.csv`, `counterfactual_cip_results.csv`) are not used in any reported result; they
+were regenerated in this check and replace earlier versions produced with a previous state of the code.

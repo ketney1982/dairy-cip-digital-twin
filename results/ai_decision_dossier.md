@@ -7,11 +7,11 @@
 > ⚠️ **SIMULATION-GENERATED SYNTHETIC DATA.** Proof-of-concept, uncalibrated.
 > Decision **support** only — not a decision, not validated for plant use.
 
-- **Run id:** `run_20260603_102118_8478`
-- **Generated:** 2026-06-03 10:21:19
+- **Run id:** `run_20261117_200855_0424`
+- **Generated:** 2026-11-17 20:08:56
 - **Scenarios (dataset rows):** 5000
 - **Data source:** simulation-generated synthetic data (mechanistic Simulink twin, proof-of-concept)
-- **Generative-AI mode:** MOCK (model: gemini-3.5-flash)
+- **Generative-AI mode:** MOCK (model: gemini-2.5-pro)
 
 ## Scientific framing
 This project implements an AI-supervised, self-explaining digital twin for sustainable dairy CIP decision support. The generative-AI layer is extended beyond post-hoc explanation to support hypothesis generation, active simulation design, model plausibility auditing, policy formalization, virtual supervisory control recommendation, and traceable human-in-the-loop decision dossiers. Direct real-time process control is explicitly excluded until calibration with industrial data, microbiological validation, and certified safety constraints are available.
@@ -20,12 +20,12 @@ This project implements an AI-supervised, self-explaining digital twin for susta
 | Target | R² |
 |---|---|
 | water_L | 0.993 |
-| total_energy_kWh | 0.992 |
+| total_energy_kWh | 0.994 |
 | COD_mgL | 0.997 |
-| CO2eq_kg | 0.992 |
-| cleaning_score | 0.967 |
+| CO2eq_kg | 0.994 |
+| cleaning_score | 0.972 |
 | EHPI | 0.984 |
-| hygienic_risk | 0.911 |
+| hygienic_risk | 0.917 |
 
 ## 2. AI-generated hypotheses
 11 hypotheses proposed (source: MOCK_fallback).
@@ -69,10 +69,10 @@ High-severity flags: **0** (source: MOCK_fallback). Parameters were NOT modified
 - **Research-only:** yes
 - **Human approval required:** yes
 - **Not for real-time control:** yes
-- **Candidates passing gate:** 149 / 149
+- **Candidates passing gate:** 120 / 120
 
 **Manager summary.** 
-[MOCK] For the balanced_default context, the safety gate accepted 149 of 149 candidate recipes and selected one meeting the hygiene floor (predicted cleaning 99.8%). This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Human approval is required; figures are synthetic.
+[MOCK] For the balanced_default context, the safety gate accepted 120 of 120 candidate recipes and selected one meeting the hygiene floor (predicted cleaning 99.8%). This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Human approval is required; figures are synthetic.
 
 **Engineer summary.** 
 [MOCK] The selected recipe cleared all HARD deterministic checks (input bounds, hygiene floor and any finite environmental/hygienic caps) under conservative bounds. Critical surrogate R^2 are reported on the "uncertainty_conservative" basis and compared to the 0.90 floor; not all necessarily pass. Research-only advisories: Critical surrogate R^2 below 0.90 (uncertainty_surrogate_metrics): cleaning_score. This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Verify against plant data first.
@@ -80,12 +80,12 @@ High-severity flags: **0** (source: MOCK_fallback). Parameters were NOT modified
 ## 6b. Surrogate uncertainty (quantile regression forests)
 | Target | R² | 90% coverage | mean interval width |
 |---|---|---|---|
-| cleaning_score | 0.860 | 0.993 | 8.923 |
-| COD_mgL | 0.988 | 1.000 | 9.519 |
-| water_L | 0.963 | 0.995 | 529.9 |
-| total_energy_kWh | 0.948 | 0.993 | 21.63 |
-| CO2eq_kg | 0.950 | 0.993 | 4.325 |
-| hygienic_risk | 0.913 | 0.996 | 0.5855 |
+| cleaning_score | 0.864 | 0.992 | 8.674 |
+| COD_mgL | 0.989 | 0.997 | 9.395 |
+| water_L | 0.961 | 0.995 | 537 |
+| total_energy_kWh | 0.951 | 0.996 | 21.53 |
+| CO2eq_kg | 0.950 | 0.996 | 4.439 |
+| hygienic_risk | 0.888 | 0.996 | 0.5872 |
 _Surrogate uncertainty over the simulator, NOT measurement uncertainty._
 
 ## 6c. Deterministic safety shield
@@ -97,7 +97,7 @@ _Surrogate uncertainty over the simulator, NOT measurement uncertainty._
 - The shield is MANDATORY: AI/Gemini cannot bypass it; human approval still required.
 
 ## 6d. Robust (uncertainty-aware) Pareto
-- Robust front solutions: 149 (min cleaning lower-bound on front: 95.026%).
+- Robust front solutions: 120 (min cleaning lower-bound on front: 95.014%).
 - Selection uses CONSERVATIVE bounds (cleaning q05, COD/hygienic q95) and penalizes high uncertainty.
 
 ## 6e. Counterfactual alternatives
@@ -105,14 +105,14 @@ _Surrogate uncertainty over the simulator, NOT measurement uncertainty._
 | Intervention | applied (after clamp) | cleaning | dClean | dWater | dEnergy | dCOD | feasible |
 |---|---|---|---|---|---|---|---|
 | baseline | (baseline) | 99.8 | +0.00 | +0 | +0.00 | +0 | yes |
-| t_alk_-10% | t_alk: 1777->1599 (-177.7) | 99.8 | -0.01 | -1 | -1.10 | -0 | yes |
-| t_alk_-20% | t_alk: 1777->1421 (-355.3) | 99.8 | -0.02 | -16 | -5.08 | -0 | yes |
-| T_C_+3C | T_C: 78.3->81.3 (+3) | 99.8 | +0.01 | +0 | -0.80 | +0 | yes |
-| T_C_+5C | T_C: 78.3->83.3 (+5) | 99.8 | +0.01 | +0 | -0.45 | +0 | yes |
-| water_rec_+0.15 | water_rec: 0.5782->0.6 (+0.0218) | 99.8 | +0.00 | -0 | +0.00 | +0 | yes |
-| NaOH_pct_-20% | NaOH_pct: 2.4->1.92 (-0.48) | 99.8 | -0.00 | -1 | +0.05 | +0 | yes |
-| T_C_+5C_&_t_alk_-15% | T_C: 78.3->83.3 (+5); t_alk: 1777->1510 (-266.5) | 99.8 | +0.00 | -2 | -2.22 | +0 | yes |
-| water_rec_+0.15_&_T_C_+3C | water_rec: 0.5782->0.6 (+0.0218); T_C: 78.3->81.3 (+3) | 99.8 | +0.01 | +0 | -0.80 | +0 | yes |
+| t_alk_-10% | t_alk: 1777->1599 (-177.7) | 99.7 | -0.01 | -8 | -1.90 | +0 | yes |
+| t_alk_-20% | t_alk: 1777->1421 (-355.3) | 99.7 | -0.05 | -29 | -4.94 | -0 | yes |
+| T_C_+3C | T_C: 78.3->81.3 (+3) | 99.8 | +0.06 | +0 | -0.01 | -0 | yes |
+| T_C_+5C | T_C: 78.3->83.3 (+5) | 99.8 | +0.06 | +0 | -0.00 | +0 | yes |
+| water_rec_+0.15 | water_rec: 0.5782->0.6 (+0.0218) | 99.8 | -0.00 | +0 | +0.00 | -0 | yes |
+| NaOH_pct_-20% | NaOH_pct: 2.4->1.92 (-0.48) | 99.7 | -0.01 | +0 | -0.37 | +0 | yes |
+| T_C_+5C_&_t_alk_-15% | T_C: 78.3->83.3 (+5); t_alk: 1777->1510 (-266.5) | 99.8 | +0.05 | -15 | -2.79 | -0 | yes |
+| water_rec_+0.15_&_T_C_+3C | water_rec: 0.5782->0.6 (+0.0218); T_C: 78.3->81.3 (+3) | 99.8 | +0.06 | +0 | -0.01 | -0 | yes |
 _Labels are the REQUESTED change; "applied (after clamp)" is the realized change after clamping to bounds (e.g. water_rec_+0.15 may clamp to a smaller delta)._
 
 ## 7. Limitations

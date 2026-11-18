@@ -7,18 +7,18 @@ Profile              : balanced_default
 Safety gate passed   : 1
 Research-only        : 1
 Human approval req.  : 1
-Candidates passed    : 149 / 149
+Candidates passed    : 120 / 120
 
 ---- SELECTED RECIPE (synthetic surrogate prediction) ----
-  water_L            : 685.62
-  total_energy_kWh   : 34.6973
-  COD_mgL            : 21.6174
-  CO2eq_kg           : 6.7622
-  cleaning_score     : 99.8138
-  hygienic_risk      : 0.0364
+  water_L            : 686.864
+  total_energy_kWh   : 33.5811
+  COD_mgL            : 21.6148
+  CO2eq_kg           : 6.3472
+  cleaning_score     : 99.7544
+  hygienic_risk      : 0.0409
 
 ---- MANAGER SUMMARY ----
-[MOCK] For the balanced_default context, the safety gate accepted 149 of 149 candidate recipes and selected one meeting the hygiene floor (predicted cleaning 99.8%). This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Human approval is required; figures are synthetic.
+[MOCK] For the balanced_default context, the safety gate accepted 120 of 120 candidate recipes and selected one meeting the hygiene floor (predicted cleaning 99.8%). This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Human approval is required; figures are synthetic.
 
 ---- ENGINEER SUMMARY ----
 [MOCK] The selected recipe cleared all HARD deterministic checks (input bounds, hygiene floor and any finite environmental/hygienic caps) under conservative bounds. Critical surrogate R^2 are reported on the "uncertainty_conservative" basis and compared to the 0.90 floor; not all necessarily pass. Research-only advisories: Critical surrogate R^2 below 0.90 (uncertainty_surrogate_metrics): cleaning_score. This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Verify against plant data first.

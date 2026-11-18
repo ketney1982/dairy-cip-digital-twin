@@ -3,7 +3,7 @@
   "not_for_real_time_control": true,
   "profile": "balanced_default",
   "candidate_front": "robust_pareto_solutions.csv",
-  "timestamp": "2026-06-03 10:20:57",
+  "timestamp": "2026-11-17 20:08:37",
   "data_label": "simulation-generated synthetic data - NOT real industrial data",
   "selected_recipe": {
     "T_C": 78.2977,
@@ -18,12 +18,12 @@
     "water_rec": 0.5782,
     "soil0_note": "soil0 is a fixed uncertainty condition, not an operator setpoint.",
     "predicted_metrics": {
-      "water_L": 685.6198,
-      "total_energy_kWh": 34.6973,
-      "COD_mgL": 21.6174,
-      "CO2eq_kg": 6.7622,
-      "cleaning_score": 99.8138,
-      "hygienic_risk": 0.0364
+      "water_L": 686.864,
+      "total_energy_kWh": 33.5811,
+      "COD_mgL": 21.6148,
+      "CO2eq_kg": 6.3472,
+      "cleaning_score": 99.7544,
+      "hygienic_risk": 0.0409
     },
     "selection_weights": {
       "water_L": 0.2222,
@@ -36,34 +36,34 @@
     "prediction_basis": "ML surrogate over synthetic simulation (not measured)",
     "conservative_bounds": {
       "cleaning_score": {
-        "mean": 99.8138,
-        "lower": 99.0786,
-        "upper": 99.9603
+        "mean": 99.7544,
+        "lower": 98.9043,
+        "upper": 99.9666
       },
       "COD_mgL": {
-        "mean": 21.6174,
-        "lower": 15.5045,
-        "upper": 24.1914
+        "mean": 21.6148,
+        "lower": 15.9414,
+        "upper": 23.9144
       },
       "water_L": {
-        "mean": 685.6198,
-        "lower": 533.072,
-        "upper": 1046.6122
+        "mean": 686.864,
+        "lower": 545.6901,
+        "upper": 1055.7753
       },
       "total_energy_kWh": {
-        "mean": 34.6973,
-        "lower": 18.8444,
-        "upper": 52.0388
+        "mean": 33.5811,
+        "lower": 18.5755,
+        "upper": 55.3762
       },
       "CO2eq_kg": {
-        "mean": 6.7622,
-        "lower": 3.8109,
-        "upper": 10.5177
+        "mean": 6.3472,
+        "lower": 3.7601,
+        "upper": 10.4051
       },
       "hygienic_risk": {
-        "mean": 0.0364,
-        "lower": 0.0074,
-        "upper": 0.1847
+        "mean": 0.0409,
+        "lower": 0.0053,
+        "upper": 0.2313
       }
     },
     "metrics_basis": "uncertainty_conservative"
@@ -71,8 +71,8 @@
   "rejected_candidates": [],
   "safety_gate": {
     "passed": true,
-    "n_candidates": 149,
-    "n_passed": 149,
+    "n_candidates": 120,
+    "n_passed": 120,
     "n_rejected": 0,
     "failed_checks": [],
     "advisories": [
@@ -87,10 +87,10 @@
       "max_CO2eq_kg": null
     },
     "critical_surrogate_R2": {
-      "cleaning_score": 0.8603,
-      "COD_mgL": 0.9882,
-      "water_L": 0.963,
-      "total_energy_kWh": 0.948,
+      "cleaning_score": 0.8636,
+      "COD_mgL": 0.9888,
+      "water_L": 0.9611,
+      "total_energy_kWh": 0.9508,
       "CO2eq_kg": 0.9498
     },
     "r2_basis": "uncertainty_conservative",
@@ -146,46 +146,46 @@
     "basis": "uncertainty_conservative",
     "predicted": {
       "cleaning_score": {
-        "mean": 99.8138,
-        "lower": 99.0786,
-        "upper": 99.9603
+        "mean": 99.7544,
+        "lower": 98.9043,
+        "upper": 99.9666
       },
       "COD_mgL": {
-        "mean": 21.6174,
-        "lower": 15.5045,
-        "upper": 24.1914
+        "mean": 21.6148,
+        "lower": 15.9414,
+        "upper": 23.9144
       },
       "water_L": {
-        "mean": 685.6198,
-        "lower": 533.072,
-        "upper": 1046.6122
+        "mean": 686.864,
+        "lower": 545.6901,
+        "upper": 1055.7753
       },
       "total_energy_kWh": {
-        "mean": 34.6973,
-        "lower": 18.8444,
-        "upper": 52.0388
+        "mean": 33.5811,
+        "lower": 18.5755,
+        "upper": 55.3762
       },
       "CO2eq_kg": {
-        "mean": 6.7622,
-        "lower": 3.8109,
-        "upper": 10.5177
+        "mean": 6.3472,
+        "lower": 3.7601,
+        "upper": 10.4051
       },
       "hygienic_risk": {
-        "mean": 0.0364,
-        "lower": 0.0074,
-        "upper": 0.1847
+        "mean": 0.0409,
+        "lower": 0.0053,
+        "upper": 0.2313
       }
     },
-    "total_uncertainty": 0.1486,
+    "total_uncertainty": 0.161,
     "violations": [],
     "advisories": [
       "Critical surrogate R^2 below 0.90 (uncertainty_surrogate_metrics): cleaning_score"
     ],
     "surrogate_R2": {
-      "cleaning_score": 0.8603,
-      "COD_mgL": 0.9882,
-      "water_L": 0.963,
-      "total_energy_kWh": 0.948,
+      "cleaning_score": 0.8636,
+      "COD_mgL": 0.9888,
+      "water_L": 0.9611,
+      "total_energy_kWh": 0.9508,
       "CO2eq_kg": 0.9498
     },
     "surrogate_metrics_source": "uncertainty_surrogate_metrics",
@@ -195,7 +195,7 @@
     "usable_for_research": true,
     "note": "Deterministic shield: AI/Gemini cannot bypass it. gate_passed reflects hard constraints; research_only reflects global caveats. Human approval mandatory; not for real-time control."
   },
-  "manager_summary": "[MOCK] For the balanced_default context, the safety gate accepted 149 of 149 candidate recipes and selected one meeting the hygiene floor (predicted cleaning 99.8%). This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Human approval is required; figures are synthetic.",
+  "manager_summary": "[MOCK] For the balanced_default context, the safety gate accepted 120 of 120 candidate recipes and selected one meeting the hygiene floor (predicted cleaning 99.8%). This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Human approval is required; figures are synthetic.",
   "engineer_summary": "[MOCK] The selected recipe cleared all HARD deterministic checks (input bounds, hygiene floor and any finite environmental/hygienic caps) under conservative bounds. Critical surrogate R^2 are reported on the \"uncertainty_conservative\" basis and compared to the 0.90 floor; not all necessarily pass. Research-only advisories: Critical surrogate R^2 below 0.90 (uncertainty_surrogate_metrics): cleaning_score. This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Verify against plant data first.",
   "explanation_source": "MOCK_fallback",
   "governance_note": "Deterministic MATLAB safety gate decides feasibility; Gemini only explains. Human approval mandatory; not for real-time control."

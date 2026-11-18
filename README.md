@@ -24,6 +24,8 @@ run('src/build_model.m')
 run('src/run_full_pipeline.m')
 ```
 
+To regenerate every stored result, follow the order given in Section 13 of [the methodology note](docs/methodology_note.md): the optional exploratory script `src/run_innovation_pipeline.m` overwrites the Pareto and surrogate files, and `src/run_full_pipeline.m` has to be run after it to restore the files used in the manuscript.
+
 The model uses Simulink, Statistics and Machine Learning Toolbox, and Global Optimization Toolbox. Python dependencies are listed in `requirements.txt`.
 
 ## Repository contents

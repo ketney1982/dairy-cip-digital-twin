@@ -204,11 +204,12 @@ def part_B(n_rep=300, s_t_rand=0.06, s_t_sys=0.06, s_y_rand=0.005, s_y_sys=0.002
 
 def part_C():
     cv = pd.read_csv(os.path.join(OUT, "E17_retrospective_check_crossvalidated.csv"))
-    per = pd.read_csv(os.path.join(OUT, "E16_per_curve_fits.csv"))[["curve", "t_end_obs_min"]]
-    cv = cv[cv.model == MODEL].merge(per, on="curve", how="left")
-    cv["status"] = np.where(cv.wash_time_min <= cv.t_end_obs_min, "within measured range", "after last measured point")
-    cv["outcome"] = np.where(cv.status == "after last measured point", "assumed clean (not observed)",
-                             np.where(cv.observed_pass, "observed clean", "observed below floor"))
+    cv = cv[cv.model == MODEL].copy()                       # t_end_obs_min and within_record are written by e17
+    cv["status"] = np.where(cv.within_record.astype(bool), "within measured range", "after last measured point")
+    # after the last measured point nothing was observed at the wash time (observed_CS is empty); the score of the
+    # last measured point is in last_measured_CS and is not an observation at the prescribed time
+    cv["outcome"] = np.where(cv.status == "after last measured point", "not observed (wash time after last measured point)",
+                             np.where(cv.observed_CS >= 95.0, "observed clean", "observed below floor"))
     tab = cv.pivot_table(index="wash_time_rule", columns="outcome", values="curve", aggfunc="count", fill_value=0)
     return cv, tab
 
@@ -219,7 +220,7 @@ if __name__ == "__main__":
     if "C" in which:
         cv, tab = part_C()
         cv.to_csv(os.path.join(OUT, "E26_C_retrospective_status.csv"), index=False, float_format="%.5g")
-        print(tab); print(cv[cv.wash_time_rule == "U3"][["curve", "T_C", "v_cm_s", "wash_time_min", "t_end_obs_min", "status", "observed_CS"]].round(2).to_string(index=False))
+        print(tab); print(cv[cv.wash_time_rule == "U3"][["curve", "T_C", "v_cm_s", "wash_time_min", "t_end_obs_min", "status", "observed_CS", "last_measured_CS"]].round(2).to_string(index=False))
         print(cv[cv.wash_time_rule == "nominal"][["curve", "wash_time_min", "t_end_obs_min", "status", "observed_CS"]].round(2).to_string(index=False))
         print(cv[cv.wash_time_rule == "U0"][["curve", "wash_time_min", "t_end_obs_min", "status", "observed_CS"]].round(2).to_string(index=False))
     if "A" in which:

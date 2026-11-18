@@ -1,146 +1,146 @@
 {
-  "run_id": "run_20260603_102118_8478",
-  "generated": "2026-06-03 10:21:19",
+  "run_id": "run_20261117_200855_0424",
+  "generated": "2026-11-17 20:08:56",
   "data_source": "simulation-generated synthetic data (mechanistic Simulink twin, proof-of-concept)",
   "data_label": "NOT real industrial data; not calibrated; not microbiologically validated",
   "scenario_count": 5000,
   "gemini_mode": "MOCK",
-  "gemini_model": "gemini-3.5-flash",
+  "gemini_model": "gemini-2.5-pro",
   "artifact_versions": [
     {
       "name": "data/dairy_cip_synthetic_dataset.csv",
       "exists": true,
       "bytes": 2.063125E+6,
-      "datenum": 740136.42615740746,
-      "modified": "2026-06-03 10:13:40",
+      "datenum": 740303.83320601855,
+      "modified": "2026-11-17 19:59:49",
       "md5": "90839ee1d0ff935779d0786caa0f7c47"
     },
     {
       "name": "data/dairy_cip_ai_designed_dataset.csv",
       "exists": true,
       "bytes": 2039,
-      "datenum": 740136.42932870367,
-      "modified": "2026-06-03 10:18:14",
+      "datenum": 740303.83710648143,
+      "modified": "2026-11-17 20:05:26",
       "md5": "b23459a551303bd02d474459e9326480"
     },
     {
       "name": "results/dataset_summary.json",
       "exists": true,
       "bytes": 5162,
-      "datenum": 740136.43145833339,
-      "modified": "2026-06-03 10:21:18",
+      "datenum": 740303.839525463,
+      "modified": "2026-11-17 20:08:55",
       "md5": "5c8bf42152cc6c6fe9bf95619010f542"
     },
     {
       "name": "results/dataset_validation_report.txt",
       "exists": true,
-      "bytes": 7369,
-      "datenum": 740136.4261805556,
-      "modified": "2026-06-03 10:13:42",
-      "md5": "17d7254b5386649a23bb2916f4dee348"
+      "bytes": 7478,
+      "datenum": 740303.83320601855,
+      "modified": "2026-11-17 19:59:49",
+      "md5": "1441c206115c443aa2622f3b1ce31ca8"
     },
     {
       "name": "results/pareto_solutions.csv",
       "exists": true,
-      "bytes": 20309,
-      "datenum": 740136.43121527776,
-      "modified": "2026-06-03 10:20:57",
-      "md5": "df2c8db855728ca65aef95c6bad8bb4c"
+      "bytes": 20224,
+      "datenum": 740303.83931712958,
+      "modified": "2026-11-17 20:08:37",
+      "md5": "43288ade8202fa6db9bd4b5647a781e4"
     },
     {
       "name": "results/surrogate_models.mat",
       "exists": true,
-      "bytes": 3.730188E+6,
-      "datenum": 740136.42943287035,
-      "modified": "2026-06-03 10:18:23",
-      "md5": "541be0df52a57b740aa881ebe55fc483"
+      "bytes": 3.730931E+6,
+      "datenum": 740303.83721064811,
+      "modified": "2026-11-17 20:05:35",
+      "md5": "d2ab5e5fbcbc0dd02ae808a8a740d845"
     },
     {
       "name": "results/surrogate_metrics.csv",
       "exists": true,
-      "bytes": 597,
-      "datenum": 740136.42943287035,
-      "modified": "2026-06-03 10:18:23",
-      "md5": "08a6e0aadb831d06521cd99835fe2d0e"
+      "bytes": 596,
+      "datenum": 740303.83721064811,
+      "modified": "2026-11-17 20:05:35",
+      "md5": "b94de158f4fb908fa596095616434f8d"
     },
     {
       "name": "results/selected_policy_config.json",
       "exists": true,
       "bytes": 971,
-      "datenum": 740136.42994212965,
-      "modified": "2026-06-03 10:19:07",
+      "datenum": 740303.83778935182,
+      "modified": "2026-11-17 20:06:25",
       "md5": "fafde2e076cc00ad39348aac9c5b0da7"
     },
     {
       "name": "results/ai_experiment_design.json",
       "exists": true,
       "bytes": 2909,
-      "datenum": 740136.42927083338,
-      "modified": "2026-06-03 10:18:09",
+      "datenum": 740303.837037037,
+      "modified": "2026-11-17 20:05:20",
       "md5": "f2d8dc5741d2e50654b3aa68b572b97b"
     },
     {
       "name": "results/ai_hypotheses.json",
       "exists": true,
       "bytes": 7096,
-      "datenum": 740136.42927083338,
-      "modified": "2026-06-03 10:18:09",
+      "datenum": 740303.837037037,
+      "modified": "2026-11-17 20:05:20",
       "md5": "a409d2a090b8d8d18a9511de02d821ec"
     },
     {
       "name": "results/ai_hypothesis_validation.csv",
       "exists": true,
       "bytes": 3542,
-      "datenum": 740136.42932870367,
-      "modified": "2026-06-03 10:18:14",
+      "datenum": 740303.83710648143,
+      "modified": "2026-11-17 20:05:26",
       "md5": "f306cace2e26173b3bb8225833199842"
     },
     {
       "name": "results/model_equation_summary.json",
       "exists": true,
       "bytes": 10582,
-      "datenum": 740136.4279050926,
-      "modified": "2026-06-03 10:16:11",
+      "datenum": 740303.83423611114,
+      "modified": "2026-11-17 20:01:18",
       "md5": "b6f3b8c29c48d6d0837fbdc54e1a90ea"
     },
     {
       "name": "results/model_audit_report.json",
       "exists": true,
       "bytes": 1981,
-      "datenum": 740136.4293402778,
-      "modified": "2026-06-03 10:18:15",
+      "datenum": 740303.83711805556,
+      "modified": "2026-11-17 20:05:27",
       "md5": "593df7ffab31e5d3207b92507f5c9ae0"
     },
     {
       "name": "results/plausibility_audit.json",
       "exists": true,
-      "bytes": 665,
-      "datenum": 740136.42696759256,
-      "modified": "2026-06-03 10:14:50",
-      "md5": "2c43b4dd1f39606148353bc0ca5239e9"
+      "bytes": 675,
+      "datenum": 740303.83320601855,
+      "modified": "2026-11-17 19:59:49",
+      "md5": "18d99d0ff1bedd05518b7215bc1c6ba4"
     },
     {
       "name": "results/ai_supervisory_recommendation.json",
       "exists": true,
-      "bytes": 6691,
-      "datenum": 740136.43131944444,
-      "modified": "2026-06-03 10:21:06",
-      "md5": "7b32ba5200c11edf2a861d9ab8e5122c"
+      "bytes": 6693,
+      "datenum": 740303.83940972225,
+      "modified": "2026-11-17 20:08:45",
+      "md5": "0946bd00e56c9e57eeae7db7711d8972"
     },
     {
       "name": "results/ai_closed_loop_trace.json",
       "exists": true,
       "bytes": 4486,
-      "datenum": 740136.42994212965,
-      "modified": "2026-06-03 10:19:07",
-      "md5": "dc842cf86c78d5136e2b96af03082ba4"
+      "datenum": 740303.83775462967,
+      "modified": "2026-11-17 20:06:22",
+      "md5": "bb87f92905a97f89254481199d721f60"
     },
     {
       "name": "results/policy_portfolio_results.csv",
       "exists": true,
       "bytes": 1960,
-      "datenum": 740136.42719907407,
-      "modified": "2026-06-03 10:15:10",
+      "datenum": 740303.83320601855,
+      "modified": "2026-11-17 19:59:49",
       "md5": "7e4aebda773ea7361994cfbd7e7258db"
     }
   ],
@@ -158,21 +158,21 @@
     ],
     "R2": [
       0.9926,
-      0.9923,
-      0.9971,
-      0.9919,
-      0.9665,
-      0.9835,
-      0.9113
+      0.9936,
+      0.9969,
+      0.9936,
+      0.9721,
+      0.9837,
+      0.9175
     ],
     "RMSE": [
-      36.3353,
-      1.5272,
-      0.5834,
-      0.3125,
-      1.0935,
-      1.4481,
-      0.1079
+      37.8308,
+      1.4193,
+      0.5928,
+      0.2826,
+      0.9482,
+      1.4612,
+      0.1045
     ]
   },
   "uncertainty": {
@@ -186,28 +186,28 @@
       "hygienic_risk"
     ],
     "R2": [
-      0.8603,
-      0.9882,
-      0.963,
-      0.948,
+      0.8636,
+      0.9888,
+      0.9611,
+      0.9508,
       0.9498,
-      0.9134
+      0.8884
     ],
     "coverage_90": [
-      0.993,
-      1,
+      0.992,
+      0.997,
       0.995,
-      0.993,
-      0.993,
+      0.996,
+      0.996,
       0.996
     ],
     "mean_interval_width": [
-      8.9229,
-      9.5188,
-      529.9172,
-      21.6322,
-      4.3247,
-      0.5855
+      8.6744,
+      9.3953,
+      537.0029,
+      21.5335,
+      4.4392,
+      0.5872
     ],
     "note": "90% prediction intervals from quantile regression forests (surrogate uncertainty, not measurement uncertainty)."
   },
@@ -393,8 +393,8 @@
     "human_approval_required": true,
     "not_for_real_time_control": true,
     "safety_gate_passed": true,
-    "n_passed": 149,
-    "n_candidates": 149,
+    "n_passed": 120,
+    "n_candidates": 120,
     "global_failed_checks": [],
     "selected_recipe": {
       "T_C": 78.2977,
@@ -409,12 +409,12 @@
       "water_rec": 0.5782,
       "soil0_note": "soil0 is a fixed uncertainty condition, not an operator setpoint.",
       "predicted_metrics": {
-        "water_L": 685.6198,
-        "total_energy_kWh": 34.6973,
-        "COD_mgL": 21.6174,
-        "CO2eq_kg": 6.7622,
-        "cleaning_score": 99.8138,
-        "hygienic_risk": 0.0364
+        "water_L": 686.864,
+        "total_energy_kWh": 33.5811,
+        "COD_mgL": 21.6148,
+        "CO2eq_kg": 6.3472,
+        "cleaning_score": 99.7544,
+        "hygienic_risk": 0.0409
       },
       "selection_weights": {
         "water_L": 0.2222,
@@ -427,39 +427,39 @@
       "prediction_basis": "ML surrogate over synthetic simulation (not measured)",
       "conservative_bounds": {
         "cleaning_score": {
-          "mean": 99.8138,
-          "lower": 99.0786,
-          "upper": 99.9603
+          "mean": 99.7544,
+          "lower": 98.9043,
+          "upper": 99.9666
         },
         "COD_mgL": {
-          "mean": 21.6174,
-          "lower": 15.5045,
-          "upper": 24.1914
+          "mean": 21.6148,
+          "lower": 15.9414,
+          "upper": 23.9144
         },
         "water_L": {
-          "mean": 685.6198,
-          "lower": 533.072,
-          "upper": 1046.6122
+          "mean": 686.864,
+          "lower": 545.6901,
+          "upper": 1055.7753
         },
         "total_energy_kWh": {
-          "mean": 34.6973,
-          "lower": 18.8444,
-          "upper": 52.0388
+          "mean": 33.5811,
+          "lower": 18.5755,
+          "upper": 55.3762
         },
         "CO2eq_kg": {
-          "mean": 6.7622,
-          "lower": 3.8109,
-          "upper": 10.5177
+          "mean": 6.3472,
+          "lower": 3.7601,
+          "upper": 10.4051
         },
         "hygienic_risk": {
-          "mean": 0.0364,
-          "lower": 0.0074,
-          "upper": 0.1847
+          "mean": 0.0409,
+          "lower": 0.0053,
+          "upper": 0.2313
         }
       },
       "metrics_basis": "uncertainty_conservative"
     },
-    "manager_summary": "[MOCK] For the balanced_default context, the safety gate accepted 149 of 149 candidate recipes and selected one meeting the hygiene floor (predicted cleaning 99.8%). This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Human approval is required; figures are synthetic.",
+    "manager_summary": "[MOCK] For the balanced_default context, the safety gate accepted 120 of 120 candidate recipes and selected one meeting the hygiene floor (predicted cleaning 99.8%). This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Human approval is required; figures are synthetic.",
     "engineer_summary": "[MOCK] The selected recipe cleared all HARD deterministic checks (input bounds, hygiene floor and any finite environmental/hygienic caps) under conservative bounds. Critical surrogate R^2 are reported on the \"uncertainty_conservative\" basis and compared to the 0.90 floor; not all necessarily pass. Research-only advisories: Critical surrogate R^2 below 0.90 (uncertainty_surrogate_metrics): cleaning_score. This recommendation is RESEARCH-ONLY due to surrogate/model-audit caveats. Verify against plant data first."
   },
   "safety_shield": {
@@ -473,48 +473,48 @@
     ],
     "conservative_bounds": {
       "cleaning_score": {
-        "mean": 99.8138,
-        "lower": 99.0786,
-        "upper": 99.9603
+        "mean": 99.7544,
+        "lower": 98.9043,
+        "upper": 99.9666
       },
       "COD_mgL": {
-        "mean": 21.6174,
-        "lower": 15.5045,
-        "upper": 24.1914
+        "mean": 21.6148,
+        "lower": 15.9414,
+        "upper": 23.9144
       },
       "water_L": {
-        "mean": 685.6198,
-        "lower": 533.072,
-        "upper": 1046.6122
+        "mean": 686.864,
+        "lower": 545.6901,
+        "upper": 1055.7753
       },
       "total_energy_kWh": {
-        "mean": 34.6973,
-        "lower": 18.8444,
-        "upper": 52.0388
+        "mean": 33.5811,
+        "lower": 18.5755,
+        "upper": 55.3762
       },
       "CO2eq_kg": {
-        "mean": 6.7622,
-        "lower": 3.8109,
-        "upper": 10.5177
+        "mean": 6.3472,
+        "lower": 3.7601,
+        "upper": 10.4051
       },
       "hygienic_risk": {
-        "mean": 0.0364,
-        "lower": 0.0074,
-        "upper": 0.1847
+        "mean": 0.0409,
+        "lower": 0.0053,
+        "upper": 0.2313
       }
     },
     "note": "Mandatory deterministic shield; AI/Gemini cannot bypass it. Uses conservative uncertainty bounds when available."
   },
   "robust_optimization": {
     "available": true,
-    "n_solutions": 149,
-    "min_cleaning_lower_bound": 95.026,
+    "n_solutions": 120,
+    "min_cleaning_lower_bound": 95.014,
     "labelled": [
-      "robust_highest_cleaning_lb",
-      "robust_lowest_COD",
       "robust_balanced",
-      "robust_lowest_uncertainty",
-      "robust_lowest_water"
+      "robust_lowest_COD",
+      "robust_lowest_water",
+      "robust_highest_cleaning_lb",
+      "robust_lowest_uncertainty"
     ],
     "note": "Robust front selects on conservative bounds and penalizes high-uncertainty recipes."
   },
@@ -524,136 +524,136 @@
       {
         "intervention": "baseline",
         "applied_delta": "(baseline)",
-        "cleaning_score": 99.8138,
+        "cleaning_score": 99.7544,
         "d_cleaning_score": 0,
-        "water_L": 685.6198,
+        "water_L": 686.864,
         "d_water_L": 0,
-        "total_energy_kWh": 34.6973,
+        "total_energy_kWh": 33.5811,
         "d_total_energy_kWh": 0,
-        "COD_mgL": 21.6174,
+        "COD_mgL": 21.6148,
         "d_COD_mgL": 0,
-        "CO2eq_kg": 6.7622,
+        "CO2eq_kg": 6.3472,
         "d_CO2eq_kg": 0,
         "feasible": true
       },
       {
         "intervention": "t_alk_-10%",
         "applied_delta": "t_alk: 1777->1599 (-177.7)",
-        "cleaning_score": 99.8064,
-        "d_cleaning_score": -0.0074,
-        "water_L": 684.9827,
-        "d_water_L": -0.6371,
-        "total_energy_kWh": 33.5965,
-        "d_total_energy_kWh": -1.1008,
-        "COD_mgL": 21.5919,
-        "d_COD_mgL": -0.0256,
-        "CO2eq_kg": 6.7066,
-        "d_CO2eq_kg": -0.0555,
+        "cleaning_score": 99.7409,
+        "d_cleaning_score": -0.0135,
+        "water_L": 679.2282,
+        "d_water_L": -7.6358,
+        "total_energy_kWh": 31.6782,
+        "d_total_energy_kWh": -1.9029,
+        "COD_mgL": 21.6148,
+        "d_COD_mgL": 0,
+        "CO2eq_kg": 6.232,
+        "d_CO2eq_kg": -0.1151,
         "feasible": true
       },
       {
         "intervention": "t_alk_-20%",
         "applied_delta": "t_alk: 1777->1421 (-355.3)",
-        "cleaning_score": 99.7891,
-        "d_cleaning_score": -0.0247,
-        "water_L": 669.2714,
-        "d_water_L": -16.3483,
-        "total_energy_kWh": 29.6141,
-        "d_total_energy_kWh": -5.0832,
-        "COD_mgL": 21.5209,
-        "d_COD_mgL": -0.0966,
-        "CO2eq_kg": 5.8639,
-        "d_CO2eq_kg": -0.8983,
+        "cleaning_score": 99.7075,
+        "d_cleaning_score": -0.0469,
+        "water_L": 658.3336,
+        "d_water_L": -28.5304,
+        "total_energy_kWh": 28.6437,
+        "d_total_energy_kWh": -4.9374,
+        "COD_mgL": 21.5388,
+        "d_COD_mgL": -0.0761,
+        "CO2eq_kg": 5.7336,
+        "d_CO2eq_kg": -0.6135,
         "feasible": true
       },
       {
         "intervention": "T_C_+3C",
         "applied_delta": "T_C: 78.3->81.3 (+3)",
-        "cleaning_score": 99.8221,
-        "d_cleaning_score": 0.0084,
-        "water_L": 685.6338,
-        "d_water_L": 0.014,
-        "total_energy_kWh": 33.8935,
-        "d_total_energy_kWh": -0.8038,
-        "COD_mgL": 21.6859,
-        "d_COD_mgL": 0.0685,
-        "CO2eq_kg": 6.8275,
-        "d_CO2eq_kg": 0.0653,
+        "cleaning_score": 99.8156,
+        "d_cleaning_score": 0.0611,
+        "water_L": 687.0721,
+        "d_water_L": 0.2081,
+        "total_energy_kWh": 33.5678,
+        "d_total_energy_kWh": -0.0133,
+        "COD_mgL": 21.588,
+        "d_COD_mgL": -0.0269,
+        "CO2eq_kg": 6.3516,
+        "d_CO2eq_kg": 0.0044,
         "feasible": true
       },
       {
         "intervention": "T_C_+5C",
         "applied_delta": "T_C: 78.3->83.3 (+5)",
-        "cleaning_score": 99.8264,
-        "d_cleaning_score": 0.0126,
-        "water_L": 685.6338,
-        "d_water_L": 0.014,
-        "total_energy_kWh": 34.2478,
-        "d_total_energy_kWh": -0.4495,
-        "COD_mgL": 21.8447,
-        "d_COD_mgL": 0.2273,
-        "CO2eq_kg": 6.7689,
-        "d_CO2eq_kg": 0.0067,
+        "cleaning_score": 99.8172,
+        "d_cleaning_score": 0.0628,
+        "water_L": 687.0721,
+        "d_water_L": 0.2081,
+        "total_energy_kWh": 33.5797,
+        "d_total_energy_kWh": -0.0014,
+        "COD_mgL": 21.6358,
+        "d_COD_mgL": 0.021,
+        "CO2eq_kg": 6.3528,
+        "d_CO2eq_kg": 0.0056,
         "feasible": true
       },
       {
         "intervention": "water_rec_+0.15",
         "applied_delta": "water_rec: 0.5782->0.6 (+0.0218)",
-        "cleaning_score": 99.8138,
-        "d_cleaning_score": 0,
-        "water_L": 685.1383,
-        "d_water_L": -0.4815,
-        "total_energy_kWh": 34.6973,
+        "cleaning_score": 99.7512,
+        "d_cleaning_score": -0.0032,
+        "water_L": 686.864,
+        "d_water_L": 0,
+        "total_energy_kWh": 33.5811,
         "d_total_energy_kWh": 0,
-        "COD_mgL": 21.6174,
-        "d_COD_mgL": 0,
-        "CO2eq_kg": 6.7622,
+        "COD_mgL": 21.6142,
+        "d_COD_mgL": -0.0006,
+        "CO2eq_kg": 6.3472,
         "d_CO2eq_kg": 0,
         "feasible": true
       },
       {
         "intervention": "NaOH_pct_-20%",
         "applied_delta": "NaOH_pct: 2.4->1.92 (-0.48)",
-        "cleaning_score": 99.8088,
-        "d_cleaning_score": -0.0049,
-        "water_L": 684.7895,
-        "d_water_L": -0.8302,
-        "total_energy_kWh": 34.7512,
-        "d_total_energy_kWh": 0.054,
-        "COD_mgL": 21.6256,
-        "d_COD_mgL": 0.0082,
-        "CO2eq_kg": 6.7651,
-        "d_CO2eq_kg": 0.0029,
+        "cleaning_score": 99.7433,
+        "d_cleaning_score": -0.0111,
+        "water_L": 686.8892,
+        "d_water_L": 0.0252,
+        "total_energy_kWh": 33.216,
+        "d_total_energy_kWh": -0.3651,
+        "COD_mgL": 21.6361,
+        "d_COD_mgL": 0.0213,
+        "CO2eq_kg": 6.346,
+        "d_CO2eq_kg": -0.0012,
         "feasible": true
       },
       {
         "intervention": "T_C_+5C_&_t_alk_-15%",
         "applied_delta": "T_C: 78.3->83.3 (+5); t_alk: 1777->1510 (-266.5)",
-        "cleaning_score": 99.8177,
-        "d_cleaning_score": 0.0039,
-        "water_L": 683.6265,
-        "d_water_L": -1.9933,
-        "total_energy_kWh": 32.4775,
-        "d_total_energy_kWh": -2.2198,
-        "COD_mgL": 21.6369,
-        "d_COD_mgL": 0.0194,
-        "CO2eq_kg": 6.3747,
-        "d_CO2eq_kg": -0.3874,
+        "cleaning_score": 99.8075,
+        "d_cleaning_score": 0.0531,
+        "water_L": 671.8468,
+        "d_water_L": -15.0172,
+        "total_energy_kWh": 30.7867,
+        "d_total_energy_kWh": -2.7944,
+        "COD_mgL": 21.5478,
+        "d_COD_mgL": -0.067,
+        "CO2eq_kg": 6.0743,
+        "d_CO2eq_kg": -0.2729,
         "feasible": true
       },
       {
         "intervention": "water_rec_+0.15_&_T_C_+3C",
         "applied_delta": "water_rec: 0.5782->0.6 (+0.0218); T_C: 78.3->81.3 (+3)",
-        "cleaning_score": 99.8221,
-        "d_cleaning_score": 0.0084,
-        "water_L": 685.6338,
-        "d_water_L": 0.014,
-        "total_energy_kWh": 33.8935,
-        "d_total_energy_kWh": -0.8038,
-        "COD_mgL": 21.6859,
-        "d_COD_mgL": 0.0685,
-        "CO2eq_kg": 6.8275,
-        "d_CO2eq_kg": 0.0653,
+        "cleaning_score": 99.8138,
+        "d_cleaning_score": 0.0593,
+        "water_L": 687.0721,
+        "d_water_L": 0.2081,
+        "total_energy_kWh": 33.5678,
+        "d_total_energy_kWh": -0.0133,
+        "COD_mgL": 21.5767,
+        "d_COD_mgL": -0.0381,
+        "CO2eq_kg": 6.3516,
+        "d_CO2eq_kg": 0.0044,
         "feasible": true
       }
     ],

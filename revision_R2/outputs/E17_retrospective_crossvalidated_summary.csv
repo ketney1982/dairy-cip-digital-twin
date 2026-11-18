@@ -1,7 +1,7 @@
-model,wash_time_rule,n_curves,n_pass,min_observed_CS
-M0,U0,16,11,73.124
-M0,U3,16,16,97.097
-M0,nominal,16,10,63.517
-M1,U0,16,16,98.022
-M1,U3,16,16,100
-M1,nominal,16,16,97.856
+model,wash_time_rule,n_curves,n_within_record,n_observed_pass,n_observed_fail,n_after_record,n_after_record_last_point_pass,n_floor_crossed_by_wash_time,min_observed_CS,min_last_measured_CS_after_record
+M0,U0,16,6,1,5,10,9,10,73.124,94.607
+M0,U3,16,3,3,0,13,12,15,97.097,94.607
+M0,nominal,16,8,2,6,8,7,9,63.517,94.607
+M1,U0,16,1,1,0,15,14,15,98.022,94.607
+M1,U3,16,0,0,0,16,15,15,,94.607
+M1,nominal,16,1,1,0,15,14,15,97.856,94.607

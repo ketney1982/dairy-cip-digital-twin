@@ -283,9 +283,9 @@ def fig3():
     for (cid, lab), c in zip(ids, cc):
         g = ovp[ovp.curve == cid].sort_values("t_min")
         cs = 100 * (1 - g.y_obs * per.loc[cid, "h0_mm"] / H_REF)
-        t = np.r_[g.t_min, 26] if g.t_min.max() < 26 else g.t_min
-        cs = np.r_[cs, 100] if g.t_min.max() < 26 else cs
-        ax.plot(t, cs, "-" if "local" in lab else "--", color=c, lw=1.0, label=lab)
+        # each curve is drawn to its last measured point only (dot); nothing is drawn after the end of the record
+        ax.plot(g.t_min, cs, "-" if "local" in lab else "--", color=c, lw=1.0, label=lab)
+        ax.plot(g.t_min.iloc[-1], cs.iloc[-1], "o", ms=2.6, mfc=c, mec="white", mew=0.3, zorder=5)
     c70 = retro[(retro.model == "M0") & (retro.T_C == 70) & (retro.v_cm_s == 1.0)].groupby("wash_time_rule").wash_time_min.first()
     gr = {"t_nominal_min": c70["nominal"], "t_U0_min": c70["U0"], "t_U3_min": c70["U3"]}
     for key, lab in (("t_nominal_min", "nominal"), ("t_U0_min", "U0"), ("t_U3_min", "U3")):
@@ -295,18 +295,20 @@ def fig3():
         ax.text(gr[key] + 0.3, 17, f"{name}: {gr[key]:.1f} min", fontsize=6.2, rotation=90,
                 color=rule_col[k] if k != "nominal" else "#555555", va="bottom", ha="left")
     ax.axhline(FLOOR, color="k", lw=0.6, ls=":"); ax.text(25.8, FLOOR - 1.0, "floor, CS = 95%", fontsize=6.2, ha="right", va="top")
-    ax.set_xlim(0, 26); ax.set_ylim(15, 103); ax.set_xlabel("Wash time (min)"); ax.set_ylabel("Observed cleaning score, CS (%)")
+    ax.set_xlim(0, 26); ax.set_ylim(15, 103); ax.set_xlabel("Wash time (min; prescribed times cross-validated)"); ax.set_ylabel("Observed cleaning score, CS (%)")
     ax.legend(loc="upper left", bbox_to_anchor=(0.0, 0.90), handlelength=1.8, labelspacing=0.25, fontsize=6)
     panel(ax, "a")
 
     # (b) retrospective check, all 17 observed curves
     ax = axs[0, 1]
-    r = retro[retro.model == "M0"]
+    # (superseded by e27_fig3_R21.py, which also shows the curves whose wash time lies after the last measured point;
+    # here only the scores observed inside the measured record are plotted and counted)
+    r = retro[(retro.model == "M0") & retro.within_record.astype(bool)]
     rng = np.random.default_rng(3)
     for i, k in enumerate(["nominal", "U0", "U3"]):
         y = r[r.wash_time_rule == k].observed_CS.to_numpy()
         ax.plot(i + rng.uniform(-0.16, 0.16, len(y)), y, "o", ms=3.4, mfc=rule_col[k], mec="white", mew=0.3)
-        ax.text(i, 60.5, f"{int((y >= FLOOR).sum())} of {len(y)}\ncurves ≥ 95%", ha="center", va="center", fontsize=6.6)
+        ax.text(i, 60.5, f"{int((y >= FLOOR).sum())} of {len(y)} observed\ncurves ≥ 95%", ha="center", va="center", fontsize=6.6)
     ax.axhline(FLOOR, color="k", lw=0.6, ls=":")
     ax.set_xticks(range(3)); ax.set_xticklabels(["nominal wash time", "robust, U0", "robust, U3"]); ax.set_xlim(-0.5, 2.5); ax.set_ylim(57, 101.5)
     ax.set_ylabel("Observed CS at the prescribed wash time (%)")
@@ -350,7 +352,7 @@ def fig3():
         ax.barh(5 - i, val_, color=c, height=0.62, zorder=2)
         ax.text(val_ + 0.5, 5 - i, f"{val_:.1f}", va="center", fontsize=6.4)
     ax.set_yticks(range(6)); ax.set_yticklabels([b[0] for b in bars][::-1]); ax.set_ylim(-0.6, 6.75); ax.set_xlim(0, 47)
-    ax.set_xlabel("Prescribed alkaline wash time at 70 °C and 1 cm s$^{-1}$ (min)")
+    ax.set_xlabel("Prescribed wash time at 70 °C, 1 cm s$^{-1}$ (min; full calibration)")
     ax.tick_params(axis="y", length=0)
     panel(ax, "d", x=-0.42)
     save(fig, FIG_MAIN, "Fig3_calibrated_case_audit")

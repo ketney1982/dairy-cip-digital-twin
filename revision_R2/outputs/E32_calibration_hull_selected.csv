@@ -1,0 +1,9 @@
+variant,screening,selection,T_C,v_cm_s,t_min,V_L,E_kWh,q10_U3,q10_U3_lower95,P_CS_ge_floor,share_draws_outside_rectangle,share_draws_outside_hull
+V0 unrestricted,nominal,minimum volume,69.056,0.50671,19.938,1.0911,0.080685,67.398,66.838,0.4876,0.5586,0.8178
+V0 unrestricted,nominal,minimum time,69.023,20.164,5.4963,11.97,0.88459,60.573,59.832,0.4973,0.2581,0.7884
+V0 unrestricted,audit-then-select U3,minimum volume,69.396,0.51852,29.772,1.6672,0.12406,98.274,97.238,0.9187,0.5012,0.7319
+V0 unrestricted,audit-then-select U3,minimum time,69.632,15.328,10.035,16.612,1.2415,98.506,97.224,0.9153,0.4014,0.4738
+V4 setpoints inside the convex hull of the calibration conditions,nominal,minimum volume,69.13,0.55138,21.2,1.2624,0.09348,73.526,72.72,0.6192,0.3031,0.4564
+V4 setpoints inside the convex hull of the calibration conditions,nominal,minimum time,68.588,17.912,6.0707,11.744,0.8609,62.504,61.818,0.5253,0.1732,0.6253
+V4 setpoints inside the convex hull of the calibration conditions,audit-then-select U3,minimum volume,69.396,0.51852,29.772,1.6672,0.12406,98.274,97.238,0.9187,0.5012,0.7319
+V4 setpoints inside the convex hull of the calibration conditions,audit-then-select U3,minimum time,69.632,15.328,10.035,16.612,1.2415,98.506,97.224,0.9153,0.4014,0.4738
