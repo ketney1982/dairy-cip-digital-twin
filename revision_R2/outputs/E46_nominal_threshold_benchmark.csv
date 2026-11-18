@@ -1,0 +1,30 @@
+case,law,rule,tau,admitted,admitted_but_fail_U3,rejected_but_pass_U3,least_burden_recipe,least_burden_value,least_burden_unit,least_burden_q10_U3,least_burden_passes_U3,bd_water_L,bd_energy_kWh,bd_CS,bd_q10_U3,bd_passes_U3,bd_noCOD_water_L,bd_noCOD_energy_kWh,bd_noCOD_CS,bd_noCOD_q10_U3,bd_noCOD_passes_U3
+calibrated channel,uniform removal,nominal CS >= 95%,95,22767,4292,0,"69.1 C, 0.51 cm/s, 19.9 min",1.0911,L,66.524,False,,,,,,,,,,
+calibrated channel,uniform removal,nominal CS >= 96%,96,22661,4186,0,"68.4 C, 0.51 cm/s, 21.7 min",1.2004,L,69.104,False,,,,,,,,,,
+calibrated channel,uniform removal,nominal CS >= 97%,97,22582,4107,0,"68.4 C, 0.51 cm/s, 21.7 min",1.2004,L,69.104,False,,,,,,,,,,
+calibrated channel,uniform removal,nominal CS >= 98%,98,22485,4010,0,"68.4 C, 0.51 cm/s, 21.7 min",1.2004,L,69.104,False,,,,,,,,,,
+calibrated channel,uniform removal,nominal CS >= 99%,99,22398,3923,0,"69.4 C, 0.51 cm/s, 22.1 min",1.2081,L,74.014,False,,,,,,,,,,
+calibrated channel,uniform removal,nominal CS >= 99.5%,99.5,22345,3870,0,"69.4 C, 0.51 cm/s, 22.1 min",1.2081,L,74.014,False,,,,,,,,,,
+calibrated channel,uniform removal,nominal CS >= 99.9%,99.9,22319,3844,0,"69.4 C, 0.51 cm/s, 22.1 min",1.2081,L,74.014,False,,,,,,,,,,
+calibrated channel,uniform removal,nominal CS >= 100%,100,22310,3835,0,"69.4 C, 0.51 cm/s, 22.1 min",1.2081,L,74.014,False,,,,,,,,,,
+calibrated channel,uniform removal,"audit, U3 (reference)",,18475,0,0,"69.4 C, 0.52 cm/s, 29.8 min",1.6672,L,96.527,True,,,,,,,,,,
+calibrated channel,first order,nominal CS >= 95%,95,17291,5055,0,"69.7 C, 0.59 cm/s, 37.5 min",2.4013,L,88.737,False,,,,,,,,,,
+calibrated channel,first order,nominal CS >= 96%,96,16392,4156,0,"69.3 C, 0.55 cm/s, 44.1 min",2.6414,L,91.268,False,,,,,,,,,,
+calibrated channel,first order,nominal CS >= 97%,97,15214,2978,0,"70.0 C, 0.55 cm/s, 44.9 min",2.6583,L,92.142,False,,,,,,,,,,
+calibrated channel,first order,nominal CS >= 98%,98,13760,1524,0,"69.8 C, 0.57 cm/s, 50.2 min",3.0752,L,94.156,False,,,,,,,,,,
+calibrated channel,first order,nominal CS >= 99%,99,11378,118,976,"69.9 C, 0.52 cm/s, 64.0 min",3.5772,L,96.828,True,,,,,,,,,,
+calibrated channel,first order,nominal CS >= 99.5%,99.5,9323,0,2913,"69.2 C, 0.53 cm/s, 72.7 min",4.1263,L,97.767,True,,,,,,,,,,
+calibrated channel,first order,nominal CS >= 99.9%,99.9,5813,0,6423,"69.6 C, 0.62 cm/s, 86.7 min",5.8167,L,99.251,True,,,,,,,,,,
+calibrated channel,first order,nominal CS >= 100%,100,1231,0,11005,"69.8 C, 2.96 cm/s, 89.3 min",28.514,L,99.987,True,,,,,,,,,,
+calibrated channel,first order,nominal CS >= 99.46% (smallest without false admission),99.458,9545,0,2691,"69.2 C, 0.53 cm/s, 72.7 min",4.1263,L,97.767,True,,,,,,,,,,
+calibrated channel,first order,"audit, U3 (reference)",,12236,0,0,"69.5 C, 0.53 cm/s, 56.1 min",3.2333,L,95.202,True,,,,,,,,,,
+pipe circuit (assumed parameters),first order,nominal CS >= 95%,95,18006,11126,0,"610 L, CS 95.45%",2.60987,kWh,88.9807,False,145.1,5.363,95.114,87.2236,False,313.056,6.05491,98.9069,95.6168,True
+pipe circuit (assumed parameters),first order,nominal CS >= 96%,96,15300,8420,0,"610 L, CS 96.21%",3.83844,kWh,90.2172,False,181.154,4.62206,96.0847,88.9733,False,313.056,6.05491,98.9069,95.6168,True
+pipe circuit (assumed parameters),first order,nominal CS >= 97%,97,12157,5277,0,"333 L, CS 97.23%",4.8535,kWh,91.25,False,211.664,6.66931,97.0054,90.6832,False,214.688,12.869,99.4112,97.1475,True
+pipe circuit (assumed parameters),first order,nominal CS >= 98%,98,8634,1754,0,"674 L, CS 98.09%",5.75068,kWh,94.4066,False,189.483,6.37469,98.2566,93.9757,False,376.107,14.4302,99.8334,98.8957,True
+pipe circuit (assumed parameters),first order,nominal CS >= 99%,99,4525,0,2355,"331 L, CS 99.00%",7.66255,kWh,95.6595,True,330.823,7.66255,99.0005,95.6595,True,376.107,14.4302,99.8334,98.8957,True
+pipe circuit (assumed parameters),first order,nominal CS >= 99.5%,99.5,2314,0,4566,"508 L, CS 99.56%",11.1907,kWh,97.8999,True,357.732,13.1619,99.5298,97.5847,True,376.107,14.4302,99.8334,98.8957,True
+pipe circuit (assumed parameters),first order,nominal CS >= 99.9%,99.9,399,0,6481,"544 L, CS 99.93%",21.9027,kWh,99.4134,True,543.655,21.9027,99.9346,99.4134,True,543.655,21.9027,99.9346,99.4134,True
+pipe circuit (assumed parameters),first order,nominal CS >= 100%,100,0,0,6880,,,kWh,,,,,,,,,,,,
+pipe circuit (assumed parameters),first order,nominal CS >= 98.79% (smallest without false admission),98.7906,5380,0,1500,"313 L, CS 98.91%",6.05491,kWh,95.6168,True,313.056,6.05491,98.9069,95.6168,True,376.107,14.4302,99.8334,98.8957,True
+pipe circuit (assumed parameters),first order,"audit, U3 (reference)",,6880,0,0,"313 L, CS 98.91%",6.05491,kWh,95.6168,True,348.736,8.53449,98.6864,95.3314,True,376.107,14.4302,99.8334,98.8957,True

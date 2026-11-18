@@ -1,0 +1,22 @@
+{
+  "calibrated": {
+    "uniform removal": {
+      "n_candidates": 30000,
+      "n_fail_U3_with_nominal_CS_100": 3835,
+      "smallest_safe_tau": null,
+      "n_nominal_CS_100": 22310
+    },
+    "first order": {
+      "n_candidates": 30000,
+      "n_fail_U3_with_nominal_CS_100": 0,
+      "smallest_safe_tau": 99.458,
+      "n_nominal_CS_100": 1231
+    }
+  },
+  "pipe_circuit": {
+    "n_feasible": 18006,
+    "smallest_safe_tau": 98.79056299994518,
+    "max_nominal_CS_of_U3_failures": 98.79048751945551,
+    "min_nominal_CS_of_U3_passes": 98.35059266275175
+  }
+}
